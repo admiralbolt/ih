@@ -1,0 +1,8 @@
+build/
+dist/
+.settings/
+docs/build/
+.DS_Store
+.project
+.pydevproject
+*.pyc
