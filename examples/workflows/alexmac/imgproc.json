@@ -1,0 +1,348 @@
+{
+	"workflows": {
+
+		"fluosv": [
+			{
+				"name": "gray",
+				"executable": "ih-convert-color",
+				"inputs": ["base"],
+				"outputs": ["grayscale"],
+				"arguments": {
+					"--intype": "bgr",
+					"--outtype": "gray"
+				}
+			},
+			{
+				"name": "blur",
+				"executable": "ih-gaussian-blur",
+				"inputs": ["grayscale"],
+				"outputs": ["blurred"],
+				"arguments": {
+					"--kwidth": 5,
+					"--kheight": 5
+				},
+				"depends": ["gray"]
+			},
+			{
+				"name": "threshold",
+				"executable": "ih-threshold",
+				"inputs": ["blurred"],
+				"outputs": ["masked"],
+				"arguments": {
+					"--thresh": 0,
+					"--max": 255,
+					"--type": "otsu"
+				},
+				"depends": ["blur"]
+			},
+			{
+				"name": "reconstitute",
+				"executable": "ih-bitwise-and",
+				"inputs": ["masked", "base"],
+				"outputs": ["recolor"],
+				"arguments": {},
+				"depends": ["threshold"]
+			},
+			{
+				"name": "crop",
+				"executable": "ih-crop",
+				"inputs": ["recolor", "/home/aknecht/stash/walia/ih/workflows/alexmac/input/fluosv_edge.json"],
+				"outputs": ["edged"],
+				"arguments": {},
+				"depends": ["reconstitute"]
+			},
+			{
+				"name": "cut",
+				"executable": "ih-contour-cut",
+				"inputs": ["edged", "edged"],
+				"outputs": ["final"],
+				"arguments": {
+					"--resize": "",
+					"--basemin": 50
+				},
+				"depends": ["crop"]
+			}
+		],
+
+
+
+		"rgbtv": [
+			{
+				"name": "blur",
+				"executable": "ih-gaussian-blur",
+				"inputs": ["base"],
+				"outputs": ["blurred"],
+				"arguments": {
+					"--kwidth": 13,
+					"--kheight": 13
+				}
+			},
+			{
+				"name": "sharpen",
+				"executable": "ih-add-weighted",
+				"inputs": ["base", "blurred"],
+				"outputs": ["sharpened"],
+				"arguments": {
+					"--weight1": 1.5,
+					"--weight2": -0.5
+				},
+				"depends": ["blur"]
+			},
+			{
+                                "name": "crop",
+                                "executable": "ih-crop",
+                                "inputs": ["sharpened", "/home/aknecht/stash/walia/ih/workflows/alexmac/input/rgbtv_edge.json"],
+                                "outputs": ["edged"],
+                                "arguments": {},
+                                "depends": ["sharpen"]
+                        },
+			{
+				"name": "cfilter1",
+				"executable": "ih-color-filter",
+				"inputs": ["edged"],
+				"outputs": ["cf1"],
+				"arguments": {
+					"--logic": "((r > b) or ((g > r) and ((g - b) > 10)))"
+				},
+				"depends": ["crop"]
+			},
+			{
+				"name": "bgr2lab",
+				"executable": "ih-convert-color",
+				"inputs": ["cf1"],
+				"outputs": ["lab_spectrum"],
+				"arguments": {
+					"--intype": "bgr",
+					"--outtype": "lab"
+				},
+				"depends": ["cfilter1"]
+			},
+			{
+				"name": "labfilter1",
+				"executable": "ih-color-filter",
+                                "inputs": ["lab_spectrum"],
+                                "outputs": ["lf1"],
+                                "arguments": {
+					"--logic": "((r - g) > 5)"
+                                },
+                                "depends": ["bgr2lab"]
+                        },
+			{
+				"name": "labfilter2",
+                                "executable": "ih-color-filter",
+                                "inputs": ["lf1"],
+                                "outputs": ["lf2"],
+                                "arguments": {
+					"--logic": "((r > b) and (g > b))"
+                                },
+                                "depends": ["labfilter1"]
+                        },
+			{
+				"name": "mask",
+				"executable": "ih-mask",
+				"inputs": ["lf2"],
+				"outputs": ["masked"],
+				"arguments": {},
+				"depends": ["labfilter2"]
+			},
+			{
+				"name": "reconstitute",
+				"executable": "ih-bitwise-and",
+				"inputs": ["masked", "base"],
+				"outputs": ["recolor"],
+				"arguments": {},
+				"depends": ["mask"]
+			},
+			{
+                                "name": "cfilter2",
+                                "executable": "ih-color-filter",
+                                "inputs": ["recolor"],
+                                "outputs": ["cf2"],
+                                "arguments": {
+					"--logic": "(((r - g) < ((i . i) / 4000)) or (((r - g) > (40 . (1 - (i / 765)))) and ((r - b) > (60 . (1 - (i / 765))))))"
+                                },
+                                "depends": ["reconstitute"]
+                        },
+			{
+				"name": "erode",
+				"executable": "ih-morphology",
+				"inputs": ["cf2"],
+				"outputs": ["morph_erode"],
+				"arguments": {
+					"--ktype": "ellipse",
+					"--kwidth": 3,
+					"--kheight": 3,
+					"--morphType": "erode"
+				},
+				"depends": ["cfilter2"]
+			},
+			{
+				"name": "contour_chop",
+				"executable": "ih-contour-chop",
+				"inputs": ["morph_erode", "morph_erode"],
+				"outputs": ["chop"],
+				"arguments": {
+					"--basemin": 100
+				},
+				"depends": ["erode"]
+			},
+			{
+                                "name": "mask2",
+                                "executable": "ih-mask",
+                                "inputs": ["chop"],
+                                "outputs": ["mask2"],
+                                "arguments": {},
+                                "depends": ["contour_chop"]
+                        },
+			{
+                                "name": "dilate",
+                                "executable": "ih-morphology",
+                                "inputs": ["mask2"],
+                                "outputs": ["morph_dilate"],
+                                "arguments": {
+                                        "--ktype": "ellipse",
+                                        "--kwidth": 3,
+                                        "--kheight": 3,
+                                        "--morphType": "dilate"
+                                },
+                                "depends": ["mask2"]
+                        },
+			{
+				"name": "reconstitute2",
+				"executable": "ih-bitwise-and",
+				"inputs": ["morph_dilate", "base"],
+				"outputs": ["recolor2"],
+				"arguments": {},
+				"depends": ["dilate"]
+			},
+			{
+				"name": "cut",
+				"executable": "ih-contour-cut",
+				"inputs": ["recolor2", "recolor2"],
+				"outputs": ["final"],
+				"arguments": {
+					"--basemin": 100,
+					"--resize": ""
+				},
+				"depends": ["reconstitute2"]
+			}
+		],
+		"rgbsv": [
+			{
+				"name": "gray",
+				"executable": "ih-convert-color",
+				"inputs": ["base"],
+				"outputs": ["grayscale"],
+				"arguments": {
+					"--intype": "bgr",
+					"--outtype": "gray"
+				}
+			},
+			{
+				"name": "blur",
+				"executable": "ih-gaussian-blur",
+				"inputs": ["grayscale"],
+				"outputs": ["blurred"],
+				"arguments": {
+					"--kwidth": 5,
+					"--kheight": 5
+				},
+				"depends": ["gray"]
+			},
+			{
+				"name": "thresh",
+				"executable": "ih-adaptive-threshold",
+				"inputs": ["blurred"],
+				"outputs": ["thresh"],
+				"arguments": {
+					"--value": 255,
+					"--thresholdType": "inverse",
+					"--adaptiveType": "mean",
+					"--blockSize": 15,
+					"--C": 6
+				},
+				"depends": ["blur"]
+			},
+			{
+				"name": "reconstitute",
+				"executable": "ih-bitwise-and",
+				"inputs": ["thresh", "base"],
+				"outputs": ["recolor"],
+				"arguments": {},
+				"depends": ["thresh"]
+			},
+			{
+				"name": "crop",
+				"executable": "ih-crop",
+				"inputs": ["recolor", "/home/aknecht/stash/walia/ih/workflows/alexmac/input/rgbsv_edge.json"],
+				"outputs": ["edged"],
+				"arguments": {},
+				"depends": ["reconstitute"]
+			},
+			{
+				"name": "fill",
+				"executable": "ih-fill",
+				"inputs": ["edged", "/home/aknecht/stash/walia/ih/workflows/alexmac/input/rgbsv_pot.json"],
+				"outputs": ["filled"],
+				"arguments": {},
+				"depends": ["crop"]
+			},
+			{
+				"name": "cut",
+				"executable": "ih-contour-cut",
+				"inputs": ["filled", "filled"],
+				"outputs": ["final"],
+				"arguments": {
+					"--basemin": 50,
+					"--resize": ""
+				},
+				"depends": ["fill"]
+			}
+		]
+	},
+	"options": {
+		"save-steps": "true"
+	},
+	"extract": {
+		"histogram-bin": {
+			"--group": {"rgb": ["rgbsv", "rgbtv"], "fluo": ["fluosv"]},
+			"--chunks": {"rgb": [5, 5, 5], "fluo": [0, 9, 10]},
+			"--channels": {"rgb": [0, 1, 2], "fluo": [1, 2]}
+		},
+		"workflows": {
+			"rgbsv": {
+				"inputs": ["final"],
+				"arguments": {
+					"--dimensions": "",
+					"--pixels": "",
+					"--moments": "",
+					"--circle": "",
+                    "--hull": ""
+				},
+				"depends": ["cut"]
+			},
+			"rgbtv": {
+				"inputs": ["final"],
+				"arguments": {
+					"--dimensions": "",
+					"--pixels": "",
+					"--moments": "",
+					"--circle": "",
+                    "--hull": ""
+				},
+				"depends": ["cut"]
+			},
+			"fluosv": {
+				"inputs": ["final"],
+				"arguments": {
+					"--dimensions": "",
+					"--pixels": "",
+					"--moments": "",
+					"--circle": "",
+					"--hull": ""
+				},
+				"depends": ["cut"]
+			}
+		}
+	}
+}

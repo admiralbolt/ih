@@ -1,0 +1,27 @@
+{
+    "version": "1.0",
+    "installdir": "/work/walia/common/pymodules/anaconda/bin",
+    "profile": {
+        "pegasus": {
+            "style": "glite"
+        },
+        "condor": {
+          "grid_resource": "pbs",
+          "universe": "vanilla"
+        },
+        "env": {
+	    "PATH": "/work/walia/common/pymodules/anaconda/bin",
+	    "PYTHONPATH": "/work/walia/common/pymodules/anaconda/lib/python2.7/site-packages/",
+	    "LD_LIBRARY_PATH": "/work/walia/common/pymodules/anaconda/lib"
+        }
+      },
+      "cluster": 100,
+      "maxwalltime": {
+        	"images": 2,
+        	"stats": 300
+      },
+      "notify": {
+        	"email": "avi@kurtknecht.com",
+        	"pegasus_home": "/usr/share/pegasus/"
+      }
+}

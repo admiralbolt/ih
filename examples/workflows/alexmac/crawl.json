@@ -1,0 +1,42 @@
+{
+	"path": "/home/aknecht/stash/9-22-15_lemnatec_images/alexmac/%experiment%_%id%-%genotype%_%date%_%null%_%null%/%stype%_%view%_%angle%/0_0_0.png",
+	"base": "/home/aknecht/stash/9-22-15_lemnatec_images/alexmac/",
+	"filetype": ".png",
+	"order": ["experiment", "id", "genotype", "date", "imgname", "imtype", "path"],
+	"translations": {
+		"imtype": {
+			"fluo_sv": "fluosv",
+			"vis_tv": "rgbtv",
+			"vis_sv": "rgbsv"
+		}
+	},
+	"data": {
+		"experiment": {
+			"type": "value",
+			"value": "%experiment%"
+		},
+		"id": {
+			"type": "value",
+			"value": "%id%"
+		},
+		"genotype": {
+			"type": "value",
+			"value": "%genotype%"
+		},
+		"date": {
+			"type": "date",
+			"value": "%date%",
+			"format": "Y-m-d"
+		},
+		"imtype": {
+			"type": "value",
+			"translate": "true",
+			"value": "%stype%_%view%",
+			"case": "lower"
+		},
+		"imgname": {
+			"type": "value",
+			"value": "%stype%_%view%_%angle%"
+		}
+	}
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Statistics Workflows &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="prev" title="Image Processing Workflows" href="workflowimage.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="workflowimage.html" title="Previous Chapter: Image Processing Workflows"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Image Processing...</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/workflowstats.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="statistics-workflows">
+<h1>Statistics Workflows<a class="headerlink" href="#statistics-workflows" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ih.workflow.Statistics">
+<em class="property">class </em><code class="descclassname">ih.workflow.</code><code class="descname">Statistics</code><span class="sig-paren">(</span><em>jobhome</em>, <em>basename</em>, <em>validOnly=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/workflow.html#Statistics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.workflow.Statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class specifically for statistics workflow
+validation and submission.</p>
+<dl class="method">
+<dt id="ih.workflow.Statistics.create">
+<code class="descname">create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/workflow.html#Statistics.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.workflow.Statistics.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new pegasus submission directory based on the current timestamp,
+and populates it with all required information to submit a pegasus job.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

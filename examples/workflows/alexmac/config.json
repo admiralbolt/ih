@@ -1,0 +1,27 @@
+{	
+        "version": "1.0",
+        "installdir": "/home/aknecht/stash/walia/ih/ih/build/scripts-2.7/",
+        "profile": {
+                "pegasus": {
+                        "style": "condor"
+                },
+                "condor": {
+                        "universe": "vanilla",
+			"requirements": "OSGVO_OS_STRING == \"RHEL 6\" &amp;&amp; HAS_FILE_usr_lib64_libstdc___so_6 &amp;&amp; CVMFS_oasis_opensciencegrid_org_REVISION >= 3590",
+                        "+WantsStashCache": "True"
+                }
+        },
+        "osg": {
+        	"tarball": "/home/aknecht/stash/walia/ih/ih/dist/ih-1.0.tar.gz",
+        	"ssh": "/home/aknecht/.ssh/workflow"
+	},
+        "cluster": 50,
+        "maxwalltime": {
+                "stats": 300,
+                "images": 3
+        },
+        "notify": {
+                "email": "avi@kurtknecht.com",
+                "pegasus_home": "/usr/share/pegasus/"
+        }
+}

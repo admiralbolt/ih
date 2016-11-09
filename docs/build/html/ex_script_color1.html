@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Color Filter In Depth #1 &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="up" title="Examples" href="examples.html" />
+    <link rel="next" title="Seed Processing Example" href="ex_script_seed.html" />
+    <link rel="prev" title="Core Processing Example #2" href="ex_script_core2.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Color Filter In Depth #1</a><ul>
+<li><a class="reference internal" href="#python-script">Python Script</a></li>
+<li><a class="reference internal" href="#command-line-script">Command Line Script</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="ex_script_core2.html" title="Previous Chapter: Core Processing Example #2"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Core Processing ...</span>
+    </a>
+  </li>
+  <li>
+    <a href="ex_script_seed.html" title="Next Chapter: Seed Processing Example"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Seed Processing ... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/ex_script_color1.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="color-filter-in-depth-1">
+<h1>Color Filter In Depth #1<a class="headerlink" href="#color-filter-in-depth-1" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="processing.html#ih.imgproc.Image.colorFilter" title="ih.imgproc.Image.colorFilter"><code class="xref py py-meth docutils literal"><span class="pre">colorFilter()</span></code></a> function is a very powerful and versatile function, that removes pixels
+from an image based on arbitrarily inputted logic.  This example
+focuses solely on the uses and syntax of the <a class="reference internal" href="processing.html#ih.imgproc.Image.colorFilter" title="ih.imgproc.Image.colorFilter"><code class="xref py py-meth docutils literal"><span class="pre">colorFilter()</span></code></a> function.  This function takes
+2 arguments.  The first is the actual logic to solve, and this first argument will be the main focus of all
+color filter examples.  The second argument is simply a region of interest &#8211; namely where you want
+to apply your specified logic.  If left blank, it simply applies it to the entire image.  Let&#8217;s talk
+about what we can do with logic.  As stated under the function specific documentation, the supported
+characters for logic are: &#8216;+&#8217;, &#8216;-&#8216;, &#8216;*&#8217;, &#8216;/&#8217;, &#8216;&gt;&#8217;, &#8216;&gt;=&#8217;,&#8217;==&#8217;, &#8216;&lt;&#8217;, &#8216;&lt;=&#8217;, &#8216;and&#8217;, &#8216;or&#8217;, &#8216;max&#8217;, &#8216;min&#8217;, &#8216;(&#8216;, &#8216;)&#8217;, &#8216;r&#8217;, &#8216;g&#8217;, &#8216;b&#8217;, as well
+as any number.
+Excluding parenthesis, these can be broken down into 2 categories, operators and values.  The operators
+are all the symbols before the parenthesis: &#8216;+&#8217;, &#8216;-&#8216;, &#8216;*&#8217;, &#8216;/&#8217;, &#8216;&gt;&#8217;, &#8216;&gt;=&#8217;,&#8217;==&#8217;, &#8216;&lt;&#8217;, &#8216;&lt;=&#8217;, &#8216;and&#8217;, &#8216;or&#8217;, &#8216;max&#8217;, and &#8216;min&#8217;.
+The values are all the symbols after the parenthesis: &#8216;r&#8217;, &#8216;g&#8217;, &#8216;b&#8217;, and again, any number.
+Parenthesis are used to make sure your logic is well formed and easy to parse.  Well formed logic means that each operator only acts
+on 2 values, and logic is surrounded by parenthesis.  Thus ((r + g) + b) is well formed, but (r + g + b) is not.  The logic argument for this function
+<strong>must be well formed</strong>.  This is important to remember as we continue forward.  Since we have fewer values than
+operators, let&#8217;s talk about values first.</p>
+<p>Values are simply numbers.  Numbers that are input as raw text are interpreted literally &#8211; this is a dense way
+of saying that if a given number, say &#8216;15&#8217;, occurs in your logic string, it is translated to the number 15.  However,
+the other values hold special meaning relating to the colors of the image in question.  &#8216;r&#8217; is the value of the
+red channel, &#8216;g&#8217; is the value of the green channel, &#8216;b&#8217; is the value of the blue channel.  If we are considering a particular pixel
+of an image, and let&#8217;s say it has the following values for its channels in BGR order: [20, 30, 40].  For this pixel, &#8216;r&#8217;
+equates to 40, &#8216;g&#8217; equates to 30, and &#8216;b&#8217; equates to 20.  We apply operators
+to these values to remove pixels.</p>
+<p>By applying operators, we look to convert our values into a true or false output.  The arithmetic operators
+(&#8216;+&#8217;, &#8216;-&#8216;, &#8216;*&#8217;, &#8216;/&#8217;) do exactly what you&#8217;d expect to numbers.  Thus, by themselves they do not return a true or false value.
+The comparison operators (&#8216;&gt;&#8217;, &#8216;&gt;=&#8217;, &#8216;==&#8217;, &#8216;&lt;&#8217;, &#8216;&lt;=&#8217;) however, return true or false depending on what their comparison
+returns.  &#8216;max&#8217; and &#8216;min&#8217; are used to select the maximum or minimum respectively of values.  Thus (b max g) selects the
+maximum value between the blue and green channels.  ((b min g) min r) selects the minimum of all three channels.
+Finally, &#8216;and&#8217; and &#8216;or&#8217; can be used to join together multiple pieces of logic.  That&#8217;s a lot of text to absorb &#8211; let&#8217;s look at some examples.</p>
+<div class="section" id="python-script">
+<h2>Python Script<a class="headerlink" href="#python-script" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="_downloads/color1.txt"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Script</span></code></a></p>
+<p><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Image</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ih.imgproc</span>
+
+<span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s">&quot;/path/to/your/image&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+
+<span class="n">logicList</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">&quot;(((r + g) + b) &gt; 350)&quot;</span><span class="p">,</span>
+        <span class="s">&quot;(r &gt;= 250)&quot;</span><span class="p">,</span>
+        <span class="s">&quot;((b &gt; 150) and (b &lt; 220))&quot;</span><span class="p">,</span>
+        <span class="s">&quot;((((b max g) max r) - ((b min g) min r)) &gt; 20)&quot;</span><span class="p">,</span>
+        <span class="s">&quot;((((r + g) + b) &gt; 700) or (((r + g) + b) &lt; 100))&quot;</span><span class="p">,</span>
+        <span class="s">&quot;((r - g) &gt; 50)&quot;</span><span class="p">,</span>
+        <span class="s">&quot;(((g - r) &gt; 15) and (b &lt; g))&quot;</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">logic</span> <span class="ow">in</span> <span class="n">logicList</span><span class="p">:</span>
+        <span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+        <span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+        <span class="n">plant</span><span class="o">.</span><span class="n">colorFilter</span><span class="p">(</span><span class="n">logic</span><span class="p">)</span>
+        <span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">logic</span><span class="p">)</span>
+        <span class="n">plant</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This script applies different logic to the same image, while displaying both the base image
+and the filtered image at the same time.  Let&#8217;s talk about each individual piece of logic.  First is &#8220;(((r + g) + b) &gt; 350)&#8221;.  This
+will sum up the value of each channel (the intensity of the pixel) and compare this sum to 350.  If the value is greater
+than 350, it will keep the pixel, otherwise it writes it as black.  Here&#8217;s the result:</p>
+<img alt="../images/sample/rgbtv1_small.png" class="align-left" src="../images/sample/rgbtv1_small.png" />
+<img alt="_images/logic0.png" class="align-right" src="_images/logic0.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p>Next is &#8220;(r &gt;= 250)&#8221;.  This simply keeps any pixel who has a red value greater than or equal
+to 250.  Color channels range from 0 to 255, so 250 is very large.  Here&#8217;s the result:</p>
+<img alt="../images/sample/rgbtv1_small.png" class="align-left" src="../images/sample/rgbtv1_small.png" />
+<img alt="_images/logic1.png" class="align-right" src="_images/logic1.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p>Next is &#8220;((b &gt; 150) and (b &lt; 220))&#8221;.  This will keep any pixel that has a blue value
+that is greater than 150 and less than 220.  Here&#8217;s the result:</p>
+<img alt="../images/sample/rgbtv1_small.png" class="align-left" src="../images/sample/rgbtv1_small.png" />
+<img alt="_images/logic2.png" class="align-right" src="_images/logic2.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p>Next is &#8220;&#8221;((((b max g) max r) - ((b min g) min r)) &gt; 20)&#8221;,&#8221;.  This will keep any pixel
+whose maximum channel value is at least 20 greater than its minimum channel value.  Here&#8217;s the result:</p>
+<img alt="../images/sample/rgbtv1_small.png" class="align-left" src="../images/sample/rgbtv1_small.png" />
+<img alt="_images/logic3.png" class="align-right" src="_images/logic3.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p>Next is &#8220;((((r + g) + b) &gt; 700) or (((r + g) + b) &lt; 100))&#8221;.  This will keep any pixel whose
+intensity is larger than 700 OR smaller than 100.  Here&#8217;s the result:</p>
+<img alt="../images/sample/rgbtv1_small.png" class="align-left" src="../images/sample/rgbtv1_small.png" />
+<img alt="_images/logic4.png" class="align-right" src="_images/logic4.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p>Next is &#8220;((r - g) &gt; 50)&#8221;.  This will keep any pixel that has a red channel value
+that is at least 50 greater than its green channel value.  Here&#8217;s the result:</p>
+<img alt="../images/sample/rgbtv1_small.png" class="align-left" src="../images/sample/rgbtv1_small.png" />
+<img alt="_images/logic5.png" class="align-right" src="_images/logic5.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p>Finally, is &#8220;(((g - r) &gt; 15) and (b &lt; g))&#8221;.  This will keep any pixel that has a green channel value at least 15
+greater than the red channel value AND a blue channel value less than its green channel value.  Here&#8217;s the result:</p>
+<img alt="../images/sample/rgbtv1_small.png" class="align-left" src="../images/sample/rgbtv1_small.png" />
+<img alt="_images/logic6.png" class="align-right" src="_images/logic6.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="command-line-script">
+<h2>Command Line Script<a class="headerlink" href="#command-line-script" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="_downloads/color1.sh"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Script</span></code></a></p>
+<p><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Image</span></code> (The image is identical to the one above)</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+
+ih-color-filter --input <span class="s2">&quot;/path/to/your/image&quot;</span> --output <span class="s2">&quot;logic0.png&quot;</span> --logic <span class="s2">&quot;(((r + g) + b) &gt; 350)&quot;</span>
+ih-color-filter --input <span class="s2">&quot;/path/to/your/image&quot;</span> --output <span class="s2">&quot;logic1.png&quot;</span> --logic <span class="s2">&quot;(r &gt;= 250)&quot;</span>
+ih-color-filter --input <span class="s2">&quot;/path/to/your/image&quot;</span> --output <span class="s2">&quot;logic2.png&quot;</span> --logic <span class="s2">&quot;((b &gt; 150) and (b &lt; 220))&quot;</span>
+ih-color-filter --input <span class="s2">&quot;/path/to/your/image&quot;</span> --output <span class="s2">&quot;logic3.png&quot;</span> --logic <span class="s2">&quot;((((b max g) max r) - ((b min g) min r)) &gt; 20)&quot;</span>
+ih-color-filter --input <span class="s2">&quot;/path/to/your/image&quot;</span> --output <span class="s2">&quot;logic4.png&quot;</span> --logic <span class="s2">&quot;((((r + g) + b) &gt; 700) or (((r + g) + b) &lt; 100))&quot;</span>
+ih-color-filter --input <span class="s2">&quot;/path/to/your/image&quot;</span> --output <span class="s2">&quot;logic5.png&quot;</span> --logic <span class="s2">&quot;((r - g) &gt; 50)&quot;</span>
+ih-color-filter --input <span class="s2">&quot;/path/to/your/image&quot;</span> --output <span class="s2">&quot;logic6.png&quot;</span> --logic <span class="s2">&quot;(((g - r) &gt; 15) and (b &lt; g))&quot;</span>
+</pre></div>
+</div>
+<p>This bash script performs the exact same color filtering as the above python script.  Each color filter call
+must be done separately.  Each takes in the same input file, and writes a separate output file.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

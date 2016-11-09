@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Core Processing Example #1 &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="up" title="Examples" href="examples.html" />
+    <link rel="next" title="Core Processing Example #2" href="ex_script_core2.html" />
+    <link rel="prev" title="Examples" href="examples.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Core Processing Example #1</a><ul>
+<li><a class="reference internal" href="#python-script">Python Script</a></li>
+<li><a class="reference internal" href="#command-line-script">Command Line Script</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="examples.html" title="Previous Chapter: Examples"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Examples</span>
+    </a>
+  </li>
+  <li>
+    <a href="ex_script_core2.html" title="Next Chapter: Core Processing Example #2"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Core Processing ... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/ex_script_core1.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="core-processing-example-1">
+<h1>Core Processing Example #1<a class="headerlink" href="#core-processing-example-1" title="Permalink to this headline">¶</a></h1>
+<p>This section will detail a shorter script that provides details on how to get started with
+script form image processing.  The script will detail how to use several core functions
+to load, save, and show images.</p>
+<div class="section" id="python-script">
+<h2>Python Script<a class="headerlink" href="#python-script" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="_downloads/core1.txt"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Script</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/base.png"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Image</span></code></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ih.imgproc</span>
+
+<span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s">&quot;/path/to/your/image&quot;</span><span class="p">)</span>
+
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;base.png&quot;</span><span class="p">)</span>
+
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;bgr&quot;</span><span class="p">,</span> <span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;gray.png&quot;</span><span class="p">)</span>
+
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;thresh50&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;thresh50&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;thresh75&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;thresh75&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;thresh100&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;thresh100&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+
+<span class="n">plant</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;thresh50&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;thresh50.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This script shows how to get started with ih.  Let&#8217;s talk about it block by block:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ih.imgproc</span>
+<span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s">&quot;/path/to/your/image&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These two lines setup your image.  The first line imports the ih imgproc module,  this module contains
+all of ih&#8217;s image processing functionality.  The second line creates an Image object named &#8216;plant&#8217;.
+The plant object now has properties that define it, and methods we can perform on it.  The rest of the script
+deals specifically with the methods we can perform on our image objects.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;base.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These three lines use three separate methods on our plant object, <a class="reference internal" href="processing.html#ih.imgproc.Image.save" title="ih.imgproc.Image.save"><code class="xref py py-meth docutils literal"><span class="pre">save()</span></code></a>,
+<a class="reference internal" href="processing.html#ih.imgproc.Image.show" title="ih.imgproc.Image.show"><code class="xref py py-meth docutils literal"><span class="pre">show()</span></code></a>, and <a class="reference internal" href="processing.html#ih.imgproc.Image.write" title="ih.imgproc.Image.write"><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></a>. Each of these
+methods performs exactly what its named &#8211; the save method saves the image for future use, the show method
+displays the image, and the write method writes the image to a file.  Each method has an argument
+passed into it, determining the name to be used in each case.  Calling plant.save(&#8220;base&#8221;) saves the image
+with the name base, plant.show(&#8220;base&#8221;) shows the image with the window title base, and plant.write(&#8220;base.png&#8221;)
+writes the image to a file named base.png.  Here&#8217;s what our base image looks like:</p>
+<img alt="_images/base.png" class="align-center" src="_images/base.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;bgr&quot;</span><span class="p">,</span> <span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;gray.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="processing.html#ih.imgproc.Image.convertColor" title="ih.imgproc.Image.convertColor"><code class="xref py py-meth docutils literal"><span class="pre">convertColor()</span></code></a> method performs a color spectrum shift, changing our image from a color image i.e. &#8220;bgr&#8221;
+to a gray scale image i.e. &#8220;gray&#8221;.  It should be noted, that all methods overwrite the current image &#8211; which is way the save / restore
+functionality is so important.  Additionally, converting an image to gray scale from color is an important non-linear shift.
+A color image is called &#8220;bgr&#8221; because of the three colors in the image, blue, green, and red.  Each pixel has a value for
+each of these colors, or channels.  Converting to gray condenses the image to a single channel &#8211; intensity.
+This means that you <strong>cannot</strong> use <a class="reference internal" href="processing.html#ih.imgproc.Image.convertColor" title="ih.imgproc.Image.convertColor"><code class="xref py py-meth docutils literal"><span class="pre">convertColor()</span></code></a> to restore color to a gray scale image.
+Although we do not use it in this example, the reason for saving the base image is to restore color in a future step.
+The last three lines of this block of code perform the exact same function as the previous block, only using
+different names for saving, showing, and writing.  Here&#8217;s what our gray scale image looks like:</p>
+<img alt="_images/gray.png" class="align-center" src="_images/gray.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;thresh50&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;thresh50&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now that we have a gray scale image, we perform a <a class="reference internal" href="processing.html#ih.imgproc.Image.threshold" title="ih.imgproc.Image.threshold"><code class="xref py py-meth docutils literal"><span class="pre">threshold()</span></code></a> on it.  This simply
+checks the value of each pixels intensity, and checks to see if it beats the cutoff we specify.  In this case,
+if the pixel has an intensity greater than 50, we keep it.  Intensity values range from 0 to 255.  The
+<a class="reference internal" href="processing.html#ih.imgproc.Image.save" title="ih.imgproc.Image.save"><code class="xref py py-meth docutils literal"><span class="pre">save()</span></code></a> and <a class="reference internal" href="processing.html#ih.imgproc.Image.show" title="ih.imgproc.Image.show"><code class="xref py py-meth docutils literal"><span class="pre">show()</span></code></a> methods should be familiar,
+but the fourth line contains a new method, <a class="reference internal" href="processing.html#ih.imgproc.Image.restore" title="ih.imgproc.Image.restore"><code class="xref py py-meth docutils literal"><span class="pre">restore()</span></code></a>.  This method restores
+the image to a previously saved image.  In the previous block we saved our gray scale image under the name &#8216;gray&#8217;.
+Here, we simply restore that image after thresholding.  The purpose of this is to compare multiple threshold values.
+We restore the gray image at the end of each thresholding block to use the same image for thresholding.  Here&#8217;s the
+result of thresholding by 50:</p>
+<img alt="_images/thresh50.png" class="align-center" src="_images/thresh50.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;thresh75&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;thresh75&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This block is identical to the previous one, except we use a threshold value of 75 instead of 50,
+and we rename our saved image and displayed image accordingly.  Here&#8217;s the result of thresholding
+by 75:</p>
+<img alt="_images/thresh75.png" class="align-center" src="_images/thresh75.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;thresh100&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;thresh100&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This block is identical to the previous one, except we use a threshold value of 100 instead of 75,
+and we rename our saved image and displayed image accordingly.  Here&#8217;s the result of thresholding
+by 100:</p>
+<img alt="_images/thresh100.png" class="align-center" src="_images/thresh100.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plant</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;thresh50&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;thresh50.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The final block introduces a new method, <a class="reference internal" href="processing.html#ih.imgproc.Image.wait" title="ih.imgproc.Image.wait"><code class="xref py py-meth docutils literal"><span class="pre">wait()</span></code></a>.  This method
+simply halts execution until a key is pressed, then destroys all displayed windows.  This
+means that once this point in the script is hit, there should be 5 open windows, the base image,
+the gray image, and one for each of the three thresholds.  After execution is resumed,
+we restore the threshold by 50, and write it to a file.</p>
+</div>
+<div class="section" id="command-line-script">
+<h2>Command Line Script<a class="headerlink" href="#command-line-script" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="_downloads/core1.sh"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Script</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/base.png"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Image</span></code></a> (The image is identical to the one above)</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+
+ih-convert-color --input <span class="s2">&quot;/path/to/your/image&quot;</span> --output <span class="s2">&quot;gray.png&quot;</span> --intype <span class="s2">&quot;bgr&quot;</span> --outtype <span class="s2">&quot;gray&quot;</span>
+ih-threshold --input <span class="s2">&quot;gray.png&quot;</span> --output <span class="s2">&quot;thresh50.png&quot;</span> --thresh 50
+ih-threshold --input <span class="s2">&quot;gray.png&quot;</span> --output <span class="s2">&quot;thresh75.png&quot;</span> --thresh 75
+ih-threshold --input <span class="s2">&quot;gray.png&quot;</span> --output <span class="s2">&quot;thresh100.png&quot;</span> --thresh 100
+</pre></div>
+</div>
+<p>This bash script performs the exact same workflow as the one above.  Although not major, it is important to note the
+differences between library and command line access.  Command line access loads and writes an image at each step,
+whereas library access loads once, and only writes when you tell it to.  Additionally, script names are close to that
+of the method, and all follow lower case format, with words separated by dashes, and ih pre-pendening all commands.
+The most notable difference, is that a restore method is unnecessary with command-line input.  We simply reuse the gray.png
+file we wrote once.  Additionally, there is no initial setup, you simply begin processing.  The arguments passed into the
+command line arguments match identically with the method arguments above.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

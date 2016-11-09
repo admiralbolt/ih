@@ -1,0 +1,17 @@
+#!python
+import argparse
+import traceback
+import ih.statistics
+import json
+
+parser = argparse.ArgumentParser(description = "Gathers shoot area information based on specified groupings.")
+parser.add_argument("--db", dest="db", help="Database to run statistics on.", required = True)
+parser.add_argument("--intable", dest="intable", help="Input table to gather data from.", required = True)
+parser.add_argument("--outtable", dest="outtable", help="Output table to write data to.", required = True)
+parser.add_argument("--group", dest="group", nargs="+", help="Image types to group by. Should be in json format.", required = True)
+parser.add_argument("--overwrite", dest="overwrite", action="store_true", help="If specified, will overwrite the output table.")
+args = parser.parse_args()
+
+stats = ih.statistics.Stats(args.db)
+stats.shootArea(args.intable, args.outtable, args.group, args.overwrite)
+stats._closeConnection()

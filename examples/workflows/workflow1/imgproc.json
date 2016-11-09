@@ -1,0 +1,87 @@
+{
+	"workflows": {
+		"rgbsv": [
+			{
+				"name": "gray",
+				"executable": "pcv-convert-color",
+				"inputs": ["base"],
+				"outputs": ["grayscale"],
+				"arguments": {
+					"--intype": "bgr",
+					"--outtype": "gray"
+				}
+			},
+			{
+				"name": "blur",
+				"executable": "pcv-gaussian-blur",
+				"inputs": ["grayscale"],
+				"outputs": ["blurred"],
+				"arguments": {
+					"--kwidth": 5,
+					"--kheight": 5
+				},
+				"depends": ["gray"]
+			},
+			{
+				"name": "thresh",
+				"executable": "pcv-adaptive-threshold",
+				"inputs": ["blurred"],
+				"outputs": ["thresh"],
+				"arguments": {
+					"--value": 200,
+					"--thresholdType": "binary",
+					"--adaptiveType": "mean",
+					"--blockSize": 15,
+					"--C": 3
+				},
+				"depends": ["blur"]
+			},
+			{
+				"name": "invert",
+				"executable": "pcv-bitwise-not",
+				"inputs": ["thresh"],
+				"outputs": ["inverted"],
+				"arguments": {},
+				"depends": ["thresh"]
+			},
+			{
+				"name": "crop",
+				"executable": "pcv-contour-cut",
+				"inputs": ["inverted", "inverted"],
+				"outputs": ["cropped", "roi.json"],
+				"arguments": {
+					"--basemin": 500
+				},
+				"depends": ["invert"]
+			},
+			{	"name": "reconstitute",
+				"executable": "pcv-bitwise-and",
+				"inputs": ["cropped", "base"],
+				"outputs": ["final"],
+				"arguments": {},
+				"depends": ["crop"]
+			}
+		]
+	},
+	"options": {
+		"save-steps": "false"
+	},
+	"extract": {
+		"histogram-bin": {
+			"--chunks": 5,
+			"--group": {"rgb": ["rgbsv"]},
+			"--channels": {"rgb": [0, 1, 2]}
+		},
+		"workflows": {
+			"rgbsv": {
+				"inputs": ["final"],
+				"arguments": {
+					"--dimensions": "",
+					"--pixels": "",
+					"--moments": ""
+				},
+				"depends": ["reconstitute"]
+			}
+		}
+	}
+}

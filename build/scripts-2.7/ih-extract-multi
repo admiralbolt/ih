@@ -1,0 +1,79 @@
+#!/usr/bin/python
+import argparse
+import traceback
+import ih.imgproc
+import os
+import sqlite3
+import shutil
+
+parser = argparse.ArgumentParser(description = "Extracts numerical information from multiple images.")
+parser.add_argument("--inputs", dest="inputs", nargs="+", help="Path to processed image.", required = True)
+parser.add_argument("--db", dest="db", help="Path to database to write", required = True)
+parser.add_argument("--copydb", dest="copydb", help = "Copy database file specified by db to new output db specified by argument.")
+parser.add_argument("--createdb", dest="createdb", default=False, action="store_true", help = "Create database file specified by db")
+parser.add_argument("--dimensions", dest="dimensions", default=False, action="store_true", help="Extract dimensions.")
+parser.add_argument("--dimfromroi", dest="dimfromroi", default=[], nargs="+", help="Path to roi files for modified dimensions extraction.")
+parser.add_argument("--pixels", dest="pixels", default=False, action="store_true", help="Extract pixels.")
+parser.add_argument("--colors", dest="colors", default=False, action="store_true", help="Extract color data.")
+parser.add_argument("--channels", dest="channels", default=False, action="store_true", help="Extract channel data.")
+parser.add_argument("--bins", dest="bins", default=None, help="Path to bin file.")
+parser.add_argument("--moments", dest="moments", default=False, action="store_true", help="Extract moment data.")
+parser.add_argument("--hull", dest="hull", default=False, action="store_true", help="Extract convexHull data.")
+parser.add_argument("--circle", dest="circle", default=False, action="store_true", help="Extract minEnclosingCircle data.")
+args = parser.parse_args()
+
+try:
+    if args.copydb:
+      shutil.copyfile(args.db, args.copydb)
+      args.db = args.copydb
+    elif args.createdb:
+        conn = sqlite3.connect(args.db)
+        conn.execute("drop table if exists images")
+        conn.commit()
+        conn.execute("create table images (pegasusid PRIMARY KEY)")
+        conn.commit()
+        conn.executemany("insert into images (pegasusid) values (?)", [(os.path.basename(x).split("_")[0],) for x in args.inputs])
+        conn.commit()
+        conn.close()
+    for i,input in enumerate(args.inputs):
+    	try:
+            dbid = "_".join(os.path.basename(input).split("_")[:-1])
+            plant = ih.imgproc.Image(input, ".", db = args.db, dbid = dbid)
+
+            plant.extractFinalPath()
+
+            if i < len(args.dimfromroi):
+              plant.extractDimsFromROI(args.dimfromroi[i])
+            elif len(args.dimfromroi) > 0:
+              plant.extractDimsFromROI(args.dimfromroi[0])
+            elif args.dimensions:
+                plant.extractDimensions()
+
+            if args.pixels:
+                plant.extractPixels()
+
+            if args.moments:
+                plant.extractMoments()
+
+            if args.colors:
+                plant.extractColorData()
+
+            if args.channels:
+                plant.extractColorChannels()
+
+            if args.bins:
+                plant.extractBins(args.bins)
+
+            if args.hull:
+                plant.extractConvexHull()
+
+            if args.circle:
+                plant.extractMinEnclosingCircle()
+
+            plant._closeDb()
+
+        except:
+            print traceback.format_exc()
+
+except Exception as e:
+    print traceback.format_exc()

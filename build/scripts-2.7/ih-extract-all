@@ -1,0 +1,21 @@
+#!/usr/bin/python
+import argparse
+import traceback
+import ih.imgproc
+import ih.statistics
+import os
+import sqlite3
+import json
+
+parser = argparse.ArgumentParser(description = "Extracts numerical information from all images in a database.")
+parser.add_argument("--db", dest="db", help="Database to load processed images from.", required = True)
+parser.add_argument("--options", dest="options", help="Path to options json file.", required = True)
+args = parser.parse_args()
+
+try:
+    with open (args.options, "r") as rh:
+        options = json.load(rh)
+    stats = ih.statistics.Stats(args.db)
+    stats.extractAll(options)
+except Exception as e:
+    print traceback.format_exc()

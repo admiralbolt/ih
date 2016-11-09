@@ -1,0 +1,39 @@
+{
+        "installdir": "/home/aknecht/stash/walia/ih/ih/build/scripts-2.7/",
+        "profile": {
+                "pegasus": {
+                        "style": "condor"
+                },
+                "condor": {
+                        "grid_resource": "condor",
+                        "universe": "vanilla"
+                },
+                "env": {
+			"PATH": ["/cvmfs/oasis.opensciencegrid.org/osg/modules/virtualenv-2.7/image_modules/bin/",
+				"/home/aknecht/stash/walia/ih/ih/build/scripts-2.7",
+				"/cvmfs/oasis.opensciencegrid.org/osg/modules/python-2.7.7/bin"],
+			"PYTHONPATH": ["/cvmfs/oasis.opensciencegrid.org/osg/modules/virtualenv-2.7/image_modules/lib/python2.7/site-packages/",
+					"/cvmfs/oasis.opensciencegrid.org/osg/modules/pegasus/4.4.2-image_tools/lib64/python2.6/site-packages",
+					"/home/aknecht/stash/walia/ih/ih/build/lib/"],
+			"LD_LIBRARY_PATH": ["/cvmfs/oasis.opensciencegrid.org/osg/modules/opencv/2.4.10/lib",
+						"/cvmfs/oasis.opensciencegrid.org/osg/modules/ffmpeg/0.10.15/lib",
+						"/cvmfs/oasis.opensciencegrid.org/osg/modules/gnome-libs/1.0/lib64",
+						"/cvmfs/oasis.opensciencegrid.org/osg/modules/netcdf/4.2.0/lib",
+						"/cvmfs/oasis.opensciencegrid.org/osg/modules/hdf5/1.8.13/lib",
+						"/cvmfs/oasis.opensciencegrid.org/osg/modules/atlas/3.10.1/lib64/atlas",
+						"/cvmfs/oasis.opensciencegrid.org/osg/modules/lapack/3.50.1/lib64",
+						"/cvmfs/oasis.opensciencegrid.org/osg/modules/libgfortran/4.4.7",
+						"/cvmfs/oasis.opensciencegrid.org/osg/modules/python-2.7.7/lib"]
+                }
+        },
+	"osg": "true",
+        "cluster": 150,
+        "maxwalltime": {
+                "stats": 300,
+                "images": 2
+        },
+        "notify": {
+                "email": "avi@kurtknecht.com",
+                "pegasus_home": "/usr/share/pegasus/notification/"
+        }
+}

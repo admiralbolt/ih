@@ -1,0 +1,26 @@
+#!/usr/bin/python
+import argparse
+import traceback
+import ih.workflow
+import datetime
+
+parser = argparse.ArgumentParser(description = "Initial setup for job submission")
+parser.add_argument("--jobhome", dest="jobhome", default=".", help="Job root.  Should be the output directory from ih-setup. If left blank, will use current directory.")
+parser.add_argument("--basename", dest="basename", default=None, help="Base submission directory name.  If left blank, this will generate a timestamped directory.")
+parser.add_argument("--stats", dest="stats", action="store_true", default=False, help="Write the statistics workflow instead of imgproc workflow.  Requires --basename.")
+parser.add_argument("--validate", dest="validate", action="store_true", default=False, help="If specified only validates the workflow.  Does not generate submission.")
+args = parser.parse_args()
+
+try:
+        basename = datetime.datetime.now().strftime("%Y-%m-%d_%H%M%S") if not args.basename else args.basename
+        if args.stats:
+            if args.basename:
+                stats = ih.workflow.Statistics(args.jobhome, basename, args.validate)
+                stats.create()
+            else:
+                print "Stats requires an already processed folder.  Specify --basename."
+        else:
+            workflow = ih.workflow.ImageProcessor(args.jobhome, basename, args.validate)
+            workflow.create()
+except Exception as e:
+    print traceback.format_exc()

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Arkansas Workshop July 2015 &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="up" title="Examples" href="examples.html" />
+    <link rel="next" title="Image Processing" href="processing.html" />
+    <link rel="prev" title="OSG Workflows" href="ex_workflow_2.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Arkansas Workshop July 2015</a><ul>
+<li><a class="reference internal" href="#command-line-crash-course">Command Line Crash Course</a><ul>
+<li><a class="reference internal" href="#id1">Mac OS X</a></li>
+<li><a class="reference internal" href="#id2">Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#first-image">First Image</a></li>
+<li><a class="reference internal" href="#python-script">Python Script</a></li>
+<li><a class="reference internal" href="#day-2">Day 2</a><ul>
+<li><a class="reference internal" href="#loading">Loading</a></li>
+<li><a class="reference internal" href="#blur">Blur</a></li>
+<li><a class="reference internal" href="#meanshift">Meanshift</a></li>
+<li><a class="reference internal" href="#color-filter">Color Filter</a></li>
+<li><a class="reference internal" href="#contour-cut">Contour Cut</a></li>
+<li><a class="reference internal" href="#recoloring">Recoloring</a></li>
+<li><a class="reference internal" href="#extraction">Extraction</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#extras">Extras</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="ex_workflow_2.html" title="Previous Chapter: OSG Workflows"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; OSG Workflows</span>
+    </a>
+  </li>
+  <li>
+    <a href="processing.html" title="Next Chapter: Image Processing"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Image Processing &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/arkansas_workshop_july_2015.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="arkansas-workshop-july-2015">
+<h1>Arkansas Workshop July 2015<a class="headerlink" href="#arkansas-workshop-july-2015" title="Permalink to this headline">¶</a></h1>
+<p>Hello Arkansas State!  This workshop covers basic command line instructions and local processing of an image from LemnaTec.  Either look at the corresponding part of the  installation page for your computer (<a class="reference external" href="installation.html#mac-osx">Mac OS X</a>, <a class="reference external" href="installation.html#windows">Windows</a>) or head to the next section.</p>
+<div class="section" id="command-line-crash-course">
+<h2>Command Line Crash Course<a class="headerlink" href="#command-line-crash-course" title="Permalink to this headline">¶</a></h2>
+<p>If you are unfamiliar with the command line, or have never opened the Terminal or Command Prompt app before, this section is for you.  There are several useful features available while using Image Harvest through a Python interpreter, which requires a small amount of command line knowledge &#8211; namely the ability to navigate through directories.  For all operating systems, files are structured hierarchically in directories.  A directory almost always has a parent (represented by &#8221;..&#8221;), and it may contain files or more sub-directories.  The only directory not that doesn&#8217;t have a parent is the root directory which is &#8220;/&#8221; for Mac OS X and Linux, and &#8220;C:\&#8221; for Windows users.  Since all directories are children of the root directory, you can write the path to any file all the way from the root.  These types of paths are absolute paths.  &#8220;/Users/username/Downloads/file.txt&#8221; and &#8220;C:\Users\username\Downlaods\file.txt&#8221; are both examples of absolute paths.  The counterpart to absolute paths is relative paths, which is a path to any file written from where you are currently located.  If you are currently located in your Downloads folder, the relative path &#8220;file.txt&#8221; is the same as the absolute path &#8220;/Users/username/Downloads/file.txt&#8221;.  These concepts apply to all operating systems, however, each uses different commands for achieving directory navigation.</p>
+<div class="section" id="id1">
+<h3>Mac OS X<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>First and foremost, the terminal app is located at /Applications/Utilities/Terminal.app.  There are only 3 important commands:</p>
+<ul class="simple">
+<li>cd &#8211; Which stands for &#8220;change directory&#8221;.  This command allows you to move your current location to a new directory as specified by an argument.  It can be either an absolute or a relative path.</li>
+<li>ls &#8211; Which stands for &#8220;list&#8221;.  This command lists all the files and folders in the current directory.</li>
+<li>pwd &#8211; Which stands for &#8220;print working directory&#8221;, and prints your current directory&#8217;s absolute path.</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># Move to your home folder.</span>
+<span class="nb">cd</span> /Users/username/
+<span class="c"># Move to your downloads folder from your home folder.</span>
+<span class="nb">cd </span>Downloads
+<span class="c"># Move up a folder -- back to your home folder.</span>
+<span class="nb">cd</span> ..
+<span class="c"># List files in your home folder</span>
+ls
+<span class="c"># List files in your home folder as a list</span>
+ls -al
+<span class="c"># List files in your home folder as a list with coloring</span>
+ls -alG
+<span class="c"># Print the absolute path to your home folder.</span>
+<span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Windows<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The Command Prompt app can be opened by typing cmd into the windows search bar.  There are only 2 important commands:</p>
+<ul class="simple">
+<li>cd &#8211; Which stands for &#8220;change directory&#8221;.  This command allows you to move your current location to a new directory as specified by an argument.  It can be either an absolute or a relative path.</li>
+<li>dir &#8211; Which stands for &#8220;directory&#8221;.  This command both prints your current location, and prints files and directories in your current location.</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># Move to your home folder</span>
+<span class="nb">cd </span>C:<span class="se">\\</span>Users<span class="se">\\</span>username
+<span class="c"># Move to your downloads folder from your home folder.</span>
+<span class="nb">cd </span>Downloads
+<span class="c"># Move up a folder -- back to your home folder.</span>
+<span class="nb">cd</span> ..
+<span class="c"># List the path to your home folder, and the files in your home folder.</span>
+dir
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="first-image">
+<h2>First Image<a class="headerlink" href="#first-image" title="Permalink to this headline">¶</a></h2>
+<p>If you have not already, look at the corresponding part of the installation page for your computer (<a class="reference external" href="installation.html#mac-osx">Mac OS X</a>, <a class="reference external" href="installation.html#windows">Windows</a>).  Once you&#8217;ve got Image Harvest installed, download the following image:</p>
+<p><code class="xref download docutils literal"><span class="pre">First</span> <span class="pre">Image</span></code></p>
+<p>Once it&#8217;s saved, navigate to it from the command line &#8211; By default either /Users/username/Downloads/ or C:\Users\username\Downloads.  From there open up a python interpreter by typing the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre>python
+</pre></div>
+</div>
+<p>You should see something like:</p>
+<div class="highlight-bash"><div class="highlight"><pre>Python 2.7.6 <span class="o">(</span>default, Sep  <span class="m">9</span> 2014, 15:04:36<span class="o">)</span>
+<span class="o">[</span>GCC 4.2.1 Compatible Apple LLVM 6.0 <span class="o">(</span>clang-600.0.39<span class="o">)]</span> on darwin
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>The 3 right angle brackets are where you type your input.  Within the python interpreter
+command line tools won&#8217;t work, so when loading a file you need to already know it&#8217;s path
+or it will be difficult to find.  Execute the following lines from the python interpreter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Import the Image Harvest library</span>
+<span class="kn">import</span> <span class="nn">ih.imgproc</span>
+<span class="c"># Load your downloaded image!</span>
+<span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s">&quot;rgbsv1.png&quot;</span><span class="p">)</span>
+<span class="c"># Show your plant!</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c"># Wait for user input, then destroy the window</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You should see a window named &#8220;window 1&#8221; pop up with a smaller version of your image in it!
+By calling the <a class="reference internal" href="processing.html#ih.imgproc.Image.wait" title="ih.imgproc.Image.wait"><code class="xref py py-meth docutils literal"><span class="pre">wait()</span></code></a> method, the window will be displayed until you press any key, and control is taken away from the python interpreter.  Every processing script begins by loading the library, and loading the image, and all Image Harvest functions are performed on a loaded image.  Using the python interpreter provides some powerful tools to adjust your analysis on the fly and test out function parameters through the use of &#8220;states&#8221;.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Save the current state under the name &quot;base&quot;</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="c"># Convert the plant to grayscale</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;bgr&quot;</span><span class="p">,</span> <span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="c"># Save the current state under the name &quot;gray&quot;</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="c"># Threshold with a questionable value!</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If done correctly, you should see a window named &#8220;window 2&#8221; that&#8217;s completely black.  The threshold function thresholds by pixel intensity, which is an integer from 0 to 255, so thresholding by 255 means no pixels should make it through.
+Since we saved states (&#8220;base&#8221; and &#8220;gray&#8221;), we can restore a previous state and try the thresholding operation again with adjusted parameters:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Restore the gray state</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="c"># Threshold round 2</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">190</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You should see a window name &#8220;window 3&#8221; that&#8217;s only black and white, and you should be able to see the outline of the plant in black.  We can utilize states for more than just restoring a previous image:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Save the black &amp; white state!</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;binary&quot;</span><span class="p">)</span>
+<span class="c"># Invert the color, display with name</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">bitwise_not</span><span class="p">()</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Inverted Mask&quot;</span><span class="p">)</span>
+<span class="c"># Convert the mask to bgr, combine it with the &quot;base&quot; state</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">,</span> <span class="s">&quot;bgr&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="c"># Save the image and display it</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;recolored&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Recolored Image&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/inverted.png" class="align-left" src="_images/inverted.png" />
+<img alt="_images/recolored.png" class="align-right" src="_images/recolored.png" />
+<div class="row" style="clear:both;"></div><br /><p>This time, you should see two windows pop up, one named &#8220;Inverted Mask&#8221; and the other named &#8220;Recolored Image&#8221;.  The inverted mask window shows our inverted thresholded image, and the recolored image window shows the final output of combining our mask with our base image.  We keep all the pixels that are in the mask, but we use the colors of the base image.  Utilizing a few more functions, we can finish the processing of our first image:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Crop the pot out of the image.</span>
+<span class="c"># ROI is of the form [ystart, yend, xstart, xend]</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">crop</span><span class="p">([</span><span class="mi">300</span><span class="p">,</span> <span class="mi">2150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">])</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;cropped&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Cropped Image&quot;</span><span class="p">)</span>
+<span class="c"># Resize the image to just the plant</span>
+<span class="c"># See following paragraph for more info on contourCut</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">contourCut</span><span class="p">(</span><span class="s">&quot;cropped&quot;</span><span class="p">,</span> <span class="n">resize</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Final Image&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;final.png&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/cropped.png" class="align-left" src="_images/cropped.png" />
+<img alt="_images/final.png" class="align-right" src="_images/final.png" />
+<div class="row" style="clear:both;"></div><br /><p>You should see your final displayed image!  The <a class="reference internal" href="processing.html#ih.imgproc.Image.contourCut" title="ih.imgproc.Image.contourCut"><code class="xref py py-meth docutils literal"><span class="pre">contourCut()</span></code></a> function crops an image based on contours, or grouped areas of pixels, and only keeps contours in the image that have a minimum required area.  Since the plant is completely connected (unless processing has removed some pixels), it should have a large contour area, and thus is kept within the image.  Finally, we write our image with the name &#8220;final.png&#8221;.</p>
+</div>
+<div class="section" id="python-script">
+<h2>Python Script<a class="headerlink" href="#python-script" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="_downloads/firstimage.txt"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Script</span></code></a></p>
+<p><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Image</span></code> (same as above)</p>
+<p>This script performs exactly the process we worked through only as a standalone python script.  Update the image path accordingly, and run it to see the same results, as well as windows for each step.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Load the library &amp; image</span>
+<span class="kn">import</span> <span class="nn">ih.imgproc</span>
+<span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s">&quot;/path/to/your/image&quot;</span><span class="p">)</span>
+<span class="c"># Save &amp; show the base image</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Base&quot;</span><span class="p">)</span>
+<span class="c"># Convert to gray, save the image</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;bgr&quot;</span><span class="p">,</span> <span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Grayscale&quot;</span><span class="p">)</span>
+<span class="c"># Threshold the image incorrectly AND correctly</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Threshold 255&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">190</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;binary&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Threshold 190&quot;</span><span class="p">)</span>
+<span class="c"># Recolor the image</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">bitwise_not</span><span class="p">()</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">,</span> <span class="s">&quot;bgr&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;recolor&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Recolored Image&quot;</span><span class="p">)</span>
+<span class="c"># Crop the image, produce the final output</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">crop</span><span class="p">([</span><span class="mi">300</span><span class="p">,</span> <span class="mi">2150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">])</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;cropped&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Cropped&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">contourCut</span><span class="p">(</span><span class="s">&quot;cropped&quot;</span><span class="p">,</span> <span class="n">resize</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Final&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;final.png&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="day-2">
+<h2>Day 2<a class="headerlink" href="#day-2" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have everything installed, we&#8217;ll work through a pipeline for an image, extract some data, and compare to LemnaTec.</p>
+<p><a class="reference download internal" href="_downloads/0_0_2.png"><code class="xref download docutils literal"><span class="pre">Team</span> <span class="pre">1</span> <span class="pre">Rice</span> <span class="pre">0_0_2</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/pipeline.txt"><code class="xref download docutils literal"><span class="pre">The</span> <span class="pre">Pipeline</span></code></a></p>
+<p>The pipline:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ih.imgproc</span>
+
+<span class="c"># base plant</span>
+<span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s">&quot;0_0_2.png&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+
+<span class="c"># blur</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">blur</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;blur&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Blur&quot;</span><span class="p">)</span>
+
+<span class="c"># meanshift</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">meanshift</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;shift&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Meanshift&quot;</span><span class="p">)</span>
+
+<span class="c"># colorFilter</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">colorFilter</span><span class="p">(</span><span class="s">&quot;(((g &gt; r) and (g &gt; b)) and (((r + g) + b) &lt; 400))&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">colorFilter</span><span class="p">(</span><span class="s">&quot;(((r max g) max b) - ((r min g) min b)) &gt; 12)&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;cf&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Color filter&quot;</span><span class="p">)</span>
+
+<span class="c"># contourCut</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">contourCut</span><span class="p">(</span><span class="s">&quot;cf&quot;</span><span class="p">,</span> <span class="n">basemin</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">resize</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;cut&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Contour Cut&quot;</span><span class="p">)</span>
+
+<span class="c"># recolor</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;bgr&quot;</span><span class="p">,</span> <span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">,</span> <span class="s">&quot;bgr&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;final.png&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Final&quot;</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">plant</span><span class="o">.</span><span class="n">extractPixels</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">plant</span><span class="o">.</span><span class="n">extractConvexHull</span><span class="p">()</span>
+
+<span class="n">plant</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>That&#8217;s a lot of code.  Let&#8217;s break it down piece by piece:</p>
+<div class="section" id="loading">
+<h3>Loading<a class="headerlink" href="#loading" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ih.imgproc</span>
+
+<span class="c"># base plant</span>
+<span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s">&quot;0_0_2.png&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This part should be fairly familiar &#8211; we load the Image Harvest library with import ih.imgproc, we load our image &#8220;0_0_2.png&#8221;, and we save &amp; display it under the name &#8220;base&#8221;.</p>
+</div>
+<div class="section" id="blur">
+<h3>Blur<a class="headerlink" href="#blur" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># blur</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">blur</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;blur&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Blur&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we call the <a class="reference internal" href="processing.html#ih.imgproc.Image.blur" title="ih.imgproc.Image.blur"><code class="xref py py-meth docutils literal"><span class="pre">blur()</span></code></a> function &#8211; which does exactly that.  Blur can take a few arguments, but the most important and only required argument is the first which specifies the kernel size &#8211; a larger kernel means a more blurry output image.  The kernel size is represented as two numbers: (width, height), and both the width and height must be odd and positive.  Try blurring with a kernel size of (15, 15) instead of (5, 5).</p>
+<p>Why blur?  Blurring greatly reduces the noise in an image, which is random variations of pixel colors.  Reducing these variations helps us to more easily define a region in an image.  Look at the inside of the pot for example &#8211; the edges between individual rocks have become much less distinct as a result of the blurring, which makes it easier to percieve as a single continuous region.  The next step continues to reduce variation and separate regions from each other.</p>
+</div>
+<div class="section" id="meanshift">
+<h3>Meanshift<a class="headerlink" href="#meanshift" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># meanshift</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">meanshift</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;shift&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Meanshift&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we call the <a class="reference internal" href="processing.html#ih.imgproc.Image.meanshift" title="ih.imgproc.Image.meanshift"><code class="xref py py-meth docutils literal"><span class="pre">meanshift()</span></code></a> function, which performs mean shift segmentation of the image.  Mean shift segmentation groups regions in an image that are geographically close AND close in color.  The first two arguments define the geographically distance, and the third argument defines the color variation allowed.</p>
+<p>Why meanshift?  Meanshift makes the next step in grouping an image into regions.  In this case, we have some very easily defined regions that are close both geographically and close in color.  The plant itself is completely connected and a similar shade of green.  The interior of the pot is contained within a single circle in the image, and is made of similarly colored rocks.  Both of these regions become much more uniform, and thus much easier to process as a result of this step.</p>
+</div>
+<div class="section" id="color-filter">
+<h3>Color Filter<a class="headerlink" href="#color-filter" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># colorFilter</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">colorFilter</span><span class="p">(</span><span class="s">&quot;(((g &gt; r) and (g &gt; b)) and (((r + g) + b) &lt; 400))&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">colorFilter</span><span class="p">(</span><span class="s">&quot;(((r max g) max b) - ((r min g) min b)) &gt; 12)&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;cf&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Color filter&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we call the <a class="reference internal" href="processing.html#ih.imgproc.Image.colorFilter" title="ih.imgproc.Image.colorFilter"><code class="xref py py-meth docutils literal"><span class="pre">colorFilter()</span></code></a> function, which solves arbitrary color logic and then applies it to the image.  What does that mean?  Effectively, we create a color pattern, and we look for all pixels that match this color pattern.  So this pattern: &#8220;((g &gt; r) and (g &gt; b))&#8221;, reads as: &#8220;Pixels whose green value is greater than their red value AND whose green value is greater than their blue value.&#8221;  In natural language: &#8220;Pixels that are predominantely green.&#8221;  The next pattern: &#8220;(((r + g) + b) &lt; 400))&#8221;, reads as: &#8220;Pixels whose red value plus green value plus blue value is less than 400.&#8221;  In natural language: &#8220;Pixels that aren&#8217;t too bright.&#8221;  Finally we have the pattern: &#8220;(((r max g) max b) - ((r min g) min b)) &gt; 12)&#8221;, which reads as: &#8220;Pixels whose maximum value of r,g,b minus mimim value of r,g,b is greater than 12&#8221;.  In natural language: &#8220;Pixels that aren&#8217;t white, gray, or black.&#8221;</p>
+<p>Why colorFilter?  Processing power.  The colorFilter function is very fast, and can evaluate and apply complex logic in less than a second.  Additionally, since the function evalutes logic on a per-pixel basis, it can adapt to brightness changes or noise in images that a definite color range might miss.</p>
+</div>
+<div class="section" id="contour-cut">
+<h3>Contour Cut<a class="headerlink" href="#contour-cut" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># contourCut</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">contourCut</span><span class="p">(</span><span class="s">&quot;cf&quot;</span><span class="p">,</span> <span class="n">basemin</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">resize</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;cut&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Contour Cut&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we call the <a class="reference internal" href="processing.html#ih.imgproc.Image.contourCut" title="ih.imgproc.Image.contourCut"><code class="xref py py-meth docutils literal"><span class="pre">contourCut()</span></code></a> function, which crops an image based on contours in an image, which are connected regions of pixels.  The function searches for all contours in the image that are greater than the size of the basemin parameter, and crops the image to fit those contours.</p>
+<p>Why contourCut?  Removal of edge noise.  The plant itself is completely connected, and thus will have the largest contour in the image by far.  Utilizing this, we can find a value that will keep our plant in the image, while removing a lot of edge noise from it.</p>
+</div>
+<div class="section" id="recoloring">
+<h3>Recoloring<a class="headerlink" href="#recoloring" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># recolor</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;bgr&quot;</span><span class="p">,</span> <span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;gray&quot;</span><span class="p">,</span> <span class="s">&quot;bgr&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;final.png&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&quot;Final&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>What&#8217;s really happening here, is we are creating a mask of our current image, and then overlaying it on our base image to extract our original color.  Blurring and segmenting our image changed its original color, and we want to restore that.  The first 3 lines create the mask.  We first convert the image to grayscale with <a class="reference internal" href="processing.html#ih.imgproc.Image.convertColor" title="ih.imgproc.Image.convertColor"><code class="xref py py-meth docutils literal"><span class="pre">convertColor()</span></code></a>, and then <code class="xref py py-meth docutils literal"><span class="pre">threhsold()</span></code> with a value of 0.  By thresholding the image with a value of 0, we keep every pixel from our grayscale image that has an intensity of at least 1.  This means we keep every non-black pixel from our grayscale image.  We then convert the image back to &#8220;bgr&#8221; from &#8220;gray&#8221;, however, this does NOT restore color to the image.  Our binary image only has a single channel (intensity), but our color image has 3 channels (b, g, r).  We can&#8217;t overlay our mask while it only has a single channel, so we convert it to &#8220;bgr&#8221; to give it 3 channels.  We then use <a class="reference internal" href="processing.html#ih.imgproc.Image.bitwise_and" title="ih.imgproc.Image.bitwise_and"><code class="xref py py-meth docutils literal"><span class="pre">ih.imgproc.Image.bitwise_and()</span></code></a> to overaly our mask on our base image.</p>
+</div>
+<div class="section" id="extraction">
+<h3>Extraction<a class="headerlink" href="#extraction" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">plant</span><span class="o">.</span><span class="n">extractPixels</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">plant</span><span class="o">.</span><span class="n">extractConvexHull</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The print function is native to python and simply outputs information to the screen.  The <a class="reference internal" href="processing.html#ih.imgproc.Image.extractPixels" title="ih.imgproc.Image.extractPixels"><code class="xref py py-meth docutils literal"><span class="pre">extractPixels()</span></code></a> function returns the total number of non-zero pixels in the image, and the <a class="reference internal" href="processing.html#ih.imgproc.Image.extractConvexHull" title="ih.imgproc.Image.extractConvexHull"><code class="xref py py-meth docutils literal"><span class="pre">extractConvexHull()</span></code></a> function returns the area of the convexHull surrounding all non-black pixels in the image.</p>
+</div>
+</div>
+<div class="section" id="extras">
+<h2>Extras<a class="headerlink" href="#extras" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/shifted.png" class="align-center" src="_images/shifted.png" />
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

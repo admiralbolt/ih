@@ -1,0 +1,24 @@
+{
+	"installdir": "/work/walia/common/plantcv/plantcv/build/scripts-2.6/",
+	"profile": {
+		"pegasus": {
+			"style": "glite"
+		},
+		"condor": {
+			"grid_resource": "pbs",
+			"universe": "vanilla"
+		},
+		"env": {
+			"PYTHONPATH": ["/work/walia/common/plantcv/plantcv/build/lib/",
+							"/work/walia/common/plantcv/opencv/lib/",
+							"/work/walia/common/plantcv/pymeanshift-0.2.1/lib64/python2.6/site-packages/",
+							"/usr/lib64/python2.6/site-packages/",
+							"/work/walia/common/plantcv/argparse-1.3.0/build/lib"
+							],
+			"PATH": "/work/walia/common/plantcv/bin/",
+			"LD_LIBRARY_PATH": ["/work/walia/common/plantcv/lib/", 
+								"/work/walia/common/plantcv/opencv/lib/"]
+		}
+	},
+	"cluster": 30
+}

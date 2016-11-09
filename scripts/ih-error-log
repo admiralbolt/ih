@@ -1,0 +1,15 @@
+#!python
+import argparse
+import traceback
+import ih.statistics
+
+parser = argparse.ArgumentParser(description = "Extracts numerical information from an image.")
+parser.add_argument("--db", dest="db", help="Path to database to write", required = True)
+parser.add_argument("--output", dest="output", help="Path to output log file.", required = True)
+args = parser.parse_args()
+
+try:
+    stats = ih.statistics.Stats(args.db)
+    stats.logErrors(args.output)
+except Exception as e:
+    print traceback.format_exc()

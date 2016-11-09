@@ -1,0 +1,20 @@
+#!python
+import argparse
+import traceback
+import ih.statistics
+import json
+
+parser = argparse.ArgumentParser(description = "Gathers shoot area information based on specified groupings.")
+parser.add_argument("--db", dest="db", help="Database to run statistics on.", required = True)
+parser.add_argument("--intable", dest="intable", help="Input table to gather data from.", required = True)
+parser.add_argument("--outtable", dest="outtable", help="Output table to write data to.", required = True)
+parser.add_argument("--type", dest="type", default="ratio", help="Whether to perform division or subtraction between treatments.")
+paresr.add_argument("--direction", dest="direction", default="Control", help="Whether to perform C ~ S, or S ~ C.")
+parser.add_argument("--comp", dest="comp", default="imtype", help="Whether or not to use imtype or imgname as the primary comparison.")
+parser.add_argument("--overwrite", dest="overwrite", action="store_true", help="If specified, will overwrite the output table.")
+
+args = parser.parse_args()
+
+stats = ih.statistics.Stats(args.db)
+stats.treatmentComp(args.intable, args.outtable, args.type, args.direction, args.comp, args.overwrite)
+stats._closeConnection()

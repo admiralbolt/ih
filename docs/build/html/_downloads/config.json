@@ -1,0 +1,26 @@
+{
+    "installdir": "/work/walia/common/ih/pymodules/bin/",
+    "profile": {
+        "pegasus": {
+            "style": "glite"
+        },
+        "condor": {
+          "grid_resource": "pbs",
+          "universe": "vanilla"
+        },
+        "env": {
+            "PATH": "/work/walia/common/ih/pymodules/bin/",
+            "PYTHONPATH": "/work/walia/common/ih/pymodules/lib/python2.6/site-packages",
+            "LD_LIBRARY_PATH": "/work/walia/common/ih/pymodules/opencv_lib/"
+        }
+      },
+      "cluster": 100,
+      "maxwalltime": {
+        	"images": 2,
+        	"stats": 300
+      },
+      "notify": {
+        	"email": "avi@kurtknecht.com",
+        	"pegasus_home": "/usr/share/pegasus/"
+      }
+}

@@ -1,0 +1,52 @@
+#!/usr/bin/python
+import argparse
+import traceback
+import ih.statistics
+import os
+import json
+
+parser = argparse.ArgumentParser(description = "Change input data format.")
+parser.add_argument("--db", dest="db", help="Database to run statistics on.", required = True)
+parser.add_argument("--dir", dest="dir", required = True, help="Folder to move files to.")
+parser.add_argument("--type", dest="type", required = True, help="Type of translation.  Should be one of [pcv, iap]")
+parser.add_argument("--ids", dest="ids", nargs="+", default=None, help="List of ids to extract from db.")
+parser.add_argument("--idfile", dest="idfile", default=None, help="Path to file containing list of ids.")
+parser.add_argument("--imtypes", dest="imtypes", nargs="+", default=None, help="List of imtypes to extract from db.")
+parser.add_argument("--imtypefile", dest="imtypefile", default=None, help="Path to file containing list of imtypes.")
+parser.add_argument("--dates", dest="dates", nargs="+", default=None, help="List of dates to extract from db.")
+parser.add_argument("--datefile", dest="datefile", default=None, help="Path to file containing list of dates.")
+args = parser.parse_args()
+
+try:
+    if args.idfile:
+        with open(args.idfile, "r") as rh:
+            ids = []
+            for line in rh.readlines():
+                ids.append(line.strip())
+    else:
+        ids = args.ids
+        
+    if args.imtypefile:
+        with open(args.idfile, "r") as rh:
+            imtypes = []
+            for line in rh.readlines():
+                imtypes.append(line.strip())
+    else:
+        imtypes = args.imtypes
+        
+    if args.datefile:
+        with open(args.datefile, "r") as rh:
+            dates = []
+            for line in rh.readlines():
+                dates.append(line.strip())
+    else:
+        dates = args.dates
+            
+    stats = ih.statistics.Stats(args.db)
+    if args.type == "pcv":
+        stats.dataToPlantcv(args.dir, ids, imtypes, dates)
+    elif args.type == "iap":
+        stats.dataToIAP(args.dir, ids, imtypes, dates)
+    stats._closeConnection()
+except Exception as e:
+    print traceback.format_exc()

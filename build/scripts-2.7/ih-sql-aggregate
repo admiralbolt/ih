@@ -1,0 +1,20 @@
+#!/usr/bin/python
+import argparse
+import traceback
+import ih.statistics
+import shutil
+
+parser = argparse.ArgumentParser(description = "Writes data from many small sql files to main db.")
+parser.add_argument("--db", dest="db", help="Main database to load data into.", required = True)
+parser.add_argument("--output", dest="output", help="Output file to copy to.")
+parser.add_argument("--inputs", dest="inputs", nargs="+", help="Small db's to load into main one.", required = True)
+args = parser.parse_args()
+
+try:
+    stats = ih.statistics.Stats(args.db)
+    stats.loadSql(args.inputs)
+    if (args.output):
+    	shutil.copyfile(args.db, args.output)
+    
+except Exception as e:
+    print traceback.format_exc()

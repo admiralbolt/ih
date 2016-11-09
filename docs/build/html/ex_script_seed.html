@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Seed Processing Example &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="up" title="Examples" href="examples.html" />
+    <link rel="next" title="Camera Processing Example #1" href="ex_script_camera1.html" />
+    <link rel="prev" title="Color Filter In Depth #1" href="ex_script_color1.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Seed Processing Example</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="ex_script_color1.html" title="Previous Chapter: Color Filter In Depth #1"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Color Filter In ...</span>
+    </a>
+  </li>
+  <li>
+    <a href="ex_script_camera1.html" title="Next Chapter: Camera Processing Example #1"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Camera Processin... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/ex_script_seed.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="seed-processing-example">
+<h1>Seed Processing Example<a class="headerlink" href="#seed-processing-example" title="Permalink to this headline">¶</a></h1>
+<p>This section details a script used for analyzing seed scans.  This script, ih-seed,
+comes included with the ih installation, and can be used to extract basic
+metrics from a seed scan image.  In this example we will process the following
+image:</p>
+<img alt="_images/seed_small.jpeg" class="align-center" src="_images/seed_small.jpeg" />
+<p>From this image we will get a seed count, as well as individual length, width,
+and area metrics for each seed.</p>
+<p><a class="reference download internal" href="_downloads/seed.jpg"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Image</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/results.csv"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Results</span></code></a></p>
+<p>If IH is installed you should be able to run this script simply
+by typing ih-seed at the command line.  You can print out all options
+for the script by executing ih-seed -h.  Your results should look something like this:</p>
+<div class="highlight-bash"><div class="highlight"><pre>usage: ih-seed <span class="o">[</span>-h<span class="o">]</span> --input INPUT --output OUTPUT <span class="o">[</span>--dpi DPI<span class="o">]</span> <span class="o">[</span>--roi ROI<span class="o">]</span>
+               <span class="o">[</span>--ystart YSTART<span class="o">]</span> <span class="o">[</span>--yend YEND<span class="o">]</span> <span class="o">[</span>--xstart XSTART<span class="o">]</span> <span class="o">[</span>--xend XEND<span class="o">]</span>
+               <span class="o">[</span>--writesteps<span class="o">]</span>
+
+Processes <span class="p">&amp;</span> Extracts a seed scan.
+
+optional arguments:
+  -h, --help       show this <span class="nb">help </span>message and <span class="nb">exit</span>
+  --input INPUT    Path to input seed scan image.
+  --output OUTPUT  Path to output csv file.
+  --dpi DPI        dpi of the image.
+  --roi ROI        roi file
+  --ystart YSTART  Minimum Y of the roi.
+  --yend YEND      Maximum Y of the roi.
+  --xstart XSTART  Minimum X of the roi.
+  --xend XEND      Maximum X of the roi.
+  --writesteps     If specified, write processing steps.
+</pre></div>
+</div>
+<p>The only arguments that really need to be talked about are the roi arguments.
+You can pass in an roi as a json file with the &#8211;roi argument, or by specifying
+individual bounds with the &#8211;ystart, &#8211;yend, &#8211;xstart, &#8211;xend arguments (for
+more information see the ROI section on the image processing page).  The passed
+in roi only needs to be small enough to remove white edges around the outside
+of the image, but the smaller the cropped image is the faster the processing will run.
+Here&#8217;s the full example arguments used to process the above image:</p>
+<div class="highlight-bash"><div class="highlight"><pre>ih-seed --input seed.jpg --output results.csv --ystart <span class="m">2000</span> --yend <span class="s2">&quot;y - 3000&quot;</span> --xstart <span class="m">2000</span> --xend <span class="s2">&quot;x - 1000&quot;</span> --writesteps
+</pre></div>
+</div>
+<p>If you haven&#8217;t yet, go ahead and download the sample image (<a class="reference download internal" href="_downloads/seed.jpg"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Image</span></code></a>)
+and run the above command on it.  Once it finishes you should end with 5 additional files.
+A results.csv file containing information about each seed, and 4 image files
+corresponding to the processing steps.  First the image should be cropped
+based on the region specified, down to just the seeds:</p>
+<img alt="_images/seed_crop_small.png" class="align-center" src="_images/seed_crop_small.png" />
+<p>Then, the seeds are thresholded using otsu&#8217;s method:</p>
+<img alt="_images/seed_thresh_small.png" class="align-center" src="_images/seed_thresh_small.png" />
+<p>Finally, contours in the image are removed based on their size.  This lets
+us keep the seeds since they are large and connected, while removing all
+the background noise:</p>
+<img alt="_images/seed_final_small.png" class="align-center" src="_images/seed_final_small.png" />
+<p>The last image generated is an image for confirming that the contours are
+calculated correctly.  A random color is assigned to each contour that
+way it is easy to identify that seeds are being treated individually,
+and are not grouped together.</p>
+<img alt="_images/seed_contours_small.png" class="align-center" src="_images/seed_contours_small.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

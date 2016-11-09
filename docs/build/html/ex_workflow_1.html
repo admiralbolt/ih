@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Workflow Example #1 &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="up" title="Examples" href="examples.html" />
+    <link rel="next" title="OSG Workflows" href="ex_workflow_2.html" />
+    <link rel="prev" title="Camera Processing Example #2" href="ex_script_camera2.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Workflow Example #1</a><ul>
+<li><a class="reference internal" href="#final-templates">Final Templates</a></li>
+<li><a class="reference internal" href="#image-loading">Image Loading</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#processing">Processing</a></li>
+<li><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="ex_script_camera2.html" title="Previous Chapter: Camera Processing Example #2"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Camera Processin...</span>
+    </a>
+  </li>
+  <li>
+    <a href="ex_workflow_2.html" title="Next Chapter: OSG Workflows"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">OSG Workflows &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/ex_workflow_1.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <style> .red {color:red} .blue {color:blue} .green {color:green} .orange {color:orange} </style><div class="section" id="workflow-example-1">
+<h1>Workflow Example #1<a class="headerlink" href="#workflow-example-1" title="Permalink to this headline">¶</a></h1>
+<p>This section will detail the steps involved with creating a super-computer
+workflow.  It assumes that you have the proper environment setup
+already on a grid computer with Condor and Pegasus installed.
+Workflow generation is designed specifically for high throughput
+data sets &#8211; this example uses a data set of ~80,000 images.  Additionally,
+this tutorial serves to show how to setup and run a workflow, not
+explaining the analysis choices made when designing a workflow.  This workflow
+was created using experiment &#8216;0184 Uni Nebraska Rice 1&#8217; data, on
+Tusker at the Holland Computing Center.</p>
+<div class="section" id="final-templates">
+<h2>Final Templates<a class="headerlink" href="#final-templates" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="_downloads/crawl.json"><code class="xref download docutils literal"><span class="pre">Image</span> <span class="pre">Loading</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/imgproc.json"><code class="xref download docutils literal"><span class="pre">Image</span> <span class="pre">Processing</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/config.json"><code class="xref download docutils literal"><span class="pre">Configuration</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/GenKey.csv"><code class="xref download docutils literal"><span class="pre">Genotype</span> <span class="pre">Key</span> <span class="pre">File</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/roi.tar.gz"><code class="xref download docutils literal"><span class="pre">ROI</span> <span class="pre">files</span></code></a></p>
+</div>
+<div class="section" id="image-loading">
+<h2>Image Loading<a class="headerlink" href="#image-loading" title="Permalink to this headline">¶</a></h2>
+<p>In this workflow example, we will use data acquired from LemnaTec&#8217;s
+imaging system, for experiment 0184.  The input data structure has been
+altered slightly from the raw LemnaTec data.  Although none of the data
+changed, an extra directory was added to help break up the data set.
+Here are several examples of paths to images:</p>
+<div class="line-block">
+<div class="line">/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/strain3/0184 Uni Nebraska Rice 1_023542-C_2013-09-05_05-18-33_455640/RGB SV1/0_0.png</div>
+<div class="line">/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/strain5/0184 Uni Nebraska Rice 1_023546-C_2013-08-21_05-22-52_432942/FLUO SV1/0_0.png</div>
+<div class="line">/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/strain93/0184 Uni Nebraska Rice 1_023722-S_2013-09-09_10-56-45_462980/RGB TV/0_0.png</div>
+</div>
+<p>There are a total of 436 strain folders, 36 sub folders in each strain folder, and 12 additional image-type folders.  For
+this experiment, we will be processing RGB SV1, RGB SV2, FLUO SV1, FLUO SV2, and RGB TV images for a total of 436 * 36 * 5 ~= 80,000 images.
+The image loading step takes care of two key problems posed by having large data sets (assuming correctly written template files).  First,
+it tracks all images, and loads them into a single database, making it very easy to find and process files in the future.  Second,
+all meta-data definitions are done as a result of the crawling &#8211; no manual definitions are required.  Consider our directory structure.
+There is a lot of information about each image in the names of the directories &#8211; id numbers, whether or not the plant was stressed, the date, and the image
+type.  With this motivation in mind, lets look at the loading template, crawl.json.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/%null%/%null%_%idnum%-%idchar%_%date%/%imgname%/0_0.png&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;base&quot;</span><span class="o">:</span> <span class="s2">&quot;/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filetype&quot;</span><span class="o">:</span> <span class="s2">&quot;.png&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;order&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;experiment&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;genotype&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;treatment&quot;</span><span class="p">,</span> <span class="s2">&quot;imgname&quot;</span><span class="p">,</span> <span class="s2">&quot;imtype&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;experiment&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;0184&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;%idnum%-%idchar%&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;genotype&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;/Users/aknecht/git/ih/old_scripts/2014-09-03/GenKey.csv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;%idnum%-%idchar%&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;keyColumn&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="s2">&quot;valueColumn&quot;</span><span class="o">:</span> <span class="mi">1</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;%date%&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="s2">&quot;Y-m-d&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;treatment&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;translate&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;%idchar%&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;imgname&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;%imgname%&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;imtype&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;translate&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;%imgname%&quot;</span>
+                <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;translations&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;treatment&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;S&quot;</span><span class="o">:</span> <span class="s2">&quot;Stress&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;s&quot;</span><span class="o">:</span> <span class="s2">&quot;Stress&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;C&quot;</span><span class="o">:</span> <span class="s2">&quot;Control&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;c&quot;</span><span class="o">:</span> <span class="s2">&quot;Control&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;imtype&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;RGB SV1&quot;</span><span class="o">:</span> <span class="s2">&quot;rgbsv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;RGB SV2&quot;</span><span class="o">:</span> <span class="s2">&quot;rgbsv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;RGB TV&quot;</span><span class="o">:</span> <span class="s2">&quot;rgbtv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;FLUO SV1&quot;</span><span class="o">:</span> <span class="s2">&quot;fluosv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;FLUO SV2&quot;</span><span class="o">:</span> <span class="s2">&quot;fluosv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;FLUO TV&quot;</span><span class="o">:</span> <span class="s2">&quot;fluotv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;NIR SV1&quot;</span><span class="o">:</span> <span class="s2">&quot;nirsv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;NIR SV2&quot;</span><span class="o">:</span> <span class="s2">&quot;nirsv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;NIR TV&quot;</span><span class="o">:</span> <span class="s2">&quot;nirtv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;IR SV1&quot;</span><span class="o">:</span> <span class="s2">&quot;irsv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;IR SV2&quot;</span><span class="o">:</span> <span class="s2">&quot;irsv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;IR TV&quot;</span><span class="o">:</span> <span class="s2">&quot;irtv&quot;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This template is fairly complex, so we will break it down into logical subunits.  It should be noted,
+that the order of these definitions is not strict, the way they are written matches the thought process
+behind crawling.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/%null%/%null%_%idnum%-%idchar%_%date%/%imgname%/0_0.png&quot;</span><span class="p">,</span>
+<span class="s2">&quot;base&quot;</span><span class="o">:</span> <span class="s2">&quot;/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>The first two definitions map our way through the rest of the template.  Above, we noted several important
+pieces of information in the name of the directories.  We are doing exactly that here, except in a way that
+is more understandable to the computer.  We mark important places in the directory structure by using % signs,
+along with names.  The names themselves are not strictly checked, so use names that are easy to remember.
+Here we mark 4 places, with the identifiers &#8216;idnum&#8217;, &#8216;idchar&#8217;, &#8216;date&#8217;, and &#8216;imgname&#8217;.  The &#8216;null&#8217; name is for a
+piece of information that isn&#8217;t important, but still needs to be crawled.  In this case, the &#8216;strain&#8217; directories
+contain no information relevant to the images themselves.  Also note the underscores and dashes in the definition.
+Path splitting to obtain information is possible by placing underscores (_), dashes (-), or spaces ( ) into your
+definition.  To make it easier to see, look at our &#8220;path&#8221; definition side by side with an example path:</p>
+<div class="line-block">
+<div class="line">&#8220;path&#8221;: &#8220;/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/<strong>%null%</strong>/%null%_<span class="red">%idnum%</span>-<span class="blue">%idchar%</span>_<span class="green">%date%</span>/<span class="orange">%imgname%</span>/0_0.png&#8221;,</div>
+<div class="line">/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/<strong>strain3</strong>/0184 Uni Nebraska Rice 1_<span class="red">023542</span>-<span class="blue">C</span>_<span class="green">2013-09-05</span>_05-18-33_455640/<span class="orange">RGB SV1</span>/0_0.png</div>
+</div>
+<p>It becomes very apparent how each defined identifier lines up with the path.  Creating this identifier string is
+a very key part of the template definition.  It will likely take some time before you are completely comfortable
+writing identifier strings, and every workflow is different.  The other workflow examples have different data paths
+for input files, so it is recommended you look at those as well. The identifiers will be used in further steps.  The &#8220;base&#8221; definition
+is simply where crawling should start.  It should be a subset of the &#8220;path&#8221; definition.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;filetype&quot;</span><span class="o">:</span> <span class="s2">&quot;.png&quot;</span><span class="p">,</span>
+<span class="s2">&quot;order&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;experiment&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;genotype&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;treatment&quot;</span><span class="p">,</span> <span class="s2">&quot;imgname&quot;</span><span class="p">,</span> <span class="s2">&quot;imtype&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">],</span>
+</pre></div>
+</div>
+<p>The &#8220;filetype&#8221; definition is exactly that.  It searches for all files in the final path that end in the specified filetype.
+The &#8220;order&#8221; definition is the order in which values are stored in to the database.  It serves two purposes.  Thematically,
+you can organize your columns the same way you would data.  More importantly, it specifies which values are saved to the database.
+You can define any value in the &#8220;order&#8221; definition, however, there are <strong>required</strong> definitions as well.  In addition,
+although there are some optional column names, many of the statistics function expect a given format for data.
+The names included above are the names that the statistics functions expect.  They relate directly to information about each image.
+&#8220;experiment&#8221; is required, although we simply use it as additional information to help keep things organized.  Data that comes
+from LemnaTec has id&#8217;s assigned to them, in this case, &#8220;id&#8221; is the LemnaTec assigned value.  &#8220;genotype&#8221; contains the identifier for
+which genotype the plant is.  &#8220;date&#8221; is the date the plant was imaged.  &#8220;treatment&#8221; is whether the plant is control or stressed.
+&#8220;imgname&#8221; is which type, shot, and number the plant is.  Examples include RGB SV1, RGB SV2, RGB TV, FLUO SV1, FLUO SV2, FLUO TV e.t.c
+&#8220;imtype&#8221; is just which type and shot the plant is.  Examples include rgbsv, rgbtv, fluosv, fluotv e.t.c.  &#8220;imtype&#8221; is generally
+used more than it &#8220;imgname&#8221; counterpart.  &#8220;path&#8221; is a required entry, and will be filed with the input path to the image.
+The final output path of the image is based on &#8220;experiment&#8221;, &#8220;id&#8221;, &#8220;date&#8221;, &#8220;imtype&#8221;, and &#8220;imgname&#8221;, so defining
+these is very important.
+The next section we talk about is the data section.  The purpose of the data section is to convert the identifiers from
+our &#8220;path&#8221; definition, to the names used in our &#8220;order&#8221; definition.  Let&#8217;s look at it one name at a time:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;experiment&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;0184&quot;</span>
+        <span class="p">},</span>
+</pre></div>
+</div>
+<p>The first line simply shows how to start the data section.  Specifying &#8216;&#8220;data&#8221;: {&#8216; shows that all further entries
+are specifically related to data-mapping.  Each value specified in the data section corresponds to a specific
+value in the &#8220;order&#8221; entry.  The values defined in the data section are NOT order dependent, but we include
+them in the same order for ease of access.  Finally, remember that each of these values is for <em>every</em> image.
+Our first example is defining a value for &#8220;experiment&#8221;.  It&#8217;s important
+to note that &#8220;experiment&#8221; occurs in order.  The names of entries in the data section must match the value
+in the &#8220;order&#8221; entry exactly.  First we define the type of &#8220;experiment&#8221;.  Type&#8217;s of data keys can be defined
+as &#8220;value&#8221;, &#8220;file&#8221;, or &#8220;date&#8221;.  Here, we define the type of experiment as a value.  This means that the value of
+experiment will be saved as some combination of hard-coded characters, and identifiers, based on the &#8220;value&#8221; definition.
+In this case, we do not use identifiers in our &#8220;value&#8221; definition.  We simply save the value for experiment for every image
+as 0184.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;%idnum%-%idchar%&quot;</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Here, we define the &#8220;id&#8221; for each plant.  We also define it as type &#8220;value&#8221;, but this time we use identifiers in
+the value.  This will load the identifiers from the path directly into the value for id.  Looking at our path definition and test path again:</p>
+<div class="line-block">
+<div class="line">&#8220;path&#8221;: &#8220;/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/<strong>%null%</strong>/%null%_<span class="red">%idnum%</span>-<span class="blue">%idchar%</span>_<span class="green">%date%</span>/<span class="orange">%imgname%</span>/0_0.png&#8221;,</div>
+<div class="line">/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/<strong>strain3</strong>/0184 Uni Nebraska Rice 1_<span class="red">023542</span>-<span class="blue">C</span>_<span class="green">2013-09-05</span>_05-18-33_455640/<span class="orange">RGB SV1</span>/0_0.png</div>
+</div>
+<p>For this example, the value of id would be loaded as &#8220;023542-C&#8221;.  It may seem unnecessary to break up &#8216;idnum&#8217; and &#8216;idchar&#8217;, since we use them together here,
+however, we use &#8216;idchar&#8217; by itself in a later step.  It&#8217;s important to make sure that the identifiers you use match exactly with those used in the path.
+Any value not surrounded by percent signs will be hard-coded into the output value.  So the &#8220;-&#8221; between our &#8220;idnum&#8221; and &#8220;idchar&#8221; identifiers is hard-coded
+into the output value.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;genotype&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;GenKey.csv&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;%idnum%-%idchar%&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;keyColumn&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;valueColumn&quot;</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Here, we define the &#8220;genotype&#8221; for each plant.  This time, the type is &#8220;file&#8221;.  This type of data key searches through the rows of a file,
+assuming that there is a mapping of key -&gt; value in your row. If you look at the <a class="reference download internal" href="_downloads/GenKey.csv"><code class="xref download docutils literal"><span class="pre">Genotype</span> <span class="pre">Key</span> <span class="pre">File</span></code></a>,
+you can see that it is a csv file with two columns.  We can see that the first column contains values that look like our &#8220;id&#8221; value.  The second column
+contains our genotype string &#8211; our target value. The &#8220;file&#8221; type always assumes your input is some sort of value separated file.  It doesn&#8217;t necessarily have to be
+separated by commas, but that is the default functionality.  If your file is separated by something other than commas, specify the &#8220;separator&#8221; option.  There are three
+other required definitions for &#8220;file&#8221; type data keys.  You need to define &#8220;key&#8221;, &#8220;keyColumn&#8221;, and &#8220;valueColumn&#8221;.  The columns themselves are 0-indexed.  In this case, our &#8220;keyColumn&#8221; is 0, because
+our key is located in the 0th column.  &#8220;valueColumn&#8221; is 1, because our key is located in the 1st column.  Finally, our &#8220;key&#8221; value is the same as our &#8220;id&#8221;.  This
+will sift through our file until it finds the row who&#8217;s 0th column is our &#8220;key&#8221; value.  Then, it returns the value of 1st column.  Looking at our path definition and test path again:</p>
+<div class="line-block">
+<div class="line">&#8220;path&#8221;: &#8220;/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/<strong>%null%</strong>/%null%_<span class="red">%idnum%</span>-<span class="blue">%idchar%</span>_<span class="green">%date%</span>/<span class="orange">%imgname%</span>/0_0.png&#8221;,</div>
+<div class="line">/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/<strong>strain3</strong>/0184 Uni Nebraska Rice 1_<span class="red">023542</span>-<span class="blue">C</span>_<span class="green">2013-09-05</span>_05-18-33_455640/<span class="orange">RGB SV1</span>/0_0.png</div>
+</div>
+<p>We will sift through our file looking for &#8220;023542-C&#8221; (which occurs in the 243rd line).  It will then return the corresponding genotype string
+located in the same row, namely UNL032</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;%date%&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="s2">&quot;Y-m-d&quot;</span>
+                <span class="p">},</span>
+</pre></div>
+</div>
+<p>Here, we define the &#8220;date&#8221; for each plant.  We use our final type, &#8220;date&#8221;.  The only additional argument to the date type
+is &#8220;format&#8221;, which specifies the input format of the date.  The date type loads in values based on a combination of identifiers and hard-coded values again,
+but afterwards, it converts the date to Y-m-d format.  In this case, because the input type is defined as &#8220;Y-m-d&#8221; using a date type
+isn&#8217;t strictly required, we use it as an example though.  The date input string can contain &#8220;Y&#8221;, &#8220;y&#8221;, &#8220;M&#8221;, &#8220;m&#8221;, &#8220;d&#8221;, &#8220;B&#8221;, &#8220;b&#8221; as format characters,
+and uses &#8220;-&#8221;, &#8220;/&#8221;, &#8221; &#8221;, and &#8220;_&#8221; as separators.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;treatment&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;translate&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;%idchar%&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;imgname&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;%imgname%&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;imtype&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;translate&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;%imgname%&quot;</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>We include the last three together, because they are all of type &#8220;value&#8221;, and simply use one of the identifiers from the base path in their value.
+However, it is important to note that two of these values have an additional option, namely &#8220;translate&#8221;: &#8220;true&#8221;.  This specifies that the input value
+should be mapped to a different output value.  This functions very similar to a file mapping, except the mapping is defined inside the template.
+It should be noted, that if the &#8220;translate&#8221; option exists in the data key, then it will check for a translation.  Even if you specify &#8220;translate&#8221;: &#8220;false&#8221;,
+it will still check for a translation.  Let&#8217;s look at the translation section:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;translations&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;treatment&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;S&quot;</span><span class="o">:</span> <span class="s2">&quot;Stress&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;s&quot;</span><span class="o">:</span> <span class="s2">&quot;Stress&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C&quot;</span><span class="o">:</span> <span class="s2">&quot;Control&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;c&quot;</span><span class="o">:</span> <span class="s2">&quot;Control&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;imtype&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;RGB SV1&quot;</span><span class="o">:</span> <span class="s2">&quot;rgbsv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;RGB SV2&quot;</span><span class="o">:</span> <span class="s2">&quot;rgbsv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;RGB TV&quot;</span><span class="o">:</span> <span class="s2">&quot;rgbtv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;FLUO SV1&quot;</span><span class="o">:</span> <span class="s2">&quot;fluosv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;FLUO SV2&quot;</span><span class="o">:</span> <span class="s2">&quot;fluosv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;FLUO TV&quot;</span><span class="o">:</span> <span class="s2">&quot;fluotv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;NIR SV1&quot;</span><span class="o">:</span> <span class="s2">&quot;nirsv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;NIR SV2&quot;</span><span class="o">:</span> <span class="s2">&quot;nirsv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;NIR TV&quot;</span><span class="o">:</span> <span class="s2">&quot;nirtv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;IR SV1&quot;</span><span class="o">:</span> <span class="s2">&quot;irsv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;IR SV2&quot;</span><span class="o">:</span> <span class="s2">&quot;irsv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;IR TV&quot;</span><span class="o">:</span> <span class="s2">&quot;irtv&quot;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The translation keys line up exactly with the data keys that have &#8220;translate&#8221;: &#8220;true&#8221; specified.  The data-mapping to perform is simply defined in-line
+as key-value parings.  This is effective for small sets, but is inefficient for large translation sets, such as the genotype file mapping.
+Here, the &#8220;treatment&#8221; translation takes a single character, and maps it to a word.  We simply convert the 1 character idchar into the full word
+&#8220;Control&#8221; or &#8220;Stress&#8221;.  Looking at our path definition and test path again:</p>
+<div class="line-block">
+<div class="line">&#8220;path&#8221;: &#8220;/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/<strong>%null%</strong>/%null%_<span class="red">%idnum%</span>-<span class="blue">%idchar%</span>_<span class="green">%date%</span>/<span class="orange">%imgname%</span>/0_0.png&#8221;,</div>
+<div class="line">/work/walia/common/ih/rawdata/0184 Uni Nebraska Rice 1/<strong>strain3</strong>/0184 Uni Nebraska Rice 1_<span class="red">023542</span>-<span class="blue">C</span>_<span class="green">2013-09-05</span>_05-18-33_455640/<span class="orange">RGB SV1</span>/0_0.png</div>
+</div>
+<p>In this case, our idchar is &#8216;C&#8217;, this means that the &#8220;treatment&#8221; data key, will get mapped to &#8220;Control&#8221;.  We also have a translation defined for &#8220;imtype&#8221;.  Looking at our test path,
+our imgname is &#8220;RGB SV1&#8221;.  This means that the &#8220;imtype&#8221; data key will get mapped to &#8220;rgbsv&#8221;.  Remember, the key difference between defining translations, and using file mapping is size.</p>
+<p>With our template written, we can now load the images using 2 ih commands.  First,
+run the ih-setup command with the name of the folder you want to create:</p>
+<div class="highlight-bash"><div class="highlight"><pre>ih-setup --dir awesome_project
+</pre></div>
+</div>
+<p>This command will create a folder with the name you specify, and will create a two
+deep directory structure, with a couple empty files at the bottom:</p>
+<div class="highlight-bash"><div class="highlight"><pre>awesome_project/
+  input/
+    -config.json
+                -crawl.json
+                -images.db
+                -imgproc.json
+                -stats.json
+</pre></div>
+</div>
+<p>The ih commands assume by default that you are in the top level awesome_project/
+directory, using the above naming conventions for your input files.  The naming
+of the input files can be changed by using optional arguments.  Now that the
+project folder is setup, create your crawl.json file.  The above example is
+specific to our input data, so you must adjust the crawl file to match your
+input data.  Once your crawl.json is created, run the ih-crawl command from the
+awesome_project folder:</p>
+<div class="highlight-bash"><div class="highlight"><pre>ih-crawl
+</pre></div>
+</div>
+<p>This command may take a while to run depending on how many images need to be indexed.
+Once it is finished, it should populate the images.db file with an sqlite3 database.
+The database will contain all of the metadata information it parsed from your path
+names, as well as paths to your images.  Using the images.db file, and two additional
+files, a configuration file (config.json) and an workflow definition file (imgproc.json)
+we can submit jobs.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>The config file contains information that shouldn&#8217;t really change from run to run.  It contains things like installation directories, environment
+variables, and job clustering.  Let&#8217;s take a look.</p>
+<div class="highlight-javascript"><div class="highlight"><pre>{
+        &quot;installdir&quot;: &quot;/work/walia/common/ih/pymodules/bin/&quot;,
+        &quot;profile&quot;: {
+                &quot;pegasus&quot;: {
+                        &quot;style&quot;: &quot;glite&quot;
+                },
+                &quot;condor&quot;: {
+                        &quot;grid_resource&quot;: &quot;pbs&quot;,
+                        &quot;universe&quot;: &quot;vanilla&quot;
+                },
+                &quot;env&quot;: {
+                        &quot;PATH&quot;: &quot;/work/walia/common/ih/pymodules/bin/&quot;,
+                                                                                                &quot;PYTHONPATH&quot;: &quot;/work/walia/common/ih/pymodules/lib/python2.6/site-packages
+                        &quot;LD_LIBRARY_PATH&quot;: &quot;/work/walia/common/ih/pymodules/opencv_lib/&quot;
+                }
+        },
+        &quot;cluster&quot;: 100,
+        &quot;maxwalltime&quot;: {
+                &quot;images&quot;: 2,
+                &quot;stats&quot;: 300
+        },
+        &quot;notify&quot;: {
+                &quot;email&quot;: &quot;avi@kurtknecht.com&quot;,
+                &quot;pegasus_home&quot;: &quot;/usr/share/pegasus/&quot;
+        }
+}
+</pre></div>
+</div>
+<p>Most of these definitions are fairly straightforward, but some, such as the pegasus
+style and condor universe will be specific to the cluster you use.  Make sure
+you use appropriate pegasus configuration for your system.</p>
+<ol class="arabic simple">
+<li>&#8220;installdir&#8221; - This is simply the location to the ih-commands.</li>
+</ol>
+<p>2. &#8220;profile&#8221; - This definition populates the workflows sites.xml file
+(<cite>sites.xml pegasus docs &lt;http://pegasus.isi.edu/wms/docs/latest/site.php&gt;</cite>).
+The variables defined in here will be very specific for your system.  Make
+sure you use the correct pegasus &amp; condor environment variables.  The &#8220;env&#8221;
+definition passes environment variables through to the processing scripts.
+Make sure that &#8220;PATH&#8221; points to necessary executables, &#8220;PYTHONPATH&#8221; points to
+necessary python modules, and &#8220;LD_LIBRARY_PATH&#8221; points to the required opencv
+libraries.</p>
+<p>3.  &#8220;cluster&#8221; - This argument sets the horizontal cluster size for job execution.
+Because individual image processing steps are fast and don&#8217;t require many resources,
+it is advantageous to cluster them.  The number of clusters depends on how many
+input images you have.</p>
+<p>4. &#8220;maxwalltime&#8221; - This argument defines the maximum wall time for image processing
+jobs, and statitistics workflows.  Cummulative wall time for a single cluster is
+the size of the cluster times the value in the &#8220;images&#8221; definition.  For the
+example above, this means that each cluster of 100 images will request 200 mintues
+of wall time.</p>
+<p>5. &#8220;notify&#8221; - This argument defines the information needed for email notifications
+on workflow completion.  Simply provide an email address, and the path to pegasus_home,
+which contains a notification directory.</p>
+</div>
+<div class="section" id="processing">
+<h2>Processing<a class="headerlink" href="#processing" title="Permalink to this headline">¶</a></h2>
+<p>The image processing template contains what image processing functions to use and in what order.  Separate workflows
+are defined for each image type &#8211; as a result the template is quite long.  Here it is in full:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<span class="s2">&quot;workflows&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fluosv&quot;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;pot_filter_1&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="s2">&quot;/work/walia/common/workflows/0184/input/fluosv_pot1.json&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot1&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;(((((((r - g) &lt; 30) and (((r + g) + b) &lt; 110)) or ((((r + g) + b) &gt; 110) and ((r - g) &lt; 50))) or (((r - g) &lt; 25) and ((g - r) &lt; 25))) or (g &gt; 60)) not 1)&quot;</span>
+                        <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;pot_filter_2&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot1&quot;</span><span class="p">,</span> <span class="s2">&quot;/work/walia/common/workflows/0184/input/fluosv_pot2.json&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot2&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;(((r + g) + b) &gt; 120)&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot_filter_1&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;main_filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot2&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;((r - g) &gt; 10)&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot_filter_2&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;crop&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-crop&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">,</span> <span class="s2">&quot;/work/walia/common/workflows/0184/input/fluosv_edge.json&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;edged&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;main_filter&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;cut&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-contour-cut&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;edged&quot;</span><span class="p">,</span> <span class="s2">&quot;edged&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;final&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--basemin&quot;</span><span class="o">:</span> <span class="mi">75</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;crop&quot;</span><span class="p">]</span>
+                <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;rgbtv&quot;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;normalize&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-normalize-intensity&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;normal&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{}</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;meanshift&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-meanshift&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;normal&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;shift&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--spatial_radius&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+                                <span class="s2">&quot;--range_radius&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+                                <span class="s2">&quot;--min_density&quot;</span><span class="o">:</span> <span class="mi">40</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;normalize&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;main_filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;shift&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;(((g &gt; r) and (g &gt; b)) and ((((b max g) max r) - ((b min g) min r)) &gt; 20))&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;meanshift&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;closing&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-morphology&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;morphed&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--ktype&quot;</span><span class="o">:</span> <span class="s2">&quot;ellipse&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--kwidth&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+                                <span class="s2">&quot;--kheight&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+                                <span class="s2">&quot;--morphType&quot;</span><span class="o">:</span> <span class="s2">&quot;close&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;main_filter&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;crop&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-crop&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;morphed&quot;</span><span class="p">,</span> <span class="s2">&quot;/work/walia/common/workflows/0184/input/rgbtv_edge.json&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;edged&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;closing&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;reconstitute&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-bitwise-and&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;edged&quot;</span><span class="p">,</span> <span class="s2">&quot;base&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;recolor&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;crop&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;cut&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-contour-cut&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;recolor&quot;</span><span class="p">,</span> <span class="s2">&quot;recolor&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;final&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--basemin&quot;</span><span class="o">:</span> <span class="mi">200</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;reconstitute&quot;</span><span class="p">]</span>
+                <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;rgbsv&quot;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;pot-detect&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;((((r + g) + b) &lt; 100) or (((b - r) &gt; 40) and ((b - g) &gt; 30)))&quot;</span>
+                        <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;pot-crop&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-contour-cut&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot&quot;</span><span class="p">,</span> <span class="s2">&quot;pot&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;unused_1&quot;</span><span class="p">,</span> <span class="s2">&quot;pot_roi&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--basemin&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+                                <span class="s2">&quot;--padminy&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+                                <span class="s2">&quot;--padmaxy&quot;</span><span class="o">:</span> <span class="mi">2000</span><span class="p">,</span>
+                                <span class="s2">&quot;--padminx&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span>
+                                <span class="s2">&quot;--padmaxx&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span>
+                                <span class="s2">&quot;--returnBound&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot-detect&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;box-crop&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-contour-cut&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot&quot;</span><span class="p">,</span> <span class="s2">&quot;pot&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;unused_2&quot;</span><span class="p">,</span> <span class="s2">&quot;box_roi&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--basemin&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+                                <span class="s2">&quot;--padminy&quot;</span><span class="o">:</span> <span class="mi">35</span><span class="p">,</span>
+                                <span class="s2">&quot;--padmaxy&quot;</span><span class="o">:</span> <span class="mi">2000</span><span class="p">,</span>
+                                <span class="s2">&quot;--padminx&quot;</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+                                <span class="s2">&quot;--padmaxx&quot;</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+                                <span class="s2">&quot;--returnBound&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot-detect&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-convert-color&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;grayscale&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--intype&quot;</span><span class="o">:</span> <span class="s2">&quot;bgr&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--outtype&quot;</span><span class="o">:</span> <span class="s2">&quot;gray&quot;</span>
+                        <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;blur&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-gaussian-blur&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;grayscale&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;blurred&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--kwidth&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+                                <span class="s2">&quot;--kheight&quot;</span><span class="o">:</span> <span class="mi">5</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;gray&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;thresh&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-adaptive-threshold&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;blurred&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;thresh&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--value&quot;</span><span class="o">:</span> <span class="mi">255</span><span class="p">,</span>
+                                <span class="s2">&quot;--thresholdType&quot;</span><span class="o">:</span> <span class="s2">&quot;inverse&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--adaptiveType&quot;</span><span class="o">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--blockSize&quot;</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
+                                <span class="s2">&quot;--C&quot;</span><span class="o">:</span> <span class="mi">3</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;blur&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;reconstitute1&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-bitwise-and&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;thresh&quot;</span><span class="p">,</span> <span class="s2">&quot;base&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;recolor1&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;thresh&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;meanshift&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-meanshift&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;recolor1&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;shift&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--spatial_radius&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                                <span class="s2">&quot;--range_radius&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                                <span class="s2">&quot;--min_density&quot;</span><span class="o">:</span> <span class="mi">50</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;reconstitute1&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;pot-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;shift&quot;</span><span class="p">,</span> <span class="s2">&quot;pot_roi&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot_filtered&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;((((((((((r &gt; g) and (r &gt; b)) and (((b max g) - (b min g)) &lt; (((r + g) + b) / 20))) or ((((b max g) max r) - ((b min g) min r)) &lt; 10)) or ((b &gt; r) and ((b &gt; g) or (g &gt; r)))) or (((r + g) + b) &lt; 220)) or ((((r + g) + b) &lt; 350) and ((((b max g) max r) - ((b min g) min r)) &lt; 25))) or ((b &gt; g) and (r &gt; g))) or (((((r - g) &gt; 5) and ((g - b) &gt; 5)) and ((r - g) &lt; 25)) and ((g - b) &lt; 25))) not 1)&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;meanshift&quot;</span><span class="p">,</span> <span class="s2">&quot;pot-crop&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;box-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot_filtered&quot;</span><span class="p">,</span> <span class="s2">&quot;box_roi&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;box_filtered&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;(((g - b) &gt; 30) or ((r - b) &gt; 30))&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot-filter&quot;</span><span class="p">,</span> <span class="s2">&quot;box-crop&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;gfilter1&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;box_filtered&quot;</span><span class="p">,</span> <span class="s2">&quot;/work/walia/common/workflows/0184/input/rgbsv_gray1.json&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;gray_filtered1&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;((((b max g) max r) - ((b min g) min r)) &gt; 50)&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;box-filter&quot;</span><span class="p">,</span> <span class="s2">&quot;box-crop&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;gfilter2&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;gray_filtered1&quot;</span><span class="p">,</span> <span class="s2">&quot;/work/walia/common/workflows/0184/input/rgbsv_gray2.json&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;gray_filtered2&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;((((b max g) max r) - ((b min g) min r)) &gt; 100)&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;gfilter1&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;crop&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-crop&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;gray_filtered2&quot;</span><span class="p">,</span> <span class="s2">&quot;/work/walia/common/workflows/0184/input/rgbsv_edge.json&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;edged&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;gfilter2&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;reconstitute2&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-bitwise-and&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;edged&quot;</span><span class="p">,</span> <span class="s2">&quot;base&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;recolor2&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;crop&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;cut&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-contour-cut&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;recolor2&quot;</span><span class="p">,</span> <span class="s2">&quot;recolor2&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;final&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--basemin&quot;</span><span class="o">:</span> <span class="mi">50</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;reconstitute2&quot;</span><span class="p">]</span>
+                <span class="p">}</span>
+        <span class="p">]</span>
+<span class="p">},</span>
+<span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span>
+
+<span class="p">},</span>
+<span class="s2">&quot;extract&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;histogram-bin&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;--group&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;rgb&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;rgbsv&quot;</span><span class="p">,</span> <span class="s2">&quot;rgbtv&quot;</span><span class="p">],</span> <span class="s2">&quot;fluo&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;fluosv&quot;</span><span class="p">]},</span>
+                <span class="s2">&quot;--chunks&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;rgb&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;fluo&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]},</span>
+                <span class="s2">&quot;--channels&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;rgb&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;fluo&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;workflows&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;rgbsv&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;final&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--dimfromroi&quot;</span><span class="o">:</span> <span class="s2">&quot;pot_roi&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--dimensions&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--pixels&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--moments&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;cut&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;rgbtv&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;final&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--dimensions&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--pixels&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--moments&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;cut&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;fluosv&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;final&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--dimfromroi&quot;</span><span class="o">:</span> <span class="s2">&quot;/work/walia/common/workflows/0184/input/fluosv_pot1.json&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--pixels&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--moments&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;cut&quot;</span><span class="p">]</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let&#8217;s break it down into more manageable chunks.  We will look at a few jobs from the workflows.
+First, note that all workflow definitions must be under the &#8220;workflows&#8221; key.  Secondly,
+note that the names of the workflows i.e. in this case &#8220;fluosv&#8221;, must match the image types
+of images in your database.  Each workflow is defined as a list of jobs.  The jobs aren&#8217;t
+necessarily executed in the order you specify them in the list, but you should structure
+your job definition such that it follows the list order as closely as possible for ease
+of reading.  Each individual job has 5 required definitions, and 1 optional one.  For each
+job you <strong>must</strong> define a name, an executable, the job inputs, the job outputs, and the job arguments.
+Note that you must include &#8220;arguments&#8221; even if it is left blank.
+For each job you may optionally define dependent jobs.  Let&#8217;s look at the first job we define for fluosv:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;pot_filter_1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="s2">&quot;/work/walia/common/ih/workflows/0184/input/fluosv_pot1.json&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot1&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;(((((((r - g) &lt; 30) and (((r + g) + b) &lt; 110)) or ((((r + g) + b) &gt; 110) and ((r - g) &lt; 50))) or (((r - g) &lt; 25) and ((g - r) &lt; 25))) or (g &gt; 60)) not 1)&quot;</span>
+        <span class="p">}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Here, we define the name as &#8220;pot_filter_1&#8221;.  Names are used to apply a more meaningful label
+to each job for the user, as well as used for dependencies in later processing steps.
+We define the executable we want to use as &#8220;ih-color-filter&#8221; &#8211; This executable is used for
+processing user defined color logic, and will not be talked about in depth here.  We define two inputs
+for our function.  The first is &#8220;base&#8221; &#8211; which serves as a placeholder for raw images.  You can use
+this input in any step and it will load in the starting image.  This is important for steps such
+as reconstiuting the color of the image.  The second argument we feed is a path to a roi file.
+Here are the contents of the file:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;ystart&quot;</span><span class="o">:</span> <span class="mi">1110</span><span class="p">,</span>
+    <span class="s2">&quot;yend&quot;</span><span class="o">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;xstart&quot;</span><span class="o">:</span> <span class="mi">369</span><span class="p">,</span>
+    <span class="s2">&quot;xend&quot;</span><span class="o">:</span> <span class="mi">669</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The roi file simply defines the region we want to apply our color-filter to.
+The roi file will automatically convert &#8220;y&#8221; to the maximum height, and &#8220;x&#8221; to the maximum
+width.  Additionally it supports simply arithmetic, thus you could enter &#8220;y - 300&#8221; for
+&#8220;yend&#8221;.  If this input is left blank, it simply applies the color-filter to the entire image.
+We define the output as &#8220;pot1&#8221;.  This means that the intermediate file will be saved with
+a name of &#8220;pot1&#8221;.  Additionally, we can now use &#8220;pot1&#8221; as input in further steps.  Finally
+we define the arguments of our processing functino &#8211; in this case only one, our logic
+string.  This job is the first job in our processing workflow, so we define no dependencies.
+We now look at the second job for fluosv:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;pot_filter_2&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;executable&quot;</span><span class="o">:</span> <span class="s2">&quot;ih-color-filter&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot1&quot;</span><span class="p">,</span> <span class="s2">&quot;/work/walia/common/ih/workflows/0184/input/fluosv_pot2.json&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;outputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot2&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;--logic&quot;</span><span class="o">:</span> <span class="s2">&quot;(((r + g) + b) &gt; 120)&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;pot_filter_1&quot;</span><span class="p">]</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Note that the input image is now &#8220;pot1&#8221; instead of &#8220;base&#8221;.  This chains the output
+of the previous step into the input of this step.  To fully accomplish this, we must define
+dependency.  Our first job was named &#8220;pot_filter_1&#8221;, and we can see this name in our
+dependency list.  A job can have multiple dependencies, you simply separate the names with
+commas i.e. &#8220;depends&#8221;: [&#8220;job1&#8221;, &#8220;job2&#8221;, &#8220;job3&#8221;].  Whenever you use the output of a previous
+job, you must include it in the dependency list.  Some functions output roi files instead of,
+or in addition to images.  You can similarly use these roi files as input in future steps,
+provided that you include them in the proper location in your &#8220;inputs&#8221; definition.  As a
+demonstration of this, we look at two jobs from the rgbsv workflow, &#8220;box-crop&#8221; and &#8220;box-filter&#8221;.
+&#8220;box-crop&#8221; outputs &#8220;box_roi&#8221; which we use as a roi for &#8220;box-filter&#8221;.  There are two other definitions
+in the processing template.  One is for &#8220;options&#8221; &#8211; which is left blank in this case.  Currently,
+the only supported option is &#8220;save-steps&#8221;.  If you specify:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;save-step&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Each intermediary step (including roi files) will be saved to the final output folder.  Otherwise,
+only the final processed image will be saved.  Lastly, &#8220;extract&#8221; is required, and here you specify
+all the numeric information you want to extract from your final images.  Let&#8217;s take a look:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;extract&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;histogram-bin&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;--group&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;rgb&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;rgbsv&quot;</span><span class="p">,</span> <span class="s2">&quot;rgbtv&quot;</span><span class="p">],</span> <span class="s2">&quot;fluo&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;fluosv&quot;</span><span class="p">]},</span>
+                <span class="s2">&quot;--chunks&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;rgb&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;fluo&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]},</span>
+                <span class="s2">&quot;--channels&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;rgb&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;fluo&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;workflows&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;rgbsv&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;final&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--dimfromroi&quot;</span><span class="o">:</span> <span class="s2">&quot;pot_roi&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--pixels&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--moments&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;cut&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;rgbtv&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;final&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--dimensions&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--pixels&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--moments&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;cut&quot;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;fluosv&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;inputs&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;final&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;--dimfromroi&quot;</span><span class="o">:</span> <span class="s2">&quot;/work/walia/common/workflows/0184/input/fluosv_pot1.json&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--pixels&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;--moments&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;depends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;cut&quot;</span><span class="p">]</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>There is an optional special key you can define &#8211; &#8220;histogram-bin&#8221; &#8211; in the
+extract section.  Specifying this key allows you to perform an experiment-wise histogram
+calculation of color-channel information to generate relevant bins.  It performs the
+following steps:  1. Calculate color histogram for each processed image.  2. Sum
+the histograms to get a histogram for the entire data set.  3. Segment the histogram
+into equal area pieces as based on the inputs. 4. Generate complete permutation
+of bins based on the divided histogram. In the &#8220;histogram-bin&#8221; section we
+first define &#8220;&#8211;group&#8221;.  This allows us to group one or more imtypes from separate
+workflows together.  In this case, we group &#8220;rgbsv&#8221; and &#8220;rgbtv&#8221; together.  This
+allows us to consider color information from the RGB spectrum as a whole.
+We name this group &#8220;rgb&#8221; &#8211; group names are important for future &#8220;histogram-bin&#8221;
+definitions.  Next is &#8220;&#8211;chunks&#8221;.  For each group AND channel, you define how many
+pieces you want the total calculated histogram to be broken up into.  Remember
+that color-space is 3 dimensional, and the order is [B, G, R].  Here, we break up
+rgb images into 5 chunks for each channel (for a total of 125 bins), and we break up
+fluorescence images only by green and red channels.   Finally, we define what channels to
+process for each group.  Channel 0 corresponds to blue, channel 1 corresponds
+to green, and channel 2 corresponds to red.  In this case, we leave channel 0
+out of fluorescence processing &#8211; this is because a majority of the blue values
+in the image are either 0 or 1.  Any channel left out will simply be given a range of [0, 255]
+for every generated bin.</p>
+<p>The definitions in each individual &#8220;workflow&#8221; extract information from each individual
+image.  You must define &#8220;inputs&#8221; and &#8220;depends&#8221; so that the extraction script
+can locate the image you want to extract data from (it does not necessarily have to be the
+final image, though it generally is).  In the arguments section, you define a list of the
+numeric information you want to extract.  For an example of all arguments you can specify,
+look at the ih-extract script.  If you specify &#8220;histogram-bin&#8221; for a particular
+imtype, the &#8220;&#8211;colors&#8221; options is added automatically.  Additionally, there are
+multiple ways to extract dimensions from an image.  If you pass the &#8220;&#8211;dimensions&#8221;
+argument to the image, the dimensions are simply calculated as the height and width
+of the final processed images.  Alternative, you can extract dimensions with reference
+to a region of interest by using the &#8220;&#8211;dimfromroi&#8221; argument.  The &#8220;&#8211;dimfromroi&#8221; argument
+can either by a path to an absolute roi file (as seen in the fluorescence workflow)
+or it can be an intermediate output roi from the actually processing workflow
+(as seen in the rgbsv workflow).</p>
+<p>Finally, to actually generate your workflow, use the ih-run command.  Run this
+command from your top level folder that was generated by the ih-setup command.</p>
+<div class="highlight-bash"><div class="highlight"><pre>ih-run
+</pre></div>
+</div>
+<p>This will combine the information in your configuration file, workflow definition file,
+and image database to create the necessary files for a pegasus workflow.  Additionally,
+before creating the workflow, it validates arguments and dependencies in your workflow.
+Use &#8211;validate to run in validate only mode to help debug your workflow as you create it.
+Depending on how many input images, it may take a while for ih-run to write the necessary submission files.</p>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>Upon sucessful completion of ih-run, a date and timestamped folder should be created
+in your top level folder.  Your setup should now look like this:</p>
+<div class="highlight-bash"><div class="highlight"><pre>awesome_project/
+        date-timestamp/
+          input/
+            imgproc/
+                -conf.rc
+                -extract.dax
+                -map.rc
+                -notify.sh
+                -remove.sh
+                -sites.xml
+                -status.sh
+                -submit.sh
+                -workflow.dax
+            rawfiles/
+            templates/
+          output/
+            -output.db
+          work/
+        input/
+                -config.json
+                -crawl.json
+                -images.db
+                -imgproc.json
+                -stats.json
+</pre></div>
+</div>
+<p>The work directory is where actual processing is done &#8211; but initially starts empty.  The output
+folder starts only with the output database, but contains no images to start with.  The input folder
+contains a copy of your submitted templates in the templates folder, and a copy of all non-image raw-input files
+in the rawfiles folder.  Finally, within the imgproc folder are the actual files required to submit
+a pegasus workflow.  All you need to do to submit is execute the submit.sh script.  This will launch your
+workflow, as well as creating a status.sh script for easy monitoring, and a remove.sh script if you
+want to remove your workflow.  If there are other pegasus errors you may need to adjust your configuration.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

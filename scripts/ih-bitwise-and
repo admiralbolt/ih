@@ -1,0 +1,25 @@
+#!python
+import argparse
+import traceback
+import ih.imgproc
+
+parser = argparse.ArgumentParser(description = "Converts an image between color spectrums.")
+parser.add_argument("--input1", dest="input1", help="Path to first input image.", required = True)
+parser.add_argument("--input2", dest="input2", help="Path to second input image.", required = True)
+parser.add_argument("--outputdir", dest="outputdir", default=".", help="Path to write output files, if not specified use current directory.")
+parser.add_argument("--output", default=None, dest="output", help="Name of output image to write, if not specified, use input image name.")
+parser.add_argument("--mask", default=False, dest="mask", action="store_true", help="Convert the first input image to a mask.")
+parser.add_argument("--writeblank", default=False, action="store_true", help="If errors happen, write a blank file.  Used to ensure dependent files exist for pegasus workflows.")
+args = parser.parse_args()
+
+try:
+    plant = ih.imgproc.Image(args.input1, args.outputdir, args.output, False)
+    if args.mask:
+    	plant.mask()
+    plant.bitwise_and(args.input2)
+    plant.write()
+except Exception as e:
+    print traceback.format_exc()
+    if args.writeblank:
+      with open(args.outputdir + "/" + args.output, "w") as wh:
+        wh.write("not an image.")

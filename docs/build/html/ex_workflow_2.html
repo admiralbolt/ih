@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OSG Workflows &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="up" title="Examples" href="examples.html" />
+    <link rel="next" title="Arkansas Workshop July 2015" href="arkansas_workshop_july_2015.html" />
+    <link rel="prev" title="Workflow Example #1" href="ex_workflow_1.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">OSG Workflows</a><ul>
+<li><a class="reference internal" href="#final-templates">Final Templates</a></li>
+<li><a class="reference internal" href="#system-configuration">System Configuration</a></li>
+<li><a class="reference internal" href="#image-loading">Image Loading</a></li>
+<li><a class="reference internal" href="#image-processing">Image Processing</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li><a class="reference internal" href="#creating-ssh-keys">Creating ssh Keys</a><ul>
+<li><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="ex_workflow_1.html" title="Previous Chapter: Workflow Example #1"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Workflow Example...</span>
+    </a>
+  </li>
+  <li>
+    <a href="arkansas_workshop_july_2015.html" title="Next Chapter: Arkansas Workshop July 2015"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Arkansas Worksho... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/ex_workflow_2.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <style> .red {color:red} .blue {color:blue} .green {color:green} .orange {color:orange} </style><div class="section" id="osg-workflows">
+<h1>OSG Workflows<a class="headerlink" href="#osg-workflows" title="Permalink to this headline">¶</a></h1>
+<p>This section details the modifications necessary to submit your pegasus
+workflows on the <a class="reference external" href="http://www.opensciencegrid.org/">OSG</a>.  Their team has
+set up an environment specifically for our software, so the only changes that
+need to occur are some configuration changes, and creating a tarred version
+of this library. Before you can process, you must request an account at
+<a class="reference external" href="http://osgconnect.net/">osg connect</a>.  Additionally, osg connect contains
+additionally information for getting started, and generated sample super computing
+workflows.</p>
+<div class="section" id="final-templates">
+<h2>Final Templates<a class="headerlink" href="#final-templates" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="_downloads/crawl1.json"><code class="xref download docutils literal"><span class="pre">Image</span> <span class="pre">Loading</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/imgproc1.json"><code class="xref download docutils literal"><span class="pre">Image</span> <span class="pre">Processing</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/config1.json"><code class="xref download docutils literal"><span class="pre">Configuration</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/GenKey1.csv"><code class="xref download docutils literal"><span class="pre">Genotype</span> <span class="pre">Key</span> <span class="pre">File</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/roi.tar1.gz"><code class="xref download docutils literal"><span class="pre">ROI</span> <span class="pre">files</span></code></a></p>
+</div>
+<div class="section" id="system-configuration">
+<h2>System Configuration<a class="headerlink" href="#system-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Before beginning loading and execution of workflows, some environment variables need to
+be updated in order to have access to the appropriate software.  All of this can
+be taken care of by adjusting your ~/.bash_profile.  Adding the following module
+load commands:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="nb">source</span> /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash
+
+module load python/2.7
+module load libgfortran
+module load lapack
+module load atlas
+module load hdf5/1.8.13
+module load netcdf/4.2.0
+module load gnome_libs
+module load ffmpeg/0.10.15
+module load opencv/2.4.10
+module load image_modules
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Workflow submission only works if you use the pegasus version &gt;=4.5.0.  The default pegasus version is currently 4.5.1, but if you have another version of pegasus loaded you will not be able to submit.  Check this by running pegasus-version.</p>
+</div>
+<p>Once you donwload ih, make sure to update your PATH, and PYTHONPATH
+to point to the donwload location of ih.</p>
+</div>
+<div class="section" id="image-loading">
+<h2>Image Loading<a class="headerlink" href="#image-loading" title="Permalink to this headline">¶</a></h2>
+<p>This image loading template looks nearly identical to the template from
+the previous example.  The data set we use here is a small subset of the data
+from the previous example.  There are no specific adjustments that need to be
+made for image crawling to work on the OSG.  The difference in this case,
+is that the data is publicly available in the &#64;RicePhenomics group folder.
+Here are the first few lines of the crawl.json file:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;/stash/project/@RicePhenomics/public/tinySet/%null%/%null%_%idnum%-%idchar%_%date%/%imgname%/0_0.png&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;base&quot;</span><span class="o">:</span> <span class="s2">&quot;/stash/project/@RicePhenomics/public/tinySet&quot;</span><span class="p">,</span>
+    <span class="p">...</span>
+</pre></div>
+</div>
+<p>The data set located in <a class="reference external" href="mailto:/stash/project/&#37;&#52;&#48;RicePhenomics/public/tinySet">/stash/project/<span>&#64;</span>RicePhenomics/public/tinySet</a> is publicly available,
+so you shouldn&#8217;t need to adjust this file at all!  To setup a project directory and load images run:</p>
+<div class="highlight-bash"><div class="highlight"><pre>ih-setup --dir awesome_project
+<span class="c"># copy the above crawl.json file over awesome_project/input/crawl.json</span>
+<span class="nb">cd </span>awesome_project
+ih-crawl
+</pre></div>
+</div>
+</div>
+<div class="section" id="image-processing">
+<h2>Image Processing<a class="headerlink" href="#image-processing" title="Permalink to this headline">¶</a></h2>
+<p>The image processing file imgproc.json requires no osg specific changes, but
+make sure to adjust the paths to the ROI files appropriately to your project
+setup.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>The configuration for osg submissions is very different, and you must additionally
+generate an ih distribution, and ssh keys to transfer your files.
+Here is the adjusted configuration file:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+                <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;installdir&quot;</span><span class="o">:</span> <span class="s2">&quot;/home/aknecht/stash/walia/ih/ih/build/scripts-2.7/&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;profile&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;pegasus&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;condor&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;condor&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;universe&quot;</span><span class="o">:</span> <span class="s2">&quot;vanilla&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;requirements&quot;</span><span class="o">:</span> <span class="s2">&quot;OSGVO_OS_STRING == \&quot;RHEL 6\&quot; &amp;amp;&amp;amp; HAS_FILE_usr_lib64_libstdc___so_6 &amp;amp;&amp;amp; CVMFS_oasis_opensciencegrid_org_REVISION &gt;= 3590&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;+WantsStashCache&quot;</span><span class="o">:</span> <span class="s2">&quot;True&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;+ProjectName&quot;</span><span class="o">:</span> <span class="s2">&quot;YOUR_OSG_PROJECT_NAME&quot;</span>
+                        <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;osg&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;tarball&quot;</span><span class="o">:</span> <span class="s2">&quot;/home/aknecht/stash/walia/ih/ih/dist/ih-1.0.tar.gz&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ssh&quot;</span><span class="o">:</span> <span class="s2">&quot;/home/aknecht/.ssh/workflow&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;cluster&quot;</span><span class="o">:</span> <span class="mi">80</span><span class="p">,</span>
+                <span class="s2">&quot;maxwalltime&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;stats&quot;</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
+                        <span class="s2">&quot;images&quot;</span><span class="o">:</span> <span class="mi">2</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;notify&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;YOUR_EMAIL&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;pegasus_home&quot;</span><span class="o">:</span> <span class="s2">&quot;/usr/share/pegasus/&quot;</span>
+                <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Most of the information is the same as the configuration file from the previous
+workflow example, but there are a few differences.  First, there is a version definition,
+which should match the version of your ih tarball (Currently 1.0).  Next, the condor configuration
+should have the &#8220;requirements&#8221; and &#8220;+WantsStashCache&#8221; definitions, and they should
+match as above.  The &#8220;+ProjectName&#8221; definition is if you have a group on the OSG,
+and it should match your group name.  Finally, there is an &#8220;osg&#8221; specific key.
+This requires a path to an ih tarball distribution, as well as a path to your
+ssh private key.</p>
+</div>
+</div>
+<div class="section" id="creating-the-ih-distribution">
+<h1>Creating the ih Distribution<a class="headerlink" href="#creating-the-ih-distribution" title="Permalink to this headline">¶</a></h1>
+<p>To create a tarball distribution, navigate to your ih install, and run:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">sdist</span>
+</pre></div>
+</div>
+<p>This will create a dist folder, as well as an ih-1.0.tar.gz file.  Pass the
+full path to this file into the &#8220;tarball&#8221; definition.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The python setup.py sdist commnad does not correctly create hashbangs for the ih scripts.  The scripts need to point to the python2.7 we loaded from cvfms.  To fix this, run the folllowing:</p>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># first cd to the dist folder after creating it with python setup.py sdist</span>
+<span class="nb">cd </span>dist
+<span class="c"># un-tar the archive</span>
+tar -zxvf ih-1.0.tar.gz
+<span class="c"># cd to the scripts folder</span>
+<span class="nb">cd </span>ih-1.0/scripts/
+<span class="c"># replace the &#39;#!pytohn&#39; hashbangs with the appropriate ones</span>
+sed -i <span class="s1">&#39;s/#!python/#!\/cvmfs\/oasis.opensciencegrid.org\/osg\/modules\/virtualenv-2.7\/image_modules\/bin\/python/&#39;</span> *
+<span class="c"># cd out</span>
+<span class="nb">cd</span> ../../
+<span class="c"># re-tar our folder</span>
+tar -zcvf ih-1.0.tar.gz ih-1.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-ssh-keys">
+<h1>Creating ssh Keys<a class="headerlink" href="#creating-ssh-keys" title="Permalink to this headline">¶</a></h1>
+<p>Next, for data staging and transferring files to work successfully, you need to create an ssh key pair
+for your workflow.  Run the following:</p>
+<div class="highlight-bash"><div class="highlight"><pre>ssh-keygen -t rsa -b 2048
+</pre></div>
+</div>
+<p>This while generate an ssh key pair.  You will be prompted for a name and a
+password.  When prompted for the password, hit enter to leave the password blank.
+After this finishes, there should be two files created in your ~/.ssh/ folder,
+a private key file and public key file with the name that you gave.  The public
+key is simply the file that ends with &#8221;.pub&#8221;. Append the contents of the public
+key file to your ~/.ssh/authorized_keys files.  If there is not a ~/.ssh/authorized_keys
+files, then create it and append the contents of your public key to it.</p>
+<div class="highlight-bash"><div class="highlight"><pre>cat ~/.ssh/KEY_NAME.pub &gt;&gt; ~/.ssh/authorized_keys
+</pre></div>
+</div>
+<p>Make sure you provide the full path to the PRIVATE key for the &#8220;ssh&#8221; definition.
+Now you are ready to generate and submit your workflow!  Make sure you cd
+to your top level folder (awesome_project) and then run:</p>
+<div class="highlight-bash"><div class="highlight"><pre>ih-run
+</pre></div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>Upon successfuly completion of ih-run, a date and timestamped folder should be created in
+your top level folder (awesome_project).  Your setup should now look like this:</p>
+<div class="highlight-bash"><div class="highlight"><pre>awesome_project/
+    date-timestamp/
+      input/
+        imgproc/
+        -conf.rc
+        -extract.dax
+        -map.rc
+        -notify.sh
+        -remove.sh
+        -sites.xml
+        -status.sh
+        -submit.sh
+        -workflow.dax
+        rawfiles/
+        templates/
+      output/
+        -output.db
+      staging/
+      work/
+    input/
+        -config.json
+        -crawl.json
+        -images.db
+        -imgproc.json
+        -stats.json
+</pre></div>
+</div>
+<p>An additional staging folder is created for osg workflows &#8211; this is where all the input and processed files are transferred through.  The work directory is where actual processing is done &#8211; but initially starts empty.  The output
+folder starts only with the output database, but contains no images to start with.  The input folder
+contains a copy of your submitted templates in the templates folder, and a copy of all non-image raw-input files
+in the rawfiles folder.  Finally, within the imgproc folder are the actual files required to submit
+a pegasus workflow.  All you need to do to submit is execute the submit.sh script.  This will launch your
+workflow, as well as creating a status.sh script for easy monitoring, and a remove.sh script if you
+want to remove your workflow.  If there are other pegasus errors you may need to adjust your configuration.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Before executing the submit.sh script, unload the python/2.7 module.</p>
+</div>
+<p>Unfortunately, an awkward python version juggling needs to be done.  The system pegasus wants python2.6, but ih needs python2.7.  Make sure you execute:</p>
+<div class="highlight-bash"><div class="highlight"><pre>module unload python/2.7
+</pre></div>
+</div>
+<p>Before you submit you workflow.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

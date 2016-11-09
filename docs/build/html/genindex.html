@@ -1,0 +1,584 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Index &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.adaptiveThreshold">adaptiveThreshold() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.addWeighted">addWeighted() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="statistics.html#ih.statistics.Stats.anova">anova() (ih.statistics.Stats method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.bitwise_and">bitwise_and() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.bitwise_not">bitwise_not() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.bitwise_or">bitwise_or() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.bitwise_xor">bitwise_xor() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.blur">blur() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.colorFilter">colorFilter() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.contourChop">contourChop() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.contourCut">contourCut() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.convertColor">convertColor() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="statistics.html#ih.statistics.Stats.correlation">correlation() (ih.statistics.Stats method)</a>
+  </dt>
+
+      
+  <dt><a href="indexing.html#ih.workflow.ImageLoader.crawl">crawl() (ih.workflow.ImageLoader method)</a>
+  </dt>
+
+      
+  <dt><a href="workflowimage.html#ih.workflow.ImageProcessor.create">create() (ih.workflow.ImageProcessor method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="workflowstats.html#ih.workflow.Statistics.create">(ih.workflow.Statistics method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.crop">crop() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.destroy">destroy() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.drawContours">drawContours() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.edges">edges() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.equalizeColor">equalizeColor() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.equalizeHist">equalizeHist() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="statistics.html#ih.statistics.Stats.export">export() (ih.statistics.Stats method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractBins">extractBins() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractColorChannels">extractColorChannels() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractColorData">extractColorData() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractConvexHull">extractConvexHull() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractDimensions">extractDimensions() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractDimsFromROI">extractDimsFromROI() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractFinalPath">extractFinalPath() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractLabels">extractLabels() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractMinEnclosingCircle">extractMinEnclosingCircle() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractMoments">extractMoments() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.extractPixels">extractPixels() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.fill">fill() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.floodFill">floodFill() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.gaussianBlur">gaussianBlur() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.getBounds">getBounds() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image">Image (class in ih.imgproc)</a>
+  </dt>
+
+      
+  <dt><a href="indexing.html#ih.workflow.ImageLoader">ImageLoader (class in ih.workflow)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="workflowimage.html#ih.workflow.ImageProcessor">ImageProcessor (class in ih.workflow)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.kmeans">kmeans() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.knn">knn() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.list">list() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="statistics.html#ih.statistics.Stats.logErrors">logErrors() (ih.statistics.Stats method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.mask">mask() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.meanshift">meanshift() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.medianBlur">medianBlur() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.morphology">morphology() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="statistics.html#ih.statistics.Stats.normalize">normalize() (ih.statistics.Stats method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.normalizeByIntensity">normalizeByIntensity() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.resize">resize() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.resizeSelf">resizeSelf() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.restore">restore() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.rotateColor">rotateColor() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.save">save() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="statistics.html#ih.statistics.Stats.shootArea">shootArea() (ih.statistics.Stats method)</a>
+  </dt>
+
+      
+  <dt><a href="processing.html#ih.imgproc.Image.show">show() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.split">split() (ih.imgproc.Image method)</a>
+  </dt>
+
+      
+  <dt><a href="workflowstats.html#ih.workflow.Statistics">Statistics (class in ih.workflow)</a>
+  </dt>
+
+      
+  <dt><a href="statistics.html#ih.statistics.Stats">Stats (class in ih.statistics)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.threshold">threshold() (ih.imgproc.Image method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="statistics.html#ih.statistics.Stats.threshold">(ih.statistics.Stats method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="statistics.html#ih.statistics.Stats.treatmentComp">treatmentComp() (ih.statistics.Stats method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="statistics.html#ih.statistics.Stats.tTest">tTest() (ih.statistics.Stats method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.wait">wait() (ih.imgproc.Image method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="processing.html#ih.imgproc.Image.write">write() (ih.imgproc.Image method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="indexing.html#ih.workflow.ImageLoader.write">(ih.workflow.ImageLoader method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

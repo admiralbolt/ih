@@ -1,0 +1,65 @@
+{
+	"path": "/work/walia/common/rawdata/0184_Uni_Nebraska_Rice_1/%null%/%null%_%null%_%null%_%null%_%null%_%idnum%-%idchar%_%date%_%null%/%imgname%/0_0.png",
+	"base": "/work/walia/common/rawdata/0184_Uni_Nebraska_Rice_1/",
+	"filetype": ".png",
+	"order": ["experiment", "id", "genotype", "date", "treatment", "imgname", "imtype", "path"],
+	"data": {
+		"experiment": {
+			"type": "value",
+			"value": "0184"
+		},
+		"id": {
+			"type": "value",
+			"value": "%idnum%-%idchar%"
+		},
+		"genotype": {
+			"type": "file",
+			"value": "/work/walia/common/workflows/0184/input/GenKey.csv",
+			"key": "%idnum%-%idchar%",
+			"keyColumn": 0,
+			"valueColumn": 1
+			
+		},
+		"date": {
+			"type": "date",
+			"value": "%date%",
+			"format": "Y-m-d"
+		},
+		"treatment": {
+			"type": "value",
+			"translate": "true",
+			"value": "%idchar%"
+		},
+		"imgname": {
+			"type": "value",
+			"value": "%imgname%"
+		},
+		"imtype": {
+			"type": "value",
+			"translate": "true",
+			"value": "%imgname%"
+		}
+	},
+	"translations": {
+		"treatment": {
+			"S": "Stress",
+			"s": "Stress",
+			"C": "Control",
+			"c": "Control"
+		},
+		"imtype": {
+			"RGB_SV1": "rgbsv",
+			"RGB_SV2": "rgbsv",
+			"RGB_TV": "rgbtv",
+			"FLUO_SV1": "fluosv",
+			"FLUO_SV2": "fluosv",
+			"FLUO_TV": "fluotv",
+			"NIR_SV1": "nirsv",
+			"NIR_SV2": "nirsv",
+			"NIR_TV": "nirtv",
+			"IR_SV1": "irsv",
+			"IR_SV2": "irsv",
+			"IR_TV": "irtv"
+		}
+	}
+}

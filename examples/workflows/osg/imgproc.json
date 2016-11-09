@@ -1,0 +1,327 @@
+{
+	"workflows": {
+		"fluosv": [
+			{
+				"name": "pot_filter_1",
+				"executable": "ih-color-filter",
+				"inputs": ["base", "/home/aknecht/stash/walia/ih/workflows/tinySet/input/fluosv_pot1.json"],
+				"outputs": ["pot1"],
+				"arguments": {
+					"--logic": "(((((((r - g) < 30) and (((r + g) + b) < 110)) or ((((r + g) + b) > 110) and ((r - g) < 50))) or (((r - g) < 25) and ((g - r) < 25))) or (g > 60)) not 1)"
+				}
+			},
+			{
+				"name": "pot_filter_2",
+				"executable": "ih-color-filter",
+				"inputs": ["pot1", "/home/aknecht/stash/walia/ih/workflows/tinySet/input/fluosv_pot2.json"],
+				"outputs": ["pot2"],
+				"arguments": {
+					"--logic": "(((r + g) + b) > 120)"
+				},
+				"depends": ["pot_filter_1"]
+			},
+			{
+				"name": "main_filter",
+				"executable": "ih-color-filter",
+				"inputs": ["pot2"],
+				"outputs": ["filter"],
+				"arguments": {
+					"--logic": "((r - g) > 10)"
+				},
+				"depends": ["pot_filter_2"]
+			},
+			{
+				"name": "crop",
+				"executable": "ih-crop",
+				"inputs": ["filter", "/home/aknecht/stash/walia/ih/workflows/tinySet/input/fluosv_edge.json"],
+				"outputs": ["edged"],
+				"arguments": {},
+				"depends": ["main_filter"]
+			},
+			{
+				"name": "cut",
+				"executable": "ih-contour-cut",
+				"inputs": ["edged", "edged"],
+				"outputs": ["final"],
+				"arguments": {
+					"--resize": "",
+					"--basemin": 75
+				},
+				"depends": ["crop"]
+			}
+		],
+		"rgbtv": [
+			{
+				"name": "normalize",
+				"executable": "ih-normalize-intensity",
+				"inputs": ["base"],
+				"outputs": ["normal"],
+				"arguments": {}
+			},
+			{
+				"name": "meanshift",
+				"executable": "ih-meanshift",
+				"inputs": ["normal"],
+				"outputs": ["shift"],
+				"arguments": {
+					"--spatial_radius": 4,
+					"--range_radius": 4,
+					"--min_density": 40
+				},
+				"depends": ["normalize"]
+			},
+			{
+				"name": "main_filter",
+				"executable": "ih-color-filter",
+				"inputs": ["shift"],
+				"outputs": ["filter"],
+				"arguments": {
+					"--logic": "(((g > r) and (g > b)) and ((((b max g) max r) - ((b min g) min r)) > 20))"
+				},
+				"depends": ["meanshift"]
+			},
+			{
+				"name": "closing",
+				"executable": "ih-morphology",
+				"inputs": ["filter"],
+				"outputs": ["morphed"],
+				"arguments": {
+					"--ktype": "ellipse",
+					"--kwidth": 5,
+					"--kheight": 5,
+					"--morphType": "close"
+				},
+				"depends": ["main_filter"]
+			},
+			{
+				"name": "crop",
+				"executable": "ih-crop",
+				"inputs": ["morphed", "/home/aknecht/stash/walia/ih/workflows/tinySet/input/rgbtv_edge.json"],
+				"outputs": ["edged"],
+				"arguments": {},
+				"depends": ["closing"]
+			},
+			{
+				"name": "reconstitute",
+				"executable": "ih-bitwise-and",
+				"inputs": ["edged", "base"],
+				"outputs": ["recolor"],
+				"arguments": {},
+				"depends": ["crop"]
+			},
+			{
+				"name": "cut",
+				"executable": "ih-contour-cut",
+				"inputs": ["recolor", "recolor"],
+				"outputs": ["final"],
+				"arguments": {
+					"--basemin": 200,
+					"--resize": ""
+				},
+				"depends": ["reconstitute"]
+			}
+		],
+		"rgbsv": [
+			{
+				"name": "pot-detect",
+				"executable": "ih-color-filter",
+				"inputs": ["base"],
+				"outputs": ["pot"],
+				"arguments": {
+					"--logic": "((((r + g) + b) < 100) or (((b - r) > 40) and ((b - g) > 30)))"
+				}
+			},
+			{
+				"name": "pot-crop",
+				"executable": "ih-contour-cut",
+				"inputs": ["pot", "pot"],
+				"outputs": ["unused_1", "pot_roi"],
+				"arguments": {
+					"--basemin": 100,
+					"--padminy": 100,
+					"--padmaxy": 2000,
+					"--padminx": -25,
+					"--padmaxx": -25,
+					"--returnBound": ""
+				},
+				"depends": ["pot-detect"]
+			},
+			{
+				"name": "box-crop",
+				"executable": "ih-contour-cut",
+				"inputs": ["pot", "pot"],
+				"outputs": ["unused_2", "box_roi"],
+				"arguments": {
+					"--basemin": 100,
+					"--padminy": 35,
+					"--padmaxy": 2000,
+					"--padminx": 25,
+					"--padmaxx": 25,
+					"--returnBound": ""
+				},
+				"depends": ["pot-detect"]
+			},
+			{
+				"name": "gray",
+				"executable": "ih-convert-color",
+				"inputs": ["base"],
+				"outputs": ["grayscale"],
+				"arguments": {
+					"--intype": "bgr",
+					"--outtype": "gray"
+				}
+			},
+			{
+				"name": "blur",
+				"executable": "ih-gaussian-blur",
+				"inputs": ["grayscale"],
+				"outputs": ["blurred"],
+				"arguments": {
+					"--kwidth": 5,
+					"--kheight": 5
+				},
+				"depends": ["gray"]
+			},
+			{
+				"name": "thresh",
+				"executable": "ih-adaptive-threshold",
+				"inputs": ["blurred"],
+				"outputs": ["thresh"],
+				"arguments": {
+					"--value": 200,
+					"--thresholdType": "inverse",
+					"--adaptiveType": "mean",
+					"--blockSize": 15,
+					"--C": 3
+				},
+				"depends": ["blur"]
+			},
+			{
+				"name": "reconstitute1",
+				"executable": "ih-bitwise-and",
+				"inputs": ["thresh", "base"],
+				"outputs": ["recolor1"],
+				"arguments": {},
+				"depends": ["thresh"]
+			},
+			{
+				"name": "meanshift",
+				"executable": "ih-meanshift",
+				"inputs": ["recolor1"],
+				"outputs": ["shift"],
+				"arguments": {
+					"--spatial_radius": 2,
+					"--range_radius": 2,
+					"--min_density": 50
+				},
+				"depends": ["reconstitute1"]
+			},
+			{
+				"name": "pot-filter",
+				"executable": "ih-color-filter",
+				"inputs": ["shift", "pot_roi"],
+				"outputs": ["pot_filtered"],
+				"arguments": {
+					"--logic": "((((((((((r > g) and (r > b)) and (((b max g) - (b min g)) < (((r + g) + b) / 20))) or ((((b max g) max r) - ((b min g) min r)) < 10)) or ((b > r) and ((b > g) or (g > r)))) or (((r + g) + b) < 220)) or ((((r + g) + b) < 350) and ((((b max g) max r) - ((b min g) min r)) < 25))) or ((b > g) and (r > g))) or (((((r - g) > 5) and ((g - b) > 5)) and ((r - g) < 25)) and ((g - b) < 25))) not 1)"
+				},
+				"depends": ["meanshift", "pot-crop"]
+			},
+			{
+				"name": "box-filter",
+				"executable": "ih-color-filter",
+				"inputs": ["pot_filtered", "box_roi"],
+				"outputs": ["box_filtered"],
+				"arguments": {
+					"--logic": "(((((r > g) and (r > b)) and (((b max g) - (b min g)) < (((r + g) + b) / 20))) or ((((b max g) max r) - ((b min g) min r)) < 10)) not 1)"
+				},
+				"depends": ["pot-filter", "box-crop"]
+			},
+			{
+				"name": "gfilter1",
+				"executable": "ih-color-filter",
+				"inputs": ["box_filtered", "/home/aknecht/stash/walia/ih/workflows/tinySet/input/rgbsv_gray1.json"],
+				"outputs": ["gray_filtered1"],
+				"arguments": {
+					"--logic": "((((b max g) max r) - ((b min g) min r)) > 50)"
+				},
+				"depends": ["box-filter", "box-crop"]
+			},
+			{
+				"name": "gfilter2",
+				"executable": "ih-color-filter",
+				"inputs": ["gray_filtered1", "/home/aknecht/stash/walia/ih/workflows/tinySet/input/rgbsv_gray2.json"],
+				"outputs": ["gray_filtered2"],
+				"arguments": {
+					"--logic": "((((b max g) max r) - ((b min g) min r)) > 100)"
+				},
+				"depends": ["gfilter1"]
+			},
+			{
+				"name": "crop",
+				"executable": "ih-crop",
+				"inputs": ["gray_filtered2", "/home/aknecht/stash/walia/ih/workflows/tinySet/input/rgbsv_edge.json"],
+				"outputs": ["edged"],
+				"arguments": {},
+				"depends": ["gfilter2"]
+			},
+			{
+				"name": "reconstitute2",
+				"executable": "ih-bitwise-and",
+				"inputs": ["edged", "base"],
+				"outputs": ["recolor2"],
+				"arguments": {},
+				"depends": ["crop"]
+			},
+			{
+				"name": "cut",
+				"executable": "ih-contour-cut",
+				"inputs": ["recolor2", "recolor2"],
+				"outputs": ["final"],
+				"arguments": {
+					"--basemin": 50,
+					"--resize": ""
+				},
+				"depends": ["reconstitute2"]
+			}
+		]
+	},
+	"options": {
+		"save-steps": "true"
+	},
+	"extract": {
+		"histogram-bin": {
+			"--group": {"rgb": ["rgbsv", "rgbtv"], "fluo": ["fluosv"]},
+			"--chunks": {"rgb": 5, "fluo": 6},
+			"--channels": {"rgb": [0, 1, 2], "fluo": [1, 2]}
+		},
+		"workflows": {
+			"rgbsv": {
+				"inputs": ["final"],
+				"arguments": {
+					"--dimensions": "",
+					"--pixels": "",
+					"--moments": ""
+				},
+				"depends": ["cut"]
+			},
+			"rgbtv": {
+				"inputs": ["final"],
+				"arguments": {
+					"--dimensions": "",
+					"--pixels": "",
+					"--moments": ""
+				},
+				"depends": ["cut"]
+			},
+			"fluosv": {
+				"inputs": ["final"],
+				"arguments": {
+					"--dimensions": "",
+					"--pixels": "",
+					"--moments": ""
+				},
+				"depends": ["cut"]
+			}
+		}
+	}
+}

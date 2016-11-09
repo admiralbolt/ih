@@ -1,0 +1,19 @@
+#!python
+import argparse
+import traceback
+import ih.statistics
+import json
+
+parser = argparse.ArgumentParser(description = "Export sqlite tables to csv.")
+parser.add_argument("--db", dest="db", help="Database to run statistics on.", required = True)
+parser.add_argument("--table", dest="table", help="Input table to write to a file.", required = True)
+parser.add_argument("--group", dest="group", nargs="+", help="Image types to extract.")
+parser.add_argument("--fname", dest="fname", help="File to write to, if unspecified, file will be written in the current directory with the specified table name.")
+args = parser.parse_args()
+
+try:
+    stats = ih.statistics.Stats(args.db)
+    stats.export(args.table, args.fname, group = args.group)
+    stats._closeConnection()
+except Exception as e:
+    print traceback.format_exc()

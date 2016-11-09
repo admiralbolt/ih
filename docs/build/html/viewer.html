@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Image Processing Viewer &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Statistics" href="statistics.html" />
+    <link rel="prev" title="Image Processing" href="processing.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Image Processing Viewer</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="processing.html" title="Previous Chapter: Image Processing"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Image Processing</span>
+    </a>
+  </li>
+  <li>
+    <a href="statistics.html" title="Next Chapter: Statistics"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Statistics &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/viewer.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="image-processing-viewer">
+<h1>Image Processing Viewer<a class="headerlink" href="#image-processing-viewer" title="Permalink to this headline">¶</a></h1>
+    <!-- <script type="text/javascript" src="/data/viewerim/viewer.json"></script> -->
+<script type="text/javascript" src="/Users/aknecht/git/ih/docs/images/viewer.json"></script>
+    <script type="text/javascript">
+            var base = "/Users/aknecht/git/ih/docs/images/";
+    // var base = "/data/viewerim/"
+            $(function() {
+                    $("#function").on("change", function() {
+                            optstr = ""
+                            if ($("#function").val() == "bitwise_not" || $("#function").val() == "normalizeByIntensity") {
+                                    optstr += "<input type='hidden' class='imload' />";
+                            }
+                            for (var ordernum in data[$("#function").val()]["order"]) {
+                                    option = data[$("#function").val()]["order"][ordernum]
+                                    optstr += "<div class='form-group'>";
+                                    optstr += "<label for='" + option + "'>" + option + "</label>";
+                                    optstr += "<select class='form-control imload' name='" + option + "' id='load_" + ordernum + "'>";
+                                    for (var arg in data[$("#function").val()][option]) {
+                                            optstr += "<option value='" + data[$("#function").val()][option][arg] + "'>" + data[$("#function").val()][option][arg] + "</option>";
+                                    }
+                                    optstr += "</select>"
+                                    optstr += "</div>";
+                            }
+                            $("#options").html(optstr);
+                            $("#options .imload").trigger("change");
+                    });
+                    $("#image").on("change", function() {
+                            $("#inputImage").html("<img src='" + base + "sample/" + $("#image").val() + "' />");
+                            $("#options .imload").trigger("change");
+                    });
+                    $("#options").on("change", ".imload", function() {
+                            var l = $("#options > div").length;
+                            var impath = base + "/" + $("#function").val() + "/"
+                            for (var i = 0; i < l; i++) {
+                                    impath += $("#load_" + i).attr("name");
+                                    impath += $("#load_" + i).val()
+                            }
+                            impath += $("#image").val();
+                            $("#outputImage").html("<img src='" + escape(impath) + "' />");
+                    });
+                    $("#function").trigger("change");
+                    $("#image").trigger("change");
+            });
+    </script>
+    <div class="row">
+            <div style="height:613px;" class="col-md-2">
+                    <form>
+                            <div class="form-group">
+                                    <label for="function">Function</label>
+                                    <select class="form-control" id="function">
+                                            <option value="adaptiveThreshold">Adaptive Threshold</option>
+                                            <option value="bitwise_and">Bitwise And</option>
+                                            <option value="bitwise_not">Bitwise Not</option>
+                                            <option value="bitwise_or">Bitwise Or</option>
+                                            <option value="bitwise_xor">Bitwise XOr</option>
+                                            <option value="blur">Blur</option>
+                                            <option value="colorFilter">Color Filter</option>
+                                            <option value="convertColor">Convert Color</option>
+                                            <option value="crop">Crop</option>
+                                            <option value="edges">Edges</option>
+                                            <option value="gaussianBlur">Gaussian Blur</option>
+                                            <option value="kmeans">Kmeans</option>
+                                            <option value="meanshift">Mean Shift Segmentation</option>
+                                            <option value="morphology">Morphology</option>
+                                            <option value="normalizeByIntensity">Normalize By Intensity</option>
+                                            <option value="threshold">Threshold</option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                    <label for="image">Images</label>
+                                    <select class="form-control" id="image">
+                                            <option value="rgbsv1.png">rgbsv1</option>
+                                            <option value="rgbsv2.png">rgbsv2</option>
+                                            <option value="rgbsv3.png">rgbsv3</option>
+                                            <option value="rgbtv1.png">rgbtv1</option>
+                                            <option value="rgbtv2.png">rgbtv2</option>
+                                            <option value="rgbtv3.png">rgbtv3</option>
+                                            <option value="fluosv1.png">fluosv1</option>
+                                            <option value="fluosv2.png">fluosv2</option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                    <label for="options">Options</label>
+                                    <hr style="margin-top:0px;margin-bottom:5px;">
+                            </div>
+                            <div id="options">
+
+                            </div>
+                    </form>
+            </div>
+            <div id="inputImage" style="height:613px;" class="col-md-5">
+
+            </div>
+            <div id="outputImage" style="height:613px;" class="col-md-5">
+
+            </div>
+    </div>
+    <div class="row">
+            <br />
+    </div></div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

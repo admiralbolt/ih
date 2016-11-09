@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Image Processing &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Image Processing Viewer" href="viewer.html" />
+    <link rel="prev" title="Arkansas Workshop July 2015" href="arkansas_workshop_july_2015.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Image Processing</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="arkansas_workshop_july_2015.html" title="Previous Chapter: Arkansas Workshop July 2015"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Arkansas Worksho...</span>
+    </a>
+  </li>
+  <li>
+    <a href="viewer.html" title="Next Chapter: Image Processing Viewer"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Image Processing... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/processing.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="image-processing">
+<h1>Image Processing<a class="headerlink" href="#image-processing" title="Permalink to this headline">¶</a></h1>
+<p>This page contains specific implementation details of image processing functions.
+Additionally, the next page contains an interactive image processing function viewer.
+It allows for adjusting inputs and seeing results of many different functions
+on several different sample input images.  Before talking about processing functions,
+we are first going to talk about inputting resources.</p>
+<h3>Images</h3><p>Images are mostly input at the beginning of processing,
+but there area few functions such as <a class="reference internal" href="#ih.imgproc.Image.bitwise_and" title="ih.imgproc.Image.bitwise_and"><code class="xref py py-meth docutils literal"><span class="pre">bitwise_and()</span></code></a>
+that take additional images as inputs.  When first loading the image,
+it can be constructed with either a path to the image or a raw numpy array.
+When loading an additional image into a function, it can be a path, a numpy array,
+or a state.  Loading an image from a path simply requires a string of an absolute or relative path
+to the image.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s">&quot;/path/to/your/image.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Most of the time other methods of input are not required, but they can
+be useful in certain circumstances.  OpenCV represnts images as numpy arrays &#8211;
+effectively, a large matrix that has a blue, green, and red value at each of the indices.
+By allowing images to be loaded in as a numpy array directly, Image Harvest can be used in
+conjunction with any other image tool that also uses OpenCV or represents images as numpy arrays.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s">&quot;/path/to/your/image.png&quot;</span><span class="p">)</span>
+<span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, you can pass in a state to a function to use a previously saved image.
+Because states require you to save something first, you cannot instantiate an
+image with a state.  This is particularly useful when recoloring a thresholded image:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s">&quot;/path/to/your/image.png&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;bgr&quot;</span><span class="p">,</span> <span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">127</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="s">&quot;base&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<h3>ROI's</h3><p>Regions Of Interest can also be input as either a list, or a json file.  If a region of interest is input as a list it should be of the form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">ystart</span><span class="p">,</span> <span class="n">yend</span><span class="p">,</span> <span class="n">xstart</span><span class="p">,</span> <span class="n">xend</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If a ROI is input as a json file, it should look like the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;ystart&quot;</span><span class="p">:</span> <span class="n">YOUR_VALUE</span><span class="p">,</span>
+    <span class="s">&quot;yend&quot;</span><span class="p">:</span> <span class="n">YOUR_VALUE</span><span class="p">,</span>
+    <span class="s">&quot;xstart&quot;</span><span class="p">:</span> <span class="n">YOUR_VALUE</span><span class="p">,</span>
+    <span class="s">&quot;xend&quot;</span><span class="p">:</span> <span class="n">YOUR_VALUE</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each individual ROI argument has some special options.  Each argument can be auto-filled by using a value of -1.  For &#8220;xstart&#8221; and &#8220;ystart&#8221; this simply assigns a value of 0, but for &#8220;xend&#8221; and &#8220;yend&#8221; this fills the width and height of the image respectively. This isn&#8217;t as necessary for the starting values, but can be useful for the ending values.  For example, let&#8217;s say we want an roi that skips the first 400 pixels from the left / top side of our image:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># List style</span>
+<span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c"># Json style</span>
+<span class="p">{</span>
+    <span class="s">&quot;ystart&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="s">&quot;yend&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;xstart&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="s">&quot;xend&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Instead of using -1 you can also use &#8220;x&#8221; and &#8220;y&#8221; to represent the full width and height respectively.
+Adjusting the previous example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># List style</span>
+<span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">]</span>
+<span class="c"># Json style</span>
+<span class="p">{</span>
+    <span class="s">&quot;ystart&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="s">&quot;yend&quot;</span><span class="p">:</span> <span class="s">&quot;y&quot;</span><span class="p">,</span>
+    <span class="s">&quot;xstart&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="s">&quot;xend&quot;</span><span class="p">:</span> <span class="s">&quot;x&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, each individual argument can have a single arithmetic operation in it (except for multiplication).  Utilizing this, we can create fairly complex ROI&#8217;s without too much effort.  For example, here is an ROI that targets only the bottom half of your image, and ignores 300 pixels on both the left and right sides:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># List style</span>
+<span class="p">[</span><span class="s">&quot;y / 2&quot;</span><span class="p">,</span> <span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="s">&quot;x - 300&quot;</span><span class="p">]</span>
+<span class="c"># Json style</span>
+<span class="p">{</span>
+    <span class="s">&quot;ystart&quot;</span><span class="p">:</span> <span class="s">&quot;y / 2&quot;</span><span class="p">,</span>
+    <span class="s">&quot;yend&quot;</span><span class="p">:</span> <span class="s">&quot;y&quot;</span><span class="p">,</span>
+    <span class="s">&quot;xstart&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="s">&quot;xend&quot;</span><span class="p">:</span> <span class="s">&quot;x - 300&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="ih.imgproc.Image">
+<em class="property">class </em><code class="descclassname">ih.imgproc.</code><code class="descname">Image</code><span class="sig-paren">(</span><em>input</em>, <em>outputdir='.'</em>, <em>writename=None</em>, <em>dev=False</em>, <em>db=None</em>, <em>dbid=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>An individual image.  Each image is loaded in as its own instance of the Image class for processing.</p>
+<dl class="method">
+<dt id="ih.imgproc.Image.adaptiveThreshold">
+<code class="descname">adaptiveThreshold</code><span class="sig-paren">(</span><em>value</em>, <em>adaptiveType</em>, <em>thresholdType</em>, <em>blockSize</em>, <em>C</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.adaptiveThreshold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.adaptiveThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> &#8211; Intensity value for the pixels based on the thresholding conditions.</li>
+<li><strong>adaptiveType</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Adaptive algorithm to use, should be either &#8216;mean&#8217; or &#8216;gaussian&#8217;.</li>
+<li><strong>thresholdType</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Threshold type, should be either &#8216;binary&#8217; or &#8216;inverse&#8217;.</li>
+<li><strong>blockSize</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The window size to consider while thresholding, should only be an odd number.</li>
+<li><strong>C</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; A constant subtracted from the calculated mean in each window.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Thresholds an image by considering the image in several different windows instead of the image
+as a whole.  This function is a wrapper to the OpenCV function <a class="reference external" href="http://docs.opencv.org/modules/imgproc/doc/miscellaneous_transformations.html#adaptivethreshold">adaptiveThreshold</a>.
+Specifying &#8216;mean&#8217; for adaptiveType calculates a simple mean of the area, wheras specifying &#8216;gaussian&#8217; calculates a weighted sum
+based upon a <a class="reference external" href="http://docs.opencv.org/modules/imgproc/doc/filtering.html#MatgetGaussianKernel(intksize,doublesigma,intktype)">Gaussian Kernel</a>.
+Specifying &#8216;binary&#8217; for thresholdType means that a particular intensity value must beat the threshold to be kept, whereas
+specifying &#8216;inverse&#8217; means that a particular intensity value must lose to the threshold to be kept.
+Similar to a normal thresholding function, the image must be converted to grayscale first.  This can be done using the
+<a class="reference internal" href="#ih.imgproc.Image.convertColor" title="ih.imgproc.Image.convertColor"><code class="xref py py-meth docutils literal"><span class="pre">convertColor()</span></code></a> function, however, if your image is of type &#8216;bgr&#8217;, this is handled automatically.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.addWeighted">
+<code class="descname">addWeighted</code><span class="sig-paren">(</span><em>image</em>, <em>weight1</em>, <em>weight2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.addWeighted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.addWeighted" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>image</strong> (<em>str of np.ndarray</em>) &#8211; The image to add.</li>
+<li><strong>weight1</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The weight to apply to the current image.</li>
+<li><strong>weight2</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The weight to apply to the additional image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function is a wrapper to the OpenCV function
+<a class="reference external" href="http://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html#addweighted">addWeighted</a>.
+This function adds/blends an additional image to the current based on the provided
+weights.  Both positive and negative weights can be used.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.bitwise_and">
+<code class="descname">bitwise_and</code><span class="sig-paren">(</span><em>comp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.bitwise_and"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.bitwise_and" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>comp</strong> (<em>str or np.ndarray</em>) &#8211; The comparison image.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting mask.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">numpy.ndarray</td>
+</tr>
+</tbody>
+</table>
+<p>Performs logical AND between the input image and the comp image.
+The comp input is very versatile, and can be one of three input types,
+an image, a path, or a saved state.  An image input is a raw numpy array,
+and this input type will be passed through to the function without modification.
+If a path is specified, ih attempts to load the file as an image, and pass it
+to the function.  Finally, the input is checked against the currently saved
+image states.  If it matches, the corresponding state is passed to the function.
+The function assumes that the two input images are of matching type &#8211;
+if they are not an error will be thrown.  By default, images loaded from a
+path are loaded as &#8216;bgr&#8217; type images.
+For more information on states, see <a class="reference internal" href="#ih.imgproc.Image.save" title="ih.imgproc.Image.save"><code class="xref py py-meth docutils literal"><span class="pre">save()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.bitwise_not">
+<code class="descname">bitwise_not</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.bitwise_not"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.bitwise_not" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverts the image.  If the given image has multiple channels (i.e. is a color image) each channel is processed independently.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.bitwise_or">
+<code class="descname">bitwise_or</code><span class="sig-paren">(</span><em>comp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.bitwise_or"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.bitwise_or" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>comp</strong> (<em>str or np.ndarray</em>) &#8211; The comparison image.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting mask.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">numpy.ndarray</td>
+</tr>
+</tbody>
+</table>
+<p>Performs logical OR between the input image and the comp image.
+The comp input is very versatile, and can be one of three input types,
+an image, a path, or a saved state.  An image input is a raw numpy array,
+and this input type will be passed through to the function without modification.
+If a path is specified, ih attempts to load the file as an image, and pass it
+to the function.  Finally, the input is checked against the currently saved
+image states.  If it matches, the corresponding state is passed to the function.
+The function assumes that the two input images are of matching type &#8211;
+if they are not an error will be thrown.  By default, images loaded from a
+path are loaded as &#8216;bgr&#8217; type images.
+For more information on states, see <a class="reference internal" href="#ih.imgproc.Image.save" title="ih.imgproc.Image.save"><code class="xref py py-meth docutils literal"><span class="pre">save()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.bitwise_xor">
+<code class="descname">bitwise_xor</code><span class="sig-paren">(</span><em>comp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.bitwise_xor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.bitwise_xor" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>comp</strong> (<em>str or np.ndarray</em>) &#8211; The comparison image.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting mask.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">numpy.ndarray</td>
+</tr>
+</tbody>
+</table>
+<p>Performs exclusive logical OR between the input image and the comp image.
+The comp input is very versatile, and can be one of three input types,
+an image, a path, or a saved state.  An image input is a raw numpy array,
+and this input type will be passed through to the function without modification.
+If a path is specified, ih attempts to load the file as an image, and pass it
+to the function.  Finally, the input is checked against the currently saved
+image states.  If it matches, the corresponding state is passed to the function.
+The function assumes that the two input images are of matching type &#8211;
+if they are not an error will be thrown.  By default, images loaded from a
+path are loaded as &#8216;bgr&#8217; type images.
+For more information on states, see <a class="reference internal" href="#ih.imgproc.Image.save" title="ih.imgproc.Image.save"><code class="xref py py-meth docutils literal"><span class="pre">save()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.blur">
+<code class="descname">blur</code><span class="sig-paren">(</span><em>ksize</em>, <em>anchor=(-1</em>, <em>-1)</em>, <em>borderType='default'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.blur"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.blur" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ksize</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; The size of the kernel represented by a tuple (width, height).  Both numbers should be odd and positive.</li>
+<li><strong>anchor</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; The anchor point for filtering.  Default is (-1, -1) which is the center of the kernel.</li>
+<li><strong>borderType</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The type of border mode used to extrapolate pixels outside the image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Smoothes an image using the normalized box filter.  This function is a wrapper to the OpenCV function
+<a class="reference external" href="http://docs.opencv.org/modules/imgproc/doc/filtering.html#blur">blur</a>.  Increasing the kernel size increase
+the window considered when applying a blur.  The anchor by default is the center of the kernel,
+however you can alter the anchor to consider different areas of the kernel.  When blurring on the edge
+of the image, values for pixels that would be outside of the image are extrapolated.  The method
+of extrapolation depends on the specified &#8216;borderType&#8217;, and can be one of &#8216;default&#8217;, &#8216;constant&#8217;,
+&#8216;reflect&#8217;, or &#8216;replicate&#8217;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.colorFilter">
+<code class="descname">colorFilter</code><span class="sig-paren">(</span><em>logic</em>, <em>roi=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.colorFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.colorFilter" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>logic</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The logic you want to run on the image.</li>
+<li><strong>roi</strong> (<em>list or roi file</em>) &#8211; The roi you want to apply the filter to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function applies a color filter defined by the input logic, to a
+targeted region defined by the input roi. The logic string itself is fairly complicated.
+The string supports the following characters: &#8216;+&#8217;, &#8216;-&#8216;, &#8216;*&#8217;, &#8216;/&#8217;, &#8216;&gt;&#8217;, &#8216;&gt;=&#8217;,
+&#8216;==&#8217;, &#8216;&lt;&#8217;, &#8216;&lt;=&#8217;, &#8216;and&#8217;, &#8216;or&#8217;, &#8216;(&#8216;, &#8216;)&#8217;, &#8216;r&#8217;, &#8216;g&#8217;, &#8216;b&#8217;, &#8216;max&#8217;, and &#8216;min&#8217; as well as any numeric
+value.  The logic string itself must be well formed &#8211; each
+operation, arg1 operator arg2, must be surrounded by parenthesis, and the entire statement
+must be surrounded by parenthesis.  For example,
+if you want to check the intensity of the pixel, your logic string would be:
+&#8216;(((r + g) + b) &lt; 100)&#8217;.  This string in particular will only keep pixels whose
+intensity is less than 100.  Similar rules apply for &#8216;and&#8217; and &#8216;or&#8217; operators.
+Let&#8217;s say we only want to keep pixels whose intensity is less than 100, OR both
+the red and blue channels are greater than 150, the logic string would be:
+&#8216;((((r + g) + b) &lt; 100) or ((r &gt; 150) and (b &gt; 150)))&#8217;.  The more complex
+your logic is the harder it is to read, so you may want to consider breaking
+up complex filtering into multiple steps for readability.  Finally, despite
+the fact this function solves arbitrary logic, it is very fast.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.contourChop">
+<code class="descname">contourChop</code><span class="sig-paren">(</span><em>binary</em>, <em>basemin=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.contourChop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.contourChop" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>binary</strong> (<em>str of np.ndarray</em>) &#8211; The binary image to find contours of.</li>
+<li><strong>basemin</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The minimum area a contour must have to be considered part of the foreground.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function works very similiarly to the <a class="reference internal" href="#ih.imgproc.Image.contourCut" title="ih.imgproc.Image.contourCut"><code class="xref py py-meth docutils literal"><span class="pre">contourCut()</span></code></a>
+function, except that this function does not crop the image, but removes
+all contours that fall below the threshold.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.contourCut">
+<code class="descname">contourCut</code><span class="sig-paren">(</span><em>binary, basemin=100, padding=[0, 0, 0, 0], resize=False, returnBound=False, roiwrite='roi.json'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.contourCut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.contourCut" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>binary</strong> (<em>str or np.ndarray</em>) &#8211; The binary image to find contours of.</li>
+<li><strong>basemin</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The minimum area a contour must have to be considered part of the foreground.</li>
+<li><strong>padding</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Padding add to all sides of the final roi.</li>
+<li><strong>returnBound</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; If set, instead of cropping the image, simply write the detected roi.</li>
+<li><strong>resize</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether or not to resize the image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function crops an image based on the size of detected contours in the image &#8211;
+clusters of pixels in the image.  The image is cropped such that all contours
+that are greater than the specified area are included in the final output image.
+image is cropped such that all contours that are greater than the specified area are
+included in the final output image.  If returnBound is set, instead of actually
+cropping the image, the detected roi is written to a file instead.  Otherwise,
+the detected roi is passed into the <a class="reference internal" href="#ih.imgproc.Image.crop" title="ih.imgproc.Image.crop"><code class="xref py py-meth docutils literal"><span class="pre">crop()</span></code></a> function,
+with the given resize value.  This function is useful for getting accurate
+height and width of a specific plant, as well as removing outlying clusters
+of non-important pixels.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.convertColor">
+<code class="descname">convertColor</code><span class="sig-paren">(</span><em>intype</em>, <em>outtype</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.convertColor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.convertColor" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>intype</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The input image type</li>
+<li><strong>outtype</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The output image type</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The converted image.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">numpy.ndarray</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">KeyError</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Converts the given image between color spaces, based on the given types.
+Supported types are: bgr, gray, hsv, lab, and ycrcb.  Note, you cannot
+restore color to a gray image with this function, for that you must use
+bitwise_and with an appropriate mask + image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.crop">
+<code class="descname">crop</code><span class="sig-paren">(</span><em>roi</em>, <em>resize=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.crop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.crop" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>roi</strong> (<em>list or roi file</em>) &#8211; A list corresponding to the area of the image you want.  List should be of the form [ystart, yend, xstart, xend]</li>
+<li><strong>resize</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; If True, actually adjusts the size of the image, otherwise just draws over the part of the image not in the roi.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function crops the image based on the given roi [ystart, yend, xstart, xend].  There are two crop options,
+by default, the function doesn&#8217;t actually resize the image.  Instead, it sets each pixel not in the roi to black.
+If resize is set to True, the function will actually crop the image down to the roi.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.destroy">
+<code class="descname">destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys all currently open windows.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.drawContours">
+<code class="descname">drawContours</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.drawContours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.drawContours" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function that draws all detected contours in the image onto the image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.edges">
+<code class="descname">edges</code><span class="sig-paren">(</span><em>threshold1</em>, <em>threshold2</em>, <em>apertureSize=3</em>, <em>L2gradient=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.edges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.edges" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>threshold1</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; First threshold for the hysteresis procedure.</li>
+<li><strong>threshold2</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Second threshold for the hysteresis procedure.</li>
+<li><strong>apertureSize</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; aperture size used for the Sobel operator.  Must be odd, postive, and less than 8.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">L2gradient:</th><td class="field-body"><p class="first last">Used to calculate Image gradient magnitude, if true then <span class="math">\(L = \sqrt{(dI/dx)^2 + (dI/dy)^2}\)</span>, if false then <span class="math">\(L = dI/dx + dI/dy\)</span>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function calculates the edges of an image using the Canny edge detection algorithm using the Sobel operator.  This function is a wrapper to the OpenCV function <a class="reference external" href="http://docs.opencv.org/modules/imgproc/doc/feature_detection.html#canny">Canny</a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.equalizeColor">
+<code class="descname">equalizeColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.equalizeColor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.equalizeColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function calls the <a class="reference internal" href="#ih.imgproc.Image.equalizeHist" title="ih.imgproc.Image.equalizeHist"><code class="xref py py-meth docutils literal"><span class="pre">equalizeHist()</span></code></a> function
+on each individual channel of a color image, and then returns the merged
+result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.equalizeHist">
+<code class="descname">equalizeHist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.equalizeHist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.equalizeHist" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is a wrapper to the OpenCV function
+<a class="reference external" href="http://docs.opencv.org/2.4/modules/imgproc/doc/histograms.html#equalizehist">equalizeHist</a>.
+This function equalizes the histogram of a grayscale image by stretching
+the minimum and maximum values to 0 and 255 respectively.
+If this is run on a color image it will be converted to gray scale first.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractBins">
+<code class="descname">extractBins</code><span class="sig-paren">(</span><em>binlist</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractBins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractBins" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>binlist</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; The specified bins (color ranges) to count.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The number of pixels that fall in each bin.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+<p>This function counts the number of pixels that fall into the range as
+specified by each bin.  This function expects the input to be a list of
+dictionaries as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre> <span class="n">binlist</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;bin1&quot;</span><span class="p">,</span>
+     <span class="s">&quot;min&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">R</span><span class="p">],</span>
+     <span class="s">&quot;max&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">R</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;bin2&quot;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Each range is defined by 6 values.  A minimum and maximum blue,
+green, and red value. The returned list is very similar to the
+input list, except a &#8216;count&#8217; key is added to each dictionary:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">returnlist</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;bin1&quot;</span><span class="p">,</span>
+    <span class="s">&quot;min&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">R</span><span class="p">],</span>
+    <span class="s">&quot;max&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">R</span><span class="p">],</span>
+    <span class="s">&quot;count&quot;</span><span class="p">:</span> <span class="n">VALUE</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Where &#8216;VALUE&#8217; is the number of pixels that fall into the
+corresponding range.
+A list is used instead of a dictionary as the base structure
+to maintain order for writing to the output database.  When
+using this function within a workflow, the order you specify
+your bins is the order in which they will show up in the
+database, and the name you specify for you bin will be
+the column name in the database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractColorChannels">
+<code class="descname">extractColorChannels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractColorChannels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractColorChannels" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function extracts the total number of pixels of each color value
+for each channel.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractColorData">
+<code class="descname">extractColorData</code><span class="sig-paren">(</span><em>nonzero=True</em>, <em>returnhist=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractColorData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractColorData" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nonzero</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether or not to look at only nonzero pixels.  Default true.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Mean &amp; median for each channel.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+<p>This function calculates a normalized histogram of each individual color channel of
+the image, and returns the mean &amp; median of the histograms for the channels
+specified.  Because images are imported with the channels ordered as B,G,R,
+the output list is returned the same way.  The returned list always looks like
+this: [ [BlueMean, BlueMedian], [GreenMean, GreenMedian], [RedMean, RedMedian] ].
+Mean values always come before median values.  If nonzero is set to true (default)
+the function will only calculate mediapytn and means based on the non-black pixels.
+If you are connected to a database, the entire histogram is saved to the database,
+not just the mean and median.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractConvexHull">
+<code class="descname">extractConvexHull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractConvexHull"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractConvexHull" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The area of the convex hull.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+<p>Returns the area of the convex hull around all non black pixels in the image.
+The point of this function is not to threshold, so the contours are generate from
+all the pixels that fall into the range [1, 1, 1], [255, 255, 255]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractDimensions">
+<code class="descname">extractDimensions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractDimensions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractDimensions" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list corresponding to the height and width of the image.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a list with the following form: [height, width]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractDimsFromROI">
+<code class="descname">extractDimsFromROI</code><span class="sig-paren">(</span><em>roi</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractDimsFromROI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractDimsFromROI" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>roi</strong> (<em>list or roi file</em>) &#8211; The roi to calculate height from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list corresponding to the calculated height and width of the image.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a list with the follwoing form: [height, width].  This functions differs
+from the <a class="reference internal" href="#ih.imgproc.Image.extractDimensions" title="ih.imgproc.Image.extractDimensions"><code class="xref py py-meth docutils literal"><span class="pre">extractDimensions()</span></code></a> in the way that height
+is calculated.  Rather than calculating the total height of the image,
+the height is calculated from the top of the given ROI.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractFinalPath">
+<code class="descname">extractFinalPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractFinalPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractFinalPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function writes the absolute path of the output file to the database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractLabels">
+<code class="descname">extractLabels</code><span class="sig-paren">(</span><em>fname</em>, <em>meta_labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractLabels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractLabels" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fname</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The output file name to write.</li>
+<li><strong>meta_labels</strong> (<a class="reference external" href="http://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; A dictionary containing required meta info.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Meta labels should look like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">meta_labels</span> <span class="p">{</span>
+    <span class="s">&quot;label_name&quot;</span><span class="p">:</span> <span class="n">roi</span><span class="p">,</span>
+    <span class="s">&quot;label_name2&quot;</span><span class="p">:</span> <span class="n">roi</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractMinEnclosingCircle">
+<code class="descname">extractMinEnclosingCircle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractMinEnclosingCircle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractMinEnclosingCircle" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The center, and radius of the minimum enclosing circle.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+<p>Returns the center and radius of the minimum enclosing circle of all
+non-black pixels in the image.  The point of this function
+is not to threshold, so the contours are generated from
+all the pixels that fall into the range [1, 1, 1], [255, 255, 255].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractMoments">
+<code class="descname">extractMoments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractMoments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractMoments" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary corresponding to the different moments of the image.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+<p>Calculates the moments of the image, and returns a dicitonary based on them.
+Spatial moments are prefixed with &#8216;m&#8217;, central moments are prefixed with &#8216;mu&#8217;,
+and central normalized moments are prefixed with &#8216;nu&#8217;.  This function
+is a wrapper to the OpenCV function <a class="reference external" href="http://docs.opencv.org/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html#moments">moments</a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.extractPixels">
+<code class="descname">extractPixels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.extractPixels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.extractPixels" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The number of non-black pixels in the image.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+<p>Returns the number of non-black pixels in the image.  Creates
+a temporary binary image to do this.  The point of this function
+is not to threshold, so the binary image is created by all
+pixels that fall into the range [1, 1, 1], [255, 255, 255].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.fill">
+<code class="descname">fill</code><span class="sig-paren">(</span><em>roi</em>, <em>color</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.fill" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>roi</strong> (<em>list or roi file</em>) &#8211; A list corresponding to the area of the image you want.  List should be of the form [ystart, yend, xstart, xend]</li>
+<li><strong>color</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; A list corresponding to BGR values to fill the corresponding area with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fills the given roi with the given color.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.floodFill">
+<code class="descname">floodFill</code><span class="sig-paren">(</span><em>mask</em>, <em>low</em>, <em>high</em>, <em>writeColor=(255</em>, <em>255</em>, <em>255)</em>, <em>connectivity=4</em>, <em>fixed=False</em>, <em>seed=(0</em>, <em>0)</em>, <em>findSeed=False</em>, <em>seedMask=None</em>, <em>binary=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.floodFill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.floodFill" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mask</strong> (<em>str or np.ndarray</em>) &#8211; A binary image corresponding to the area you don&#8217;t want to fill.</li>
+<li><strong>seed</strong> (<em>Tuple (x, y)</em>) &#8211; The beginning point to use for filling.</li>
+<li><strong>low</strong> (<em>Tuple (b, g, r) or (i,)</em>) &#8211; Maximal lower brightness/color difference between the currently observed pixel and one of its neighbors belonging to the component, or a seed pixel being added to the component.</li>
+<li><strong>high</strong> (<em>Tuple (b, g, r) or (i,)</em>) &#8211; Maximal upper brightness/color difference between the currently observed pixel and one of its neighbors belonging to the component, or a seed pixel being added to the component.</li>
+<li><strong>writeColor</strong> (<em>tuple (b, g, r) or (i,)</em>) &#8211; The color to write to the filled region.  Default (255, 255, 255).</li>
+<li><strong>connectivity</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The number of neighboring pixels to consider for the flooding operation.  Should be 4 or 8.</li>
+<li><strong>fixed</strong> (<em>boolean</em>) &#8211; If True, calculates color differences relative to the seed.</li>
+<li><strong>findSeed</strong> (<em>boolean</em>) &#8211; If True, picks a seed point based on contours in the seedMask image.</li>
+<li><strong>seedMask</strong> (<em>str or np.ndarray</em>) &#8211; Binary image to select seed from.</li>
+<li><strong>binary</strong> (<em>boolean</em>) &#8211; Specify if input image is binary.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function is a wrapper to the OpenCV function <a class="reference external" href="http://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html#floodfill">floodFill</a>.
+This function floods the region of an image based on calculated color differences from neighbors or from the seed.  When flooding a binary
+image all input color tuples should have 1 value instead of 3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.gaussianBlur">
+<code class="descname">gaussianBlur</code><span class="sig-paren">(</span><em>ksize</em>, <em>sigmaX=0</em>, <em>sigmaY=0</em>, <em>borderType='default'</em>, <em>roi=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.gaussianBlur"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.gaussianBlur" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ksize</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; The size of the kernel represented by a tuple (width, height).  Both numers should be odd and positive.</li>
+<li><strong>sigmaX</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The standard deviation in the x direction.  If 0, the value is calculated based on the kernel size.</li>
+<li><strong>sigmaY</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The standard deviation in the y direction.  If 0, the value is equal to sigmaX.</li>
+<li><strong>borderType</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The type of border mode used to extrapolate pixels outside the image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function blurs an image based on a Gaussian kernel.  When blurring on the edge
+of the image, values for pixels that would be outside of the image are extrapolated.  The method
+of extrapolation depends on the specified &#8216;borderType&#8217;, and can be one of &#8216;default&#8217;, &#8216;constant&#8217;,
+&#8216;reflect&#8217;, or &#8216;replicate&#8217;.  This function is a wrapper to the OpenCV function <a class="reference external" href="http://docs.opencv.org/modules/imgproc/doc/filtering.html#gaussianblur">GaussianBlur</a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.getBounds">
+<code class="descname">getBounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.getBounds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.getBounds" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The bounding box of the image.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+<p>This function finds the bounding box of all contours in the image, and
+returns a list of the form [miny, maxy, minx, maxx]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.kmeans">
+<code class="descname">kmeans</code><span class="sig-paren">(</span><em>k</em>, <em>criteria</em>, <em>maxiter=10</em>, <em>accuracy=1.0</em>, <em>attempts=10</em>, <em>flags='random'</em>, <em>labels=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.kmeans"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.kmeans" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>k</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of colors in final image.</li>
+<li><strong>criteria</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Determination of how the algorithm stops execution.  Should be one of &#8216;accuracy&#8217;, &#8216;iteration&#8217;, or &#8216;either&#8217;.</li>
+<li><strong>maxiter</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Maximum number of iterations of the algorithm.</li>
+<li><strong>accuracy</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Minimum accuracy before algorithm finishes executing.</li>
+<li><strong>attempts</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of times the algorithm is executed using different initial guesses.</li>
+<li><strong>flags</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; How to determine initial centers should be either &#8216;random&#8217; or &#8216;pp&#8217;.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function is a wrapper to the OpenCV function <a class="reference external" href="http://docs.opencv.org/modules/core/doc/clustering.html">kmeans</a>
+Adjusts the colors in the image to find the most compact &#8216;central&#8217; colors.  The amount of colors
+in the resulting image is the specified value &#8216;k&#8217;.  The colors are chosen based upon the minimum
+amount of adjustment in the image necessary.  The criteria parameter determines when the algorithm
+stops.  If &#8216;accuracy&#8217; is specified, the algorithm runs until the specified accuracy is reached.  If &#8216;iteration&#8217;
+is specified, the algorithm runs the specified number of iterations.  If &#8216;either&#8217; is specified, the algorithm
+runs until one of the conditions is satisfied.  The flags parameter determines the initial central colors,
+and should be either &#8216;random&#8217; &#8211; to generate a random initial guess &#8211; or &#8216;pp&#8217; to use center initialization by Arthur and Vassilvitskii.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.knn">
+<code class="descname">knn</code><span class="sig-paren">(</span><em>k</em>, <em>labels</em>, <em>remove=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.knn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.knn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>k</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of nearest neighbors to use</li>
+<li><strong>labels</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#file" title="(in Python v2.7)"><em>file</em></a>) &#8211; Path to label file.  More info below</li>
+<li><strong>remove</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; Labels to remove from final image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function is a wrapper to the OpenCV function <a class="reference external" href="http://docs.opencv.org/modules/ml/doc/k_nearest_neighbors.html">KNearest</a>.
+The label file should contain training data in json format, using the label name of keys, and all
+the colors matching that label as an array value.  Each color should be a list of 3 values, in BGR order.
+That is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+<span class="s">&quot;plant&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">234</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="p">],</span>
+<span class="s">&quot;pot&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When creating your label file, make sure to use helpful names.  Calling each set of colors &#8220;label1&#8221;, &#8220;label2&#8221; e.t.c
+provides no meaningful information.  The remove list is the list of matched labels to remove from the final image.
+The names to remove should match the names in your label file exactly. For example, let&#8217;s say you have the labels
+&#8220;plant&#8221;, &#8220;pot&#8221;, &#8220;track&#8221;, and &#8220;background&#8221; defined, and you only want to keep pixels that match the &#8220;plant&#8221; label.
+Your remove list should be specified as [&#8220;pot&#8221;, &#8220;track&#8221;, &#8220;background&#8221;].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.list">
+<code class="descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists all saved states.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.mask">
+<code class="descname">mask</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.mask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function convers the image to a color mask by performing the following operations:</p>
+<ol class="arabic simple">
+<li>convertColor(&#8220;bgr&#8221;, &#8220;gray&#8221;)</li>
+<li>threshold(0)</li>
+<li>convertColor(&#8220;gray&#8221;, &#8220;bgr&#8221;)</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.meanshift">
+<code class="descname">meanshift</code><span class="sig-paren">(</span><em>spatial_radius</em>, <em>range_radius</em>, <em>min_density</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.meanshift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.meanshift" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>spatial_radius</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Spatial Radius</li>
+<li><strong>range_radius</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Range Radius.</li>
+<li><strong>min_density</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Minimum Density.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The mean-shifted image.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">numpy.ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Segments the image into clusters based on nearest neighbors.  This function
+is a wrapper to the <a class="reference external" href="https://code.google.com/p/pymeanshift/">pymeanshift</a>
+module.  For details on the algorithm itself: <a class="reference external" href="http://dx.doi.org/10.1109/34.1000236">Mean shift: A robust approach toward feature space analysis</a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.medianBlur">
+<code class="descname">medianBlur</code><span class="sig-paren">(</span><em>ksize</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.medianBlur"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.medianBlur" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ksize</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The size of the kernel (ksize x ksize).  Should be odd and positive.</td>
+</tr>
+</tbody>
+</table>
+<p>This function smoothes an image using the median filter.  The kernel is set to size (ksize, ksize).
+The anchor position is assumed to be the center.  This function is a wrapper to the opencv function
+<a class="reference external" href="http://docs.opencv.org/modules/imgproc/doc/filtering.html#medianBlur">medianBlur</a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.morphology">
+<code class="descname">morphology</code><span class="sig-paren">(</span><em>morphType</em>, <em>ktype</em>, <em>ksize</em>, <em>anchor=(-1</em>, <em>-1)</em>, <em>iterations=1</em>, <em>borderType='default'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.morphology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.morphology" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>morphType</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The type of morphology to perform.  Should be dilate, erode, open, close, gradient, tophat, or blackhat.</li>
+<li><strong>ktype</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; the type of the kernel, should be rect, ellipse, or cross.</li>
+<li><strong>ksize</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; The size of the kernel represented by a tuple (width, height).  Both numbers should be odd and positive.</li>
+<li><strong>anchor</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; The anchor point for filtering.  Default is (-1, -1) which is the center of the kernel.</li>
+<li><strong>iterations</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The number of times to perform the specified morphology.</li>
+<li><strong>borderType</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The type of border mode used to extrapolate pixels outside the image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function performs morphological operations based on the inputted values. This function is
+a wrapper to the OpenCv function <a class="reference external" href="http://docs.opencv.org/modules/imgproc/doc/filtering.html#morphologyex">morphologyEx</a>. When performing the morphology on the edges
+of the image, values for pixels that would be outside of the image are extrapolated.  The method
+of extrapolation depends on the specified &#8216;borderType&#8217;, and can be one of &#8216;default&#8217;, &#8216;constant&#8217;,
+&#8216;reflect&#8217;, or &#8216;replicate&#8217;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.normalizeByIntensity">
+<code class="descname">normalizeByIntensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.normalizeByIntensity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.normalizeByIntensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalizes each channel of the pixel by its intensity.  For each pixel, the intensity is defined as
+<span class="math">\(I = R + G + B\)</span>, where <span class="math">\(R,G,B\)</span> are the color values for that pixel.  We calculate new color values by
+multiplying the original number by 255, and dividing by the intensity, that is, <span class="math">\(r = \frac{255 \cdot R}{I}
+, g = \frac{255 \cdot G}{I}, b = \frac{255 \cdot B}{I}\)</span>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.resize">
+<code class="descname">resize</code><span class="sig-paren">(</span><em>state=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.resize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the image is larger than conf.maxArea, resize its total area down to conf.maxArea.
+This function is primarily used for viewing purposes, and as such, it does not resize
+the base image, but creates a copy to resize instead.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.resizeSelf">
+<code class="descname">resizeSelf</code><span class="sig-paren">(</span><em>scale=None</em>, <em>width=None</em>, <em>height=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.resizeSelf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.resizeSelf" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scale</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Value to scale image by.</li>
+<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Target width of image.</li>
+<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Target height of image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Resizes the current image.  If scale is set, it simply resizes the
+width and height of the image based on the scale.  If only one of width
+or height is set, it scales the other accordingly.  If both width
+and height are set, it scales the image to the exact size specified.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.restore">
+<code class="descname">restore</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.restore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.restore" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str OR any hashable type.</em>) &#8211; The name the image is saved under.</td>
+</tr>
+</tbody>
+</table>
+<p>Reloads a previously saved image from the &#8216;states&#8217; variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.rotateColor">
+<code class="descname">rotateColor</code><span class="sig-paren">(</span><em>color</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.rotateColor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.rotateColor" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>color</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; Color shift to perform.  Should be [b, g, r].</td>
+</tr>
+</tbody>
+</table>
+<p>Shifts the entire color of the image based on the values in
+the color list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.save" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str OR any hashable type.</em>) &#8211; The name to save the image under.</td>
+</tr>
+</tbody>
+</table>
+<p>This function saves the current image in the &#8216;states&#8217; variable under
+the specified name.  It can then be reloaded using the <a class="reference internal" href="#ih.imgproc.Image.restore" title="ih.imgproc.Image.restore"><code class="xref py py-meth docutils literal"><span class="pre">restore()</span></code></a>
+method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.show">
+<code class="descname">show</code><span class="sig-paren">(</span><em>title=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.show" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>title</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The title to give the display window, if left blank one will be created.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+<p>Displays the image in a window.  Utilizes the <a class="reference internal" href="#ih.imgproc.Image.resize" title="ih.imgproc.Image.resize"><code class="xref py py-meth docutils literal"><span class="pre">resize()</span></code></a> function.
+If a title is not specified, the window will be named &#8216;windowX&#8217; where X is the number of times
+show has been called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.split">
+<code class="descname">split</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.split" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>channel</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The channel to select from the image.</td>
+</tr>
+</tbody>
+</table>
+<p>This function is a wrapper to the OpenCV function
+<a class="reference external" href="http://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html#split">split</a>.
+Splits an image into individually channels, and selects a single channel
+to be the resulting image (Remember, color images have channel order BGR).
+No validation is done on channel number, so it is possible to provide a
+channel number that does not exist.  For example, calling split on an
+bgr image with channel = 2 will extract the red channel from the image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.threshold">
+<code class="descname">threshold</code><span class="sig-paren">(</span><em>thresh</em>, <em>max=255</em>, <em>type='binary'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.threshold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.threshold" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>thresh</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Threshold value.</li>
+<li><strong>max</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Write value for binary threshold.</li>
+<li><strong>type</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Threhsold type.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The thresholded image.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">numpy.ndarray</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises KeyError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first last">if the specified threshold type doesn&#8217;t exist.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Thresholds the image based on the given type.  The image must be
+grayscale to be thresholded.  If the image is of type &#8216;bgr&#8217; it is
+automatically converted to grayscale before thresholding.
+Supported types are: binary, inverse, truncate, tozero, and otsu.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.wait">
+<code class="descname">wait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Waits until a key is pressed, then destroys all windows and
+continues program execution.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.imgproc.Image.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/imgproc.html#Image.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.imgproc.Image.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the current image to the given output directory, with the given name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

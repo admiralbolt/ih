@@ -1,0 +1,65 @@
+{
+	"path": "/work/walia/common/plantcv/rawdata/0184 Uni Nebraska Rice 1/%null%/%null%_%idnum%-%idchar%_%date%/%imgname%/0_0.png",
+	"base": "/work/walia/common/plantcv/rawdata/0184 Uni Nebraska Rice 1/",
+	"filetype": "png",
+	"order": ["experiment", "id", "genotype", "date", "treatment", "imgname", "imtype", "path"],
+	"translations": {
+		"treatment": {
+			"S": "Stress",
+			"s": "Stress",
+			"C": "Control",
+			"c": "Control"
+		},
+		"imtype": {
+			"RGB SV1": "rgbsv",
+			"RGB SV2": "rgbsv",
+			"RGB TV": "rgbtv",
+			"FLUO SV1": "fluosv",
+			"FLUO SV2": "fluosv",
+			"FLUO TV": "fluotv",
+			"NIR SV1": "nirsv",
+			"NIR SV2": "nirsv",
+			"NIR TV": "nirtv",
+			"IR SV1": "irsv",
+			"IR SV2": "irsv",
+			"IR TV": "irtv"
+		}
+	},
+	"data": {
+		"experiment": {
+			"type": "value",
+			"value": "0184"
+		},
+		"id": {
+			"type": "value",
+			"value": "%idnum%-%idchar%"
+		},
+		"genotype": {
+			"type": "file",
+			"value": "/work/walia/common/plantcv/plantcv/old_scripts/2014-09-03/GenKey.csv",
+			"key": "%idnum%-%idchar%",
+			"keyColumn": 0,
+			"valueColumn": 1
+			
+		},
+		"date": {
+			"type": "value",
+			"value": "%date%",
+			"format": "Y-m-d"
+		},
+		"treatment": {
+			"type": "value",
+			"translate": "true",
+			"value": "%idchar%"
+		},
+		"imgname": {
+			"type": "value",
+			"value": "%imgname%"
+		},
+		"imtype": {
+			"type": "value",
+			"translate": "true",
+			"value": "%imgname%"
+		}
+	}
+}

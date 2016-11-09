@@ -1,0 +1,38 @@
+{
+	"workflows": {
+		"rgb": [
+			{
+				"name": "area",
+				"executable": "pcv-stats-shoot-area",
+				"inputs": ["images"],
+				"outputs": ["shootarea"],
+				"arguments": {
+					"--group": ["rgbsv"]
+				}
+			},
+			{
+				"name": "normal",
+				"executable": "pcv-stats-normalize",
+				"inputs": ["shootarea"],
+				"outputs": ["normal"],
+				"arguments": {
+					"--column": "pixels"
+				},
+				"depends": ["area"]
+			},
+			{
+				"name": "threshold",
+				"executable": "pcv-stats-threshold",
+				"inputs": ["normal"],
+				"outputs": ["thresh"],
+				"arguments": {
+					"--thresh": 0.01
+				},
+				"depends": ["normal"]
+			}
+		]
+	},
+	"options": {
+	
+	}
+}

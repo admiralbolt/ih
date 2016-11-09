@@ -1,0 +1,23 @@
+#!/usr/bin/python
+import argparse
+import traceback
+import ih.imgproc
+
+parser = argparse.ArgumentParser(description = "Removes contours from an image based on size.")
+parser.add_argument("--input", dest="input", help="Path to input image.", required = True)
+parser.add_argument("--binary", dest="binary", help="Binary image to calculate contours from", required = True)
+parser.add_argument("--basemin", default=100, dest="basemin", type=int, help="Minimum area of contour required to keep in final image.")
+parser.add_argument("--outputdir", dest="outputdir", default=".", help="Path to write output files, if not specified use current directory.")
+parser.add_argument("--output", default=None, dest="output", help="Name of output image to write, if not specified, use input image name.")
+parser.add_argument("--writeblank", default=False, action="store_true", help="If errors happen, write a blank file.  Used to ensure dependent files exist for pegasus workflows.")
+args = parser.parse_args()
+
+try:
+    plant = ih.imgproc.Image(args.input, args.outputdir, args.output, False)
+    plant.contourChop(args.binary, args.basemin)
+    plant.write()
+except Exception as e:
+    print traceback.format_exc()
+    if args.writeblank:
+      with open(args.outputdir + "/" + args.output, "w") as wh:
+        wh.write("not an image.")

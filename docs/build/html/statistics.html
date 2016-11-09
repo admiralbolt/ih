@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Statistics &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Image Loading" href="indexing.html" />
+    <link rel="prev" title="Image Processing Viewer" href="viewer.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Statistics</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="viewer.html" title="Previous Chapter: Image Processing Viewer"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Image Processing...</span>
+    </a>
+  </li>
+  <li>
+    <a href="indexing.html" title="Next Chapter: Image Loading"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Image Loading &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/statistics.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="statistics">
+<h1>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h1>
+<p>Statistics analysis is currently being worked on!</p>
+<dl class="class">
+<dt id="ih.statistics.Stats">
+<em class="property">class </em><code class="descclassname">ih.statistics.</code><code class="descname">Stats</code><span class="sig-paren">(</span><em>db</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/statistics.html#Stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.statistics.Stats" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ih.statistics.Stats.anova">
+<code class="descname">anova</code><span class="sig-paren">(</span><em>intable</em>, <em>outtable</em>, <em>grouping</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/statistics.html#Stats.anova"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.statistics.Stats.anova" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>intable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The input table to load information from</li>
+<li><strong>outtable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The output table to write information to.</li>
+<li><strong>grouping</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; The list of image types to group by.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Computes the analysis of variation of all numeric information based on 3 factors,
+treatment, date, and the interaction between the two.  Analysis of variation is
+different than the rest of the stats functions, in that a lot of information is
+lost after running it.  The results themselves correspond to columns (pixels, rmed, binx...)
+instead of actual images.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.statistics.Stats.correlation">
+<code class="descname">correlation</code><span class="sig-paren">(</span><em>intable</em>, <em>outtable</em>, <em>dataFile</em>, <em>dataHeaders</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/statistics.html#Stats.correlation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.statistics.Stats.correlation" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>intable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The input table to load information from</li>
+<li><strong>outtable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The output table to write information to.</li>
+<li><strong>dataFile</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The csv data file to load</li>
+<li><strong>dataHeaders</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Column names for relevant table headers.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function correlates all numeric values with values in the given file.
+The input data file is assumed to be in csv format.  In dataHeaders, you must
+specify four keys, &#8216;id&#8217;, &#8216;date&#8217;, &#8216;dateFormat&#8217;, and &#8216;metric&#8217;.  Each of these should
+be column names.  Id corresponds to the lemnaTec style identifier ex: &#8216;023535-S&#8217;.
+All dates are converted into Y-m-d form, you must provide a valid format in &#8216;dateFormat&#8217;,
+that way the dates can be converted correctly.  The &#8216;metric&#8217; column is the actual value you
+want to correlate to.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.statistics.Stats.export">
+<code class="descname">export</code><span class="sig-paren">(</span><em>table</em>, <em>processed=True</em>, <em>group=None</em>, <em>fname=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/statistics.html#Stats.export"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.statistics.Stats.export" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>table</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The table to write to csv</li>
+<li><strong>processed</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether or not to extract processed data</li>
+<li><strong>group</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; Which image types to extract from the database.</li>
+<li><strong>fname</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The file name to write to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function simply extracts data from a database and writes it to csv format.
+Default functionality is to extract only data that has been processed.  This is
+checked by finding if an outputPath has been set.  Additionally,
+you can specify a list of image types to extract, if not, the default list contains
+all rgb and fluo images.  Finally, if no file name is specified, the name
+of the table is used as the filename.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.statistics.Stats.logErrors">
+<code class="descname">logErrors</code><span class="sig-paren">(</span><em>logfile</em>, <em>table='images'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/statistics.html#Stats.logErrors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.statistics.Stats.logErrors" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>logfile</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The logfile to write errors to</li>
+<li><strong>table</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The table to load errors from</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function writes all errors from a given table to a log file,
+usually used at the end of image processing to write all images that
+did not process correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.statistics.Stats.normalize">
+<code class="descname">normalize</code><span class="sig-paren">(</span><em>intable</em>, <em>outtable</em>, <em>column='pixels'</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/statistics.html#Stats.normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.statistics.Stats.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>intable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The input table to load information from</li>
+<li><strong>outtable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The output table to write information to.</li>
+<li><strong>column</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The column to normalize information to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Normalizes all numerical information to the specific column.  This
+function is usually used with &#8216;pixels&#8217; as the specified column, which
+expresses all numeric information as a percentage of the total pixels
+in the image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.statistics.Stats.shootArea">
+<code class="descname">shootArea</code><span class="sig-paren">(</span><em>intable</em>, <em>outtable</em>, <em>grouping</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/statistics.html#Stats.shootArea"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.statistics.Stats.shootArea" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>intable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The input table to load information from</li>
+<li><strong>outtable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The output table to write information to.</li>
+<li><strong>grouping</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; Which imtypes to group</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function adds the numeric values of multiple image types together.
+In general, it is used to combine side view + top view images of the same spectrum.
+If you plan on correlating your data to lemnaTec&#8217;s data, lemnaTec uses SV1 + SV2 + TV,
+so you should aggregate your data likewise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.statistics.Stats.tTest">
+<code class="descname">tTest</code><span class="sig-paren">(</span><em>intable</em>, <em>outtable</em>, <em>comp='imtype'</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/statistics.html#Stats.tTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.statistics.Stats.tTest" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>intable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The input table to perform the T test on.</li>
+<li><strong>outtable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The output table to write the results to.</li>
+<li><strong>comp</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Whether to compare image types or image names.</li>
+<li><strong>overwrite</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether or not to overwrite the output database</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function computes a ttest of the input table for all numeric headers.
+The comparison is either done based on image types or image names.  Default
+functionality is a comparison between image types, specify comp = &#8216;imgname&#8217;
+to compare image names.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.statistics.Stats.threshold">
+<code class="descname">threshold</code><span class="sig-paren">(</span><em>intable</em>, <em>outtable</em>, <em>thresh=0.01</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/statistics.html#Stats.threshold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.statistics.Stats.threshold" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>intable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The input table to load information from</li>
+<li><strong>outtable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The output table to write information to.</li>
+<li><strong>thresh</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The threshold value.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function thresholds the table based on the given value.  All values
+that fall below the threhsold are &#8216;updated&#8217; in place with &#8216;null&#8217;.  Normalize
+is often called before thresholding.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ih.statistics.Stats.treatmentComp">
+<code class="descname">treatmentComp</code><span class="sig-paren">(</span><em>intable</em>, <em>outtable</em>, <em>type='ratio'</em>, <em>direction='Control'</em>, <em>comp='imtype'</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ih/statistics.html#Stats.treatmentComp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ih.statistics.Stats.treatmentComp" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>intable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The input table to load information from</li>
+<li><strong>outtable</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The output table to write information to.</li>
+<li><strong>type</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The type of calculation to do between treatments.  Should be ratio or difference.</li>
+<li><strong>direction</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Whether to compute C ~ S, or S ~ C, default is Control first.</li>
+<li><strong>comp</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Whether to compare by imtype or imgname</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function compares information between treatments &#8211; It finds plants that are identical
+except for treatment, and computes either a ratio or difference between them.  Direction
+is specified as the column you want first, so direction = &#8220;Control&#8221; will compute C ~ S, and
+direction = &#8220;Stress&#8221; will compute S ~ C.  If you have already normalized your table, difference
+will provide better information than ratio.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

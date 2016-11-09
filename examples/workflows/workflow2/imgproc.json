@@ -1,0 +1,91 @@
+{
+	"rgbsv": [
+		{
+			"name": "gray",
+			"executable": "pcv-convert-color",
+			"inputs": ["base"],
+			"outputs": ["grayscale"],
+			"arguments": {
+				"--intype": "bgr",
+				"--outtype": "gray"
+			}
+		},
+		{
+			"name": "blur",
+			"executable": "pcv-gaussian-blur",
+			"inputs": ["grayscale"],
+			"outputs": ["blurred"],
+			"arguments": {
+				"--kwidth": 5,
+				"--kheight": 5
+			},
+			"depends": ["gray"]
+		},
+		{
+			"name": "thresh",
+			"executable": "pcv-adaptive-threshold",
+			"inputs": ["blurred"],
+			"outputs": ["thresh"],
+			"arguments": {
+				"--value": 200,
+				"--thresholdType": "binary",
+				"--adaptiveType": "mean",
+				"--blockSize": 15,
+				"--C": 3
+			},
+			"depends": ["blur"]
+		},
+		{
+			"name": "invert",
+			"executable": "pcv-bitwise-not",
+			"inputs": ["thresh"],
+			"outputs": ["inverted"],
+			"arguments": {},
+			"depends": ["thresh"]
+		},
+		{
+			"name": "crop",
+			"executable": "pcv-contour-cut",
+			"inputs": ["inverted", "inverted"],
+			"outputs": ["cropped", "roi.json"],
+			"arguments": {
+				"--basemin": 500
+			},
+			"depends": ["invert"]
+		},
+		{
+			"name": "recolor",
+			"executable": "pcv-convert-color",
+			"inputs": ["cropped"],
+			"outputs": ["recolored"],
+			"arguments": {
+				"--intype": "gray",
+				"--outtype": "bgr"
+			},
+			"depends": ["crop"]
+		},	
+		{	"name": "reconstitute",
+			"executable": "pcv-bitwise-and",
+			"inputs": ["recolored", "base"],
+			"outputs": ["final"],
+			"arguments": {},
+			"depends": ["recolor"]
+		},
+		{
+			"name": "extract",
+			"executable": "pcv-extract",
+			"inputs": ["final"],
+			"outputs": ["none"],
+			"arguments": {
+				"--dimensions":"",
+				"--pixels": "",
+				"--moments": "",
+				"--hist": {
+					"--chunks": 5,
+					"--channels": [0, 1, 2]
+				}
+			},
+			"depends": ["reconstitute"]
+		}
+	]
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting Started &mdash; Image Harvest 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Image Harvest 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Image Harvest</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core1.html">Core Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_core2.html">Core Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_color1.html">Color Filter In Depth #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_seed.html">Seed Processing Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera1.html">Camera Processing Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_script_camera2.html">Camera Processing Example #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_1.html">Workflow Example #1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html">OSG Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-the-ih-distribution">Creating the ih Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex_workflow_2.html#creating-ssh-keys">Creating ssh Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkansas_workshop_july_2015.html">Arkansas Workshop July 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Image Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Image Processing Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Image Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowimage.html">Image Processing Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflowstats.html">Statistics Workflows</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Getting Started</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="installation.html" title="Previous Chapter: Installation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Installation</span>
+    </a>
+  </li>
+  <li>
+    <a href="examples.html" title="Next Chapter: Examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Examples &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/start.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>There are 3 main ways of accessing the software.</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Library Access</dt>
+<dd><p class="first">The image processing and statistics functions can be accessed by importing ih.
+Within your script you create objects out of individual plant images and process them
+directly.  Ex:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># import ih</span>
+<span class="kn">import</span> <span class="nn">ih.imgproc</span>
+<span class="c"># load your image as an object</span>
+<span class="n">plant</span> <span class="o">=</span> <span class="n">ih</span><span class="o">.</span><span class="n">imgproc</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s">&quot;/home/user/image.png&quot;</span><span class="p">,</span> <span class="n">outputdir</span> <span class="o">=</span> <span class="s">&quot;/home/user/&quot;</span><span class="p">)</span>
+<span class="c"># execute processing functions, in this simple case,</span>
+<span class="c"># the image is converted to grayscale, then thresholded.</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">convertColor</span><span class="p">(</span><span class="s">&quot;bgr&quot;</span><span class="p">,</span> <span class="s">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">127</span><span class="p">)</span>
+<span class="c"># write the output</span>
+<span class="n">plant</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;threshold.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">This method is good for testing and adjusting your image processing workflow,
+but does not scale well for large sets of images.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Command Line Access</dt>
+<dd><p class="first">ih comes with dozens of micro-scripts providing individual access to each
+function.  Each script takes an input image, and writes an output image.  The
+previous example would be done with two commands as follows:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+ih-convert-color --input <span class="s2">&quot;/home/user/image.png&quot;</span> --output <span class="s2">&quot;/home/user/gray.png&quot;</span> --intype <span class="s2">&quot;bgr&quot;</span> --outtype <span class="s2">&quot;gray&quot;</span>
+ih-threshold --input <span class="s2">&quot;/home/user/gray.png&quot;</span> --output <span class="s2">&quot;/home/user/threshold.png&quot;</span> --thresh 127
+</pre></div>
+</div>
+<p class="last">This method is slightly different than the previous one in a few aspects.  The names of the command line
+scripts will not exactly match the names of the functions.  Because each script takes an image and
+writes an image, it is important to chain the output of one command into the input of the next command.
+This method can also be used to test your workflow.  Super computer workflows use this method for processing,
+so familiarity with command-line arguments are helpful, and ensure your large-scale runs process correctly.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Workflow Generation</dt>
+<dd><p class="first">Super computer workflow generation and submission is complicated enough that there isn&#8217;t a simple
+starter script, but it can be broken down into three major steps.  Each step is handled by user defined
+json template files.</p>
+<ol class="last lowerroman">
+<li><dl class="first docutils">
+<dt>Image Loading</dt>
+<dd><p class="first last">Input images can range from automated systems such as LemnaTec, to pictures taken by hand.
+Besides the images themselves being different, the format of the input also differs greatly
+from source to source.  This step sets up the base job submission directory, and loads
+images into a database, to keep the format consistent for all inputs.  Loading requires
+a template that defines where and how to load images into the database, as well as metadata
+to load for each image.  Metadata for images is not defined for each individual image, but
+rather, is loaded from the directory structure / names of the images.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Image Processing</dt>
+<dd><p class="first last">This step requires two inputs, a workflow template file, and a config file.  The workflow template
+file defines what image-processing scripts to use, and in what order.  Additionally, which numeric
+variables to extract are defined in the workflow template files.  The config file is for several
+pieces of system information, such as environment variables, and job cluster size.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Statistics</dt>
+<dd><p class="first last">This step also requires two inputs, a workflow template file, and a config file.  The workflow template
+file is identical to that of the previous step, except using statistic processing scripts.  The
+config file for this step is completely identical to that of the previous step.  Statistics workflows
+require that data has been processed, which means an image-processing workflow must be run first.
+Additionally, statistics workflows are still a work in progress.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+<p>The next session details several tutorials of how to use ih, for both local and distributed computing.  It
+is recommended that you familiarize yourself with local computing examples before jumping into generating
+super computer workflows.  Implementation details of specific functions can be found in further sections.</p>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Avi Knecht.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3a0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

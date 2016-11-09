@@ -1,0 +1,321 @@
+{
+	"workflows": {
+		"rgbtv": [
+			{
+				"name": "normalize",
+				"executable": "ih-normalize-intensity",
+				"inputs": ["base"],
+				"outputs": ["normal"],
+				"arguments": {}
+			},
+			{
+				"name": "crop_center",
+				"executable": "ih-crop",
+				"inputs": ["normal", "/home/aknecht/stash/walia/ih/workflows/blecha/input/rgbtv_center.json"],
+				"outputs": ["centeronly"],
+				"arguments": {},
+				"depends": ["normalize"]
+			},
+			{
+				"name": "green_filter",
+				"executable": "ih-color-filter",
+				"inputs": ["centeronly"],
+				"outputs": ["gfilter"],
+				"arguments": {
+					"--logic": "(((g - r) > 15) and ((g - b) > 15))"
+				},
+				"depends": ["crop_center"]
+			},
+			{
+				"name": "create_seed_mask",
+				"executable": "ih-mask",
+				"inputs": ["gfilter"],
+				"outputs": ["seedmask"],
+				"arguments": {},
+				"depends": ["green_filter"]
+			},
+			{
+				"name": "blur",
+				"executable": "ih-blur",
+				"inputs": ["normal"],
+				"outputs": ["blurred"],
+				"arguments": {
+					"--kwidth": 3,
+					"--kheight": 3
+				},
+				"depends": ["normalize"]
+			},
+			{
+				"name": "sharpen",
+				"executable": "ih-add-weighted",
+				"inputs": ["normal", "blurred"],
+				"outputs": ["sharpened"],
+				"arguments": {
+					"--weight1": 1.5,
+					"--weight2": -0.5
+				},
+				"depends": ["blur", "normalize"]
+			},
+			{
+				"name": "extract_green",
+				"executable": "ih-split",
+				"inputs": ["sharpened"],
+				"outputs": ["gchannel"],
+				"arguments": {
+					"--channel": 1
+				},
+				"depends": ["sharpen"]
+			},
+			{
+				"name": "equalize",
+				"executable": "ih-equalize-hist",
+				"inputs": ["gchannel"],
+				"outputs": ["equalized"],
+				"arguments": {},
+				"depends": ["extract_green"]
+			},
+			{
+				"name": "bg_cfilter",
+				"executable": "ih-color-filter",
+				"inputs": ["normal"],
+				"outputs": ["bg_noise"],
+				"arguments": {
+					"--logic": "(((high - low) < (i / 30)) or ((b - r) > (i / 10)))"
+				},
+				"depends": ["normalize"]
+			},
+			{
+				"name": "bgmask",
+				"executable": "ih-mask",
+				"inputs": ["bg_noise"],
+				"outputs": ["bg_mask"],
+				"arguments": {},
+				"depends": ["bg_cfilter"]
+			},
+			{
+				"name": "flood",
+				"executable": "ih-flood-fill",
+				"inputs": ["equalized", "bg_mask", "seedmask"],
+				"outputs": ["flooded"],
+				"arguments": {
+					"--low": "50",
+					"--high": "50",
+					"--connectivity": 8,
+					"--findSeed": "",
+					"--binary": "",
+					"--writeColor": "255"
+				},
+				"depends": ["equalize", "bgmask", "create_seed_mask"]
+			},
+			{
+				"name": "thresh",
+				"executable": "ih-threshold",
+				"inputs": ["flooded"],
+				"outputs": ["flood_binary"],
+				"arguments": {
+					"--thresh": 254,
+					"--type": "inverse"
+				},
+				"depends": ["flood"]
+			},
+			{
+				"name": "combine_with_mask",
+				"executable": "ih-bitwise-or",
+				"inputs": ["flood_binary", "bg_mask"],
+				"outputs": ["invmask"],
+				"arguments": {},
+				"depends": ["thresh", "bgmask"]
+			},
+			{
+				"name": "invert",
+				"executable": "ih-bitwise-not",
+				"inputs": ["invmask"],
+				"outputs": ["premask"],
+				"arguments": {},
+				"depends": ["combine_with_mask"]
+			},
+			{
+				"name": "crop_edges",
+				"executable": "ih-crop",
+				"inputs": ["premask", "/home/aknecht/stash/walia/ih/workflows/blecha/input/rgbtv_edge.json"],
+				"arguments": {},
+				"outputs": ["edged_mask"],
+				"depends": ["invert"]
+			},
+			{
+				"name": "chop",
+				"executable": "ih-contour-chop",
+				"inputs": ["edged_mask", "edged_mask"],
+				"outputs": ["chopped"],
+				"arguments": {
+					"--basemin": 50
+				},
+				"depends": ["crop_edges"]
+			},
+			{
+				"name": "erode",
+				"executable": "ih-morphology",
+				"inputs": ["chopped"],
+				"outputs": ["morph_erode"],
+				"arguments": {
+					"--ktype": "ellipse",
+					"--kwidth": 3,
+					"--kheight": 3,
+					"--morphType": "erode"
+				},
+				"depends": ["chop"]
+			},
+			{
+				"name": "dilate",
+				"executable": "ih-morphology",
+				"inputs": ["morph_erode"],
+				"outputs": ["morph_dilate"],
+				"arguments": {
+					"--ktype": "ellipse",
+					"--kwidth": 3,
+					"--kheight": 3,
+					"--morphType": "dilate"
+				},
+				"depends": ["erode"]
+			},
+			{
+				"name": "reconstitute",
+				"executable": "ih-bitwise-and",
+				"inputs": ["morph_dilate", "base"],
+				"outputs": ["recolor"],
+				"arguments": {},
+				"depends": ["dilate"]
+			},
+			{
+				"name": "cut",
+				"executable": "ih-contour-cut",
+				"inputs": ["recolor", "recolor"],
+				"outputs": ["final"],
+				"arguments": {
+					"--basemin": 50,
+					"--resize": ""
+				},
+				"depends": ["reconstitute"]
+			}
+		],
+		"rgbsv": [
+			{
+				"name": "normalize",
+				"executable": "ih-normalize-intensity",
+				"inputs": ["base"],
+				"outputs": ["normal"],
+				"arguments": {}
+			},
+			{
+				"name": "blur",
+				"executable": "ih-gaussian-blur",
+				"inputs": ["normal"],
+				"outputs": ["blurred"],
+				"arguments": {
+					"--kwidth": 5,
+					"--kheight": 5
+				},
+				"depends": ["normalize"]
+			},
+			{
+				"name": "gray_filter",
+				"executable": "ih-color-filter",
+				"inputs": ["blurred"],
+				"outputs": ["gfiltered"],
+				"arguments": {
+					"--logic": "((high - low) > (i / 30))"
+				},
+				"depends": ["blur"]
+			},
+			{
+				"name": "pot_filter",
+				"executable": "ih-color-filter",
+				"inputs": ["gfiltered"],
+				"outputs": ["pfiltered"],
+				"arguments": {
+					"--logic": "((g > b) and (g > r))"
+				},
+				"depends": ["gray_filter"]
+			},
+			{
+				"name": "box_filter",
+				"executable": "ih-color-filter",
+				"inputs": ["pfiltered"],
+				"outputs": ["bfiltered"],
+				"arguments": {
+					"--logic": "((g > b) and (g > r))"
+				},
+				"depends": ["pot_filter"]
+			},
+			{
+				"name": "crop",
+				"executable": "ih-crop",
+				"inputs": ["bfiltered", "/home/aknecht/stash/walia/ih/workflows/blecha/input/rgbsv_edge.json"],
+				"outputs": ["edged"],
+				"arguments": {},
+				"depends": ["box_filter"]
+			},
+			{
+				"name": "mask",
+				"executable": "ih-mask",
+				"inputs": ["edged"],
+				"outputs": ["fmask"],
+				"arguments": {},
+				"depends": ["crop"]
+			},
+			{
+				"name": "reconstitute",
+				"executable": "ih-bitwise-and",
+				"inputs": ["fmask", "base"],
+				"outputs": ["recolor"],
+				"arguments": {},
+				"depends": ["mask"]
+			},
+			{
+				"name": "cut",
+				"executable": "ih-contour-cut",
+				"inputs": ["recolor", "recolor"],
+				"outputs": ["final"],
+				"arguments": {
+					"--basemin": 50,
+					"--resize": ""
+				},
+				"depends": ["reconstitute"]
+			}
+		]
+	},
+	"options": {
+		"save-steps": "true"
+	},
+	"extract": {
+		"histogram-bin": {
+			"--group": {"rgb": ["rgbsv", "rgbtv"]},
+			"--chunks": {"rgb": [5, 5, 5]},
+			"--channels": {"rgb": [0, 1, 2]}
+		},
+		"workflows": {
+			"rgbsv": {
+				"inputs": ["final"],
+				"arguments": {
+					"--dimensions": "",
+					"--pixels": "",
+					"--moments": "",
+					"--circle": "",
+          "--hull": ""
+				},
+				"depends": ["cut"]
+			},
+			"rgbtv": {
+				"inputs": ["final"],
+				"arguments": {
+					"--dimensions": "",
+					"--pixels": "",
+					"--moments": "",
+					"--circle": "",
+          "--hull": ""
+				},
+				"depends": ["cut"]
+			}
+		}
+	}
+}

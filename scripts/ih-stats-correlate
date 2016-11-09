@@ -1,0 +1,20 @@
+#!python
+import argparse
+import traceback
+import ih.statistics
+import json
+
+parser = argparse.ArgumentParser(description = "Gathers shoot area information based on specified groupings.")
+parser.add_argument("--db", dest="db", help="Database to run statistics on.", required = True)
+parser.add_argument("--intable", dest="intable", help="Input table to gather data from.", required = True)
+parser.add_argument("--outtable", dest="outtable", help="Output table to write data to.", required = True)
+parser.add_argument("--datafile", dest="datafile", help="LemanTec data file to correlate to.", required = True)
+parser.add_argument("--dataheaders", dest="dataheaders", help="Json header file.", required = True)
+parser.add_argument("--overwrite", dest="overwrite", action="store_true", help="If specified, will overwrite the output table.")
+args = parser.parse_args()
+
+with open(args.dataheaders, "r") as rh:
+    dataHeaders = json.load(rh)
+stats = ih.statistics.Stats(args.db)
+stats.correlation(args.intable, args.outtable, args.datafile, dataHeaders, args.overwrite)
+stats._closeConnection()
